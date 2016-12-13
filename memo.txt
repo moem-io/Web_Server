@@ -1,0 +1,17 @@
+#venv생성
+/c/Users/win/Anaconda3/Scripts/virtualenv venv
+
+#venv실행
+source venv/Scripts/activate
+
+#flask설치
+pip install flask
+
+#freeze설치
+pip install freeze
+
+#설치목록확인
+pip freeze
+
+#requirments.txt에 있는것들 설치
+pip install -r requirments.txt
