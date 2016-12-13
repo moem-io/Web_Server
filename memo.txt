@@ -14,4 +14,4 @@ pip install freeze
 pip freeze
 
 #requirments.txt에 있는것들 설치
-pip install -r requirments.txt
+pip install -r requirements.txt
