@@ -1,0 +1,32 @@
+<!doctype html>
+<title>Flaskr</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<!--시맨틱ui-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+
+<!--<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">-->
+<!--<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">-->
+<!--<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
+<!--<script src="semantic/dist/semantic.min.js"></script>-->
+
+<!--부트스트랩-->
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">-->
+
+<div class=page>
+    <h1>Flaskr gg</h1>
+    <div class=metanav>
+        {% if not session.logged_in %}
+        <a href="{{ url_for('login') }}">log in</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">log out</a>
+        {% endif %}
+    </div>
+    {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+    {% endfor %}
+    {% block body %}{% endblock %}
+
+    <button type="button" class="btn btn-success">Success</button>
+</div>
