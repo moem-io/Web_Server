@@ -13,12 +13,12 @@ import os
 app = Flask(__name__)
 app.debug = True
 
-#세션
-@app.route('/')
-def index():
-    if 'username' in session:
-        return 'Logged in as %s' %escape(session['username'])
-    return 'U r not logged in'
+# #세션
+# @app.route('/')
+# def index():
+#     if 'username' in session:
+#         return 'Logged in as %s' %escape(session['username'])
+#     return 'U r not logged in'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -43,16 +43,16 @@ def hello_world():
     resp.set_cookie('username', 'the username')
     return 'Hello World!'+Markup('<strong>Hello %s!</strong>') % '<blink>hacker</blink>'+Markup.escape('<blink>hacker</blink>')+Markup('<em>Marked up</em> &raquo; HTML').striptags()
 
-#리디렉션
-@app.route('/')
-def index():
-    return redirect(url_for('login'))
+# #리디렉션
+# @app.route('/')
+# def index():
+#     return redirect(url_for('login'))
 
-#일찍 중단
-@app.route('/login')
-def login():
-    abort(401)
-    this_is_never_executed()
+# #일찍 중단
+# @app.route('/login')
+# def login():
+#     abort(401)
+#     this_is_never_executed()
 
 #에러페이지
 @app.errorhandler(404)
@@ -72,23 +72,23 @@ def show_user_profile(username):
 def show_post(post_id):
     return 'Post %d' %post_id
 
-#로그인
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    error = None
-    searchword = request.args.get('key', '')
-    if request.method == 'POST':
-        # print('POST')
-        # return 'POST'
-        if valid_login(request.form['username'],
-                       request.form['password']):
-            return log_the_user_in(request.form['username'])
-        else:
-            # print('GET')
-            # return 'GET'
-            error = 'Invalid username/password'
-
-    return render_template('login.html', error=error)
+# #로그인
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     error = None
+#     searchword = request.args.get('key', '')
+#     if request.method == 'POST':
+#         # print('POST')
+#         # return 'POST'
+#         if valid_login(request.form['username'],
+#                        request.form['password']):
+#             return log_the_user_in(request.form['username'])
+#         else:
+#             # print('GET')
+#             # return 'GET'
+#             error = 'Invalid username/password'
+#
+#     return render_template('login.html', error=error)
 
 #파일
 @app.route('/upload', methods=['GET', 'POST'])
