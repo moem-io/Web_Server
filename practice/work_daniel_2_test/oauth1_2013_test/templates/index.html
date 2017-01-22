@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>my site before oauth</title>
+</head>
+<body>
+{% if user %}
+    <p>You are {{ user.username }}</p>
+{% else %}
+    <p>You are not authenticated</p>
+{% endif %}
+
+<p>Type any username</p>
+<form action="" method="post">
+
+    <table>
+        <tr>
+            <td><label for="">username</label></td>
+            <td><input type="text" name="username"></td>
+        </tr>
+    </table>
+    <input type="submit">
+</form>
+</body>
+
+</html>
