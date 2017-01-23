@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>마이슈</title>
+
+    <!--시맨틱ui-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+
+</head>
+<body>
+
+<h1>마이슈 홈페이지 입니다. - IoT스토어</h1>
+<h2>시맨틱ui를 적용하였습니다</h2>
+
+<hr>
+
+{#<a href="https://api.yourssu.com/oauth/authorize?next=%2F&amp;scope=god&amp;client_id=mapobridge-HHkxpL&amp;response_type=code"#}
+{#   class="item">#}
+{#    <button name="btn_login">로그인</button>#}
+{#</a>#}
+
+{#<a href="https://localhost:8000/login"#}
+{#   class="item">#}
+{#    <button name="btn_login">로그인</button>#}
+{#</a>#}
+
+{#이게 안되는 이유는 경로 다음 파일이 없기에 아마 내부적으로 설정할게 더 있어서 그런듯#}
+{#는 아니고 next_url이 None이 아니어서 안가졌음#}
+<a href="/login"
+   class="fluid ui primary button">로그인
+</a>
+{#얘는 왜 안되는지 모르겠네..#}
+{#<form action="/foo" method="post">#}
+{#    <input type="submit" name="btn_login" value="login">#}
+{#</form>#}
+
+<a href="http://127.0.0.1:5000/account/signup" class="fluid ui animated fade teal basic button manage-user-segment">
+    <div class="visible content">아직 회원이 아니신가요?</div>
+    <div class="hidden content">가입하기</div>
+</a>
+
+</body>
+</html>
