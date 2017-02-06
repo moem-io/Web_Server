@@ -35,7 +35,7 @@ class User(Base):
         )
 print(User.__table__)
 
-Base.metadata.create_all(engine)
+Base.metadata.create_all(engine) # table 생성
 
 ed_user = User('simpson', 'homor simpson', '1234')
 print(ed_user.name)

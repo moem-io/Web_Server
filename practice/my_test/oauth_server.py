@@ -263,14 +263,14 @@ def account_signup():
 
     if request.method == 'POST' and form.validate():
 
-        # 아니면 로그인 페이지로
+        return redirect(url_for('account_signup_complete')) # 컴플릿으로 보내는게 차라리 났다.
+
+        # 아니면 로그인 페이지로 : 안됨.
         # next_url = None  # 왜 None일때만 되는가?
         # print('next_url', next_url)
-        # return authorize(
-        #     callback=url_for('authorized', next=next_url, _external=True)
-        # )
+        # return redirect(url_for('authorize', next=next_url, _external=True))
 
-        return redirect(url_for('account_signup_complete')) # 컴플릿으로 보내는게 차라리 났다.
+
         # return redirect(url_for('/oauth/authorize'))
         # return render_template('login.html', **kwargs)
 
