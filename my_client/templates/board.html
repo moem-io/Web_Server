@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>모임</title>
+
+    <!--시맨틱ui-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+
+</head>
+<body>
+
+<h1>모임 홈페이지 입니다. - 보드</h1>
+<h2>시맨틱ui를 적용하였습니다</h2>
+
+<hr>
+
+<form action="" method="post">
+    {{ form.csrf_token }}
+    {{ form.title.label }} {{ form.title(size=20)}}
+    <input type="submit" value="write">
+</form>
+
+
+</body>
+</html>

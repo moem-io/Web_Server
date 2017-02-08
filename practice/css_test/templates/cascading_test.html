@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>gogo</title>
+    <style>
+        li{color: red;}
+        #idsel{color: blue !important;}
+        .classsel{color:green;}
+        
+        #logo{
+            background: url("images/logo.png");
+            width: 30px;
+            height: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="logo"></div>
+    <ul>
+        <li>html</li>
+        <li id="idsel" class="classsel" style="color:powderblue">css</li>
+        <li>java</li>
+    </ul>
+{#우선순위는 태그 안의 스타일 > id > class > li 순이다#}
+    <ol>
+        <li>!important가 제일 </li>
+        <li>style attribute</li>
+        <li>id selector</li>
+        <li>class selector</li>
+        <li>tag selector</li>
+    </ol>
+
+
+</body>
+</html>
