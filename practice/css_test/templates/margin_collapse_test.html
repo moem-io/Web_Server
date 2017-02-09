@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>gogo</title>
+    <style>
+        h1 {
+            border: 1px solid red;
+            margin: 100px;
+        }
+
+        #parent {
+        {#            부모가 투명이면 자식과 부모의 마진이 합쳐짐#}{#            border: 1px solid tomato; #} margin-top: 100px;
+        }
+
+        #child {
+            background-color: powderblue;
+            margin-top: 50px;
+        }
+
+{#        보더를 없애서 안 보이게 되면 이 때 얘의 마진은 더 큰 쪽인 100으로 결정#}
+        #empty{
+            margin-top: 50px;
+            margin-bottom: 100px;
+            border:1px solid tomato;
+        }
+        #normal{
+            background-color: powderblue;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+{#같은 h1 사이에서의 마진은 하나만 적용 됨 > 큰 놈만 적용#}
+<h1>hellow world</h1>
+<h1>heowos ejkef</h1>
+<hr>
+
+<div id="parent">
+    <div id="child">
+        hellow
+    </div>
+</div>
+<hr>
+
+<div id="empty"></div>
+<div id="normal">normal</div>
+</body>
+</html>

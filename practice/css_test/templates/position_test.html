@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>gogo</title>
+    <style>
+        html{
+            border: 1px solid gray;
+        }
+        div{
+            border: 5px solid tomato;
+            margin: 10px;
+        }
+        #me{
+{#            static은 원래 기준임.#}
+{#            position:static;#}
+            position:relative;
+            left:100px;
+            top:100px;
+{#            right:100px; right보다 left가 우선#}
+{#            bottom:100px; bottom보다 top이 우선#}
+        }
+    </style>
+</head>
+<body>
+<div id="other">other</div>
+<div id="parent">
+    parent
+    <div id="me">me</div>
+</div>
+</body>
+</html>

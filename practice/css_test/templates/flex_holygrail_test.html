@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>gogo</title>
+    <style>
+        body{
+            display: flex;
+/*            align-content: center; why can't operate?????????*/
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            width: 800px;
+            border: 1px solid gray;
+        }
+        header{
+            border-bottom: 1px solid gray;
+            padding-left: 20px
+        }
+        footer{
+            border-top: 1px solid gray;
+            padding: 20px;
+            text-align: center
+        }
+        .content{
+            display: flex;
+        }
+        .content nav{
+            border-right: 1px solid gray;
+        }
+        .content aside{
+            border-left: 1px solid gray;
+        }
+        nav, aside{
+            flex-basis: 150px;
+            flex-shrink: 0;
+        }
+        main{
+            padding: 10px
+        }
+        nav{
+            order: -1;
+        }
+/*
+        main{
+            order: 1;
+        }
+        aside{
+            order: 2;
+        }
+*/
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>sangwhal</h1>
+        </header>
+        <section class="content">
+                       <main>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus incidunt perferendis id illo quos necessitatibus corrupti, rerum error totam non perspiciatis porro dicta ad cupiditate odit alias distinctio voluptatum. Voluptatibus molestias quaerat culpa incidunt. Alias omnis amet incidunt, placeat possimus, nemo odit non accusamus dolorem voluptate, cumque corrupti dolor itaque eveniet. Soluta nobis nam, quod officiis dolore explicabo, deserunt quae, error veritatis corporis, tempora sequi assumenda odit eaque in et asperiores! Aliquid, dolorum, a! Porro distinctio, cupiditate nulla, rem eos temporibus aspernatur sequi laudantium quisquam dolorum minus. Laboriosam autem commodi necessitatibus laborum fuga, dolore aut ullam, voluptas reiciendis rerum, ds est porro laudantium, quasi ipsa voluptate nobis dolorum minima. Nesciunt ad nostrum odit iusto perferendis neque alias minima facere similique illo porro consequatur, ratione nemo earum repellat minus necessitatibus doloremque accusantium explicabo, accusamus voluptatem mollitia temporibus hic id! Aliquam distinctio, ratione.
+            </main>
+            <nav>
+                <ul>
+                    <li>html</li>
+                    <li>css</li>
+                    <li>javascript</li>
+                </ul>
+            </nav>
+
+            <aside>
+                AD
+            </aside>
+        </section>
+        <footer>
+            <a href="https://opentutorials.org/course/1">homepage</a>
+        </footer>
+    </div>
+</body>
+</html>
