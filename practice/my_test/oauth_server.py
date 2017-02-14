@@ -235,8 +235,9 @@ def access_token():
 @app.route('/oauth/authorize', methods=['GET', 'POST'])
 @oauth.authorize_handler
 def authorize(*args, **kwargs):
+    print('/oauth/authorized')
     user = current_user()
-    if not user:
+    if not user: #현재 로그인이 되어 있는지 확인
         return redirect('/')
     if request.method == 'GET':
         client_id = kwargs.get('client_id')

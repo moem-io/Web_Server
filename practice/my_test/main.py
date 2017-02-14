@@ -4,11 +4,16 @@ from flask_oauthlib.client import OAuth
 from user import User
 from registration import RegistrationForm
 
-CLIENT_ID = 'Xi6k7bRQZf1XrQIqoYRL687QgByYht7O5K8Mijmz'
-CLIENT_SECRET = 'HSdWIxtLtNmt6ET6hJn6ZluFu6yGTH13h3zEBedrK4dtXhOVLm'
+# oauth_server
+# CLIENT_ID = 'zkuYDhPdCNFWtDIV0G7sqZF8B11AVadTGzNh6SY7'
+# CLIENT_SECRET = 'ZbzRADpSV46ULHduImU9yVmMmnSCVZIHlsgLDlZkgaxr3eApR2'
+
+# api_server_test
+CLIENT_ID = '8raj6Vk9H5Q0gQEA3pe7Pq953MVbjKL7pWJ8cUJj'
+CLIENT_SECRET = 'klP2FQUKVTvhpZNnXx8VBYTDjphnwAn9Oo9ibzzORAPdzf1HXU'
 
 # configuration
-DEBUG = True
+# DEBUG = True
 SECRET_KEY = 'my hi secret'
 
 app = Flask(__name__)
@@ -73,7 +78,7 @@ def authorized():
             request.args['error_reason'],
             request.args['error_description']
         )
-    print(resp)
+    print('resp', resp)
     session['remote_oauth'] = (resp['access_token'], '')
     return jsonify(oauth_token=resp['access_token'])
 
