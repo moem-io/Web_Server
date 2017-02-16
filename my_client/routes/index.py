@@ -1,17 +1,19 @@
 from my_client.app import app
-from flask import render_template
+from flask import render_template, session, redirect, url_for
 from requests import get, post, put, delete, Request
 
 from my_client.forms.board import writingForm
-
-import json
+from my_client.routes.oauth import remote
 
 url = 'http://localhost:5000/board'
 
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    resp = None
+    if 'remote_oauth' in session:
+        resp = remote.get('me')
+    return render_template('index.html', resp=resp)
 
 
 @app.route('/board', methods=['GET', 'POST'])
@@ -31,3 +33,5 @@ def board():
         return str(res.text)
 
     return render_template('board.html', form=form)
+
+

@@ -2,13 +2,13 @@ from flask import Flask, redirect, request, render_template, url_for, session, j
 from flask_oauthlib.client import OAuth
 from my_client.app import app
 
-CLIENT_ID = 'Xi6k7bRQZf1XrQIqoYRL687QgByYht7O5K8Mijmz'
-CLIENT_SECRET = 'HSdWIxtLtNmt6ET6hJn6ZluFu6yGTH13h3zEBedrK4dtXhOVLm'
+CLIENT_ID = 'LYOcOFFgXql56WH2xsh9nMYOcbd4TApeCZWgV5dd'
+CLIENT_SECRET = '2D83nYX1GdvGYSq1ejWFzkYVFNApffJzc6z3PEVfUEdSnWsVre'
 
 oauth = OAuth(app)
 
-myssu = oauth.remote_app(
-    'myssu',
+remote = oauth.remote_app(
+    'remote',
     consumer_key=CLIENT_ID,
     consumer_secret=CLIENT_SECRET,
     request_token_params={'scope': 'email'},
@@ -22,29 +22,12 @@ myssu = oauth.remote_app(
 )
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    # next_url = request.args.get('next') or request.referrer or None
-    next_url = None  # 왜 None일때만 되는가?
-    print('next_url', next_url)
-    return myssu.authorize(
-        callback=url_for('authorized', next=next_url, _external=True)
-    )
-
-
-@app.route('/account/signup', methods=['GET', 'POST'])
-def account_signup():
-    next_url = None  # 왜 None일때만 되는가?
-    print('next_url', next_url)
-    return myssu.authorize(
-        callback=url_for('authorized', next=next_url, _external=True)
-    )
 
 
 @app.route('/authorized')
 def authorized():
     print('authorized')
-    resp = myssu.authorized_response()
+    resp = remote.authorized_response()
     if resp is None:
         return 'Access denied: reason=%s error=%s' % (
             request.args['error_reason'],
@@ -52,4 +35,9 @@ def authorized():
         )
     print(resp)
     session['remote_oauth'] = (resp['access_token'], '')
-    return jsonify(oauth_token=resp['access_token'])
+    # return jsonify(oauth_token=resp['access_token'])
+    return redirect(url_for('index'))
+
+@remote.tokengetter
+def get_oauth_token():
+    return session.get('remote_oauth')

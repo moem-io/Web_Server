@@ -22,17 +22,18 @@
             display: flex;
             border: 1px solid gray;
         }
-        
-        #logo{
+
+        #logo {
             margin: 20px;
         }
-        .title{
+
+        .title {
             margin: 20px;
         }
 
         .sign {
             height: 40px;
-            width: 200px;
+            width: 400px;
             display: flex;
             flex-direction: row;
             margin: 20px;
@@ -65,14 +66,27 @@
 
         </div>
         <div class="sign">
-            <a href="/login"
-               class="fluid ui primary button">
-                로그인
-            </a>
-            <a href="http://127.0.0.1:5000/account/signup"
-               class="fluid ui primary button">
-                회원가입
-            </a>
+            {% if resp %}
+                <p>{{ resp.data }}</p>
+                <a href="/signout"
+                   class="fluid ui primary button">
+                    로그아웃
+                </a>
+                <a href="/signdel"
+                   class="fluid ui primary button">
+                    회원탈퇴
+                </a>
+            {% else %}
+                <a href="/signin"
+                   class="fluid ui primary button">
+                    로그인
+                </a>
+                <a href="http://127.0.0.1:5000/account/signup"
+                   class="fluid ui primary button">
+                    회원가입
+                </a>
+            {% endif %}
+
         </div>
 
     </header>

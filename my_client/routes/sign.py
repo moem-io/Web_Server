@@ -1,0 +1,25 @@
+from my_client.app import app
+from flask import render_template, session, redirect, url_for
+from requests import get, post, put, delete, Request
+
+from my_client.routes.oauth import remote
+
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    # next_url = request.args.get('next') or request.referrer or None
+    next_url = None  # 왜 None일때만 되는가?
+    print('next_url', next_url)
+    return remote.authorize(
+        callback=url_for('authorized', next=next_url, _external=True)
+    )
+
+@app.route('/signout')
+def signout():
+    session.pop('remote_oauth', None)
+    session.pop('id', None)
+    return redirect(url_for('index'))
+
+@app.route('/signdel')
+def signdel():
+
+    return redirect(url_for('index'))

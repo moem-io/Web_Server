@@ -1,4 +1,5 @@
 __all__ = [
     'index',
-    'oauth'
+    'oauth',
+    'sign',
 ]

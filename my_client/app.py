@@ -2,7 +2,7 @@ from flask import Flask
 
 # configuration
 DEBUG = True
-SECRET_KEY = 'my hi secret'
+SECRET_KEY = 'secret'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
