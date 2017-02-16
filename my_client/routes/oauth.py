@@ -22,8 +22,6 @@ remote = oauth.remote_app(
 )
 
 
-
-
 @app.route('/authorized')
 def authorized():
     print('authorized')
