@@ -141,3 +141,6 @@ practice/blockly/
 ### my
 practice/my_test/templates/oauth_db.sqlite
 .idea/*
+
+*.ini
+wsgi.py
