@@ -15,3 +15,14 @@ pip freeze
 
 #requirments.txt에 있는것들 설치
 pip install -r requirements.txt
+
+pip freeze > requirements.txt
+
+pyenv shell 3.5.0
+virtualenv --python=python venv
+
+curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+
+pip install autoenv
+
+source ~/.bash_profile
