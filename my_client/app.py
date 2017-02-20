@@ -2,9 +2,8 @@ from flask import Flask
 
 # configuration
 DEBUG = True
-SECRET_KEY = 'secret'
 
 app = Flask(__name__)
-app.config.from_object(__name__)
+app.config.from_object('config')
 
 from my_client.routes import *
