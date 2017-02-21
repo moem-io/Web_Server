@@ -2,8 +2,12 @@ from flask import Flask, redirect, request, render_template, url_for, session, j
 from flask_oauthlib.client import OAuth
 from my_client.app import app
 
-CLIENT_ID = 'LYOcOFFgXql56WH2xsh9nMYOcbd4TApeCZWgV5dd'
-CLIENT_SECRET = '2D83nYX1GdvGYSq1ejWFzkYVFNApffJzc6z3PEVfUEdSnWsVre'
+# CLIENT_ID = 'LYOcOFFgXql56WH2xsh9nMYOcbd4TApeCZWgV5dd'
+# CLIENT_SECRET = '2D83nYX1GdvGYSq1ejWFzkYVFNApffJzc6z3PEVfUEdSnWsVre'
+
+
+CLIENT_ID = app.config.get('CLIENT_ID')
+CLIENT_SECRET = app.config.get('CLIENT_SECRET')
 
 oauth = OAuth(app)
 
