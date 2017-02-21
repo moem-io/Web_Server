@@ -11,15 +11,19 @@ CLIENT_SECRET = app.config.get('CLIENT_SECRET')
 
 oauth = OAuth(app)
 
+base_url = app.config.get('BASE_URL')
+access_token_url = app.config.get('ACCESS_TOKEN_URL')
+authorize_url = app.config.get('AUTHORIZE_URL')
+
 remote = oauth.remote_app(
     'remote',
     consumer_key=CLIENT_ID,
     consumer_secret=CLIENT_SECRET,
     request_token_params={'scope': 'email'},
     request_token_url=None,
-    base_url=app.config.get('base_url'),
-    access_token_url=app.config.get('access_token_url'),
-    authorize_url=app.config.get('authorize_url'),
+    base_url=base_url,
+    access_token_url=access_token_url,
+    authorize_url=authorize_url,
     # base_url='https://api.yourssu.com/api/',
     # access_token_url='https://api.yourssu.com/oauth/token',
     # authorize_url='https://api.yourssu.com/oauth/authorize'
