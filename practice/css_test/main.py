@@ -2,9 +2,9 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def index():
-    return render_template('position_test3.html')
-app.run(debug=True)
+    # return render_template('position.html')
+    return render_template('index2.html')
+app.run(debug=True, host='0.0.0.0')
 
