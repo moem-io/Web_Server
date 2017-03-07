@@ -13,7 +13,7 @@ def index():
     resp = None
     if 'remote_oauth' in session:
         resp = remote.get('me')
-    return render_template('index2.html', resp=resp)
+    return render_template('index_light.html', resp=resp)
 
 
 @app.route('/board', methods=['GET', 'POST'])

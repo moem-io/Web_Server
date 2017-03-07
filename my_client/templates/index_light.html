@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+    <!DOCTYPE HTML>
 <html lang="ko">
 
 <head>
@@ -8,7 +8,7 @@
 
     <title>FLAT DESIGN</title>
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="">
     <link rel="shortcut icon" href="images/favicon/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="images/icon/flat-design-touch.png">
@@ -26,27 +26,27 @@
         * {
             box-sizing: border-box;
         }
-        
+
         html {
             font-size: 16px;
         }
         /*----------------------- 모바일용 CSS ----------------------*/
         /* 기본 CSS */
-        
+
         #wrap {
-            border: solid 1px #000;
+/*            border: solid 1px #000;*/
             display: flex;
             flex-flow: column nowrap;
             width: 100%;
             margin: 0 auto;
             max-width: 1200px;
         }
-        
+
         #wrap section {
-            border: solid 1px #000;
+/*            border: solid 1px #000;*/
         }
         /* header 영역 CSS */
-        
+
         .header_section {
             order: 1;
             background: #2ecc71;
@@ -58,11 +58,11 @@
             flex-flow: row nowrap;
             justify-content: space-between;
         }
-        
+
         .info_section {
             display: flex;
         }
-        
+
         .info_list {
             position: absolute;
             top: 20%;
@@ -70,17 +70,17 @@
             z-index: 20;
             display: none;
         }
-        
+
         #signin_fluid {
             display: none;
         }
-        
+
         #signup_fluid {
             display: none;
         }
-        
+
         #signin_mobile {}
-        
+
         .info_toggle_btn {
             width: 30px;
             width: 1.875rem;
@@ -93,17 +93,17 @@
             background: url(../static/images/s_images/menu_toggle_btn.png) no-repeat;
             cursor: pointer;
         }
-        
+
         .logo_section {
             align-self: center;
             color: white;
             text-shadow: 0px 1px 1px #000;
         }
-        
+
         .logo_section a img {}
-        
+
         .logo_section h1 {}
-        
+
         .config_section {
             width: 30px;
             width: 1.875rem;
@@ -114,8 +114,59 @@
             margin-right: 0.625rem;
         }
         /*raspi_section  */
+
+        .raspi_section {
+            order: 2;
+            background: #aabbcc;
+            text-align: center;
+        }
+
+        .light_section {
+            order: 3;
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        .img_section {
+            order: 3;
+            align-self: center;
+        }
+
+        .onoff_section {
+            align-self: center;
+            order: 4;
+            display: flex;
+            flex-flow: row nowrap;
+        }
+
+        .onoff_section ul {
+            align-self: center;
+            /*            width: 500px;*/
+        }
+
+        .onoff_section ul li {
+            padding: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            /*            background: #aabbcc;*/
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .onoff_section ul li p {
+            margin-left: 30px;
+            font-size: 50px;
+            text-align: center;
+            padding-right: 30px;
+            height: 20px;
+        }
+
+        .onoff_section ul li .primary.button {
+            width: 100px;
+            margin-right: 30px;
+        }
         /*----------------------- 태블릿용 CSS ----------------------*/
-        
+
         @media all and (min-width: 768px) {
             /* 기본 CSS */
             #wrap {
@@ -142,7 +193,7 @@
                 position: static;
             }
             .info_list li {
-                border: solid 1px #000;
+{#                border: solid 1px #000;#}
                 /*                display: block;*/
                 margin-left: 15px;
                 margin-left: 0.625rem;
@@ -150,14 +201,13 @@
             .info_toggle_btn {
                 display: none;
             }
-            
             #signin_fluid {
                 display: flex;
             }
             #signup_fluid {
                 display: flex;
             }
-            .mobile .signup {
+            #signin_mobile {
                 display: none;
             }
             #signup_mobile {
@@ -172,22 +222,16 @@
                 display: none;
                 order: 3;
             }
-            .btn-disappear {
-                display: none;
+            .light_section {
+                order: 4;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
             }
-            .mobile {
-            .signup{
-
-            }
-                .login {
-                    display: none;
-                }
-            }
-
 
         }
         /*----------------------- PC용 CSS ----------------------*/
-        
+
         @media all and (min-width: 960px) {
             /* 기본 CSS */
             #wrap {
@@ -212,12 +256,12 @@
                     <li><a href="">inquiry</a></li>
 -->
                     <li>
-                        <a href="#" id="signin_fluid" class="fluid ui primary mobile login button">signin</a>
+                        <a href="#" id="signin_fluid" class="fluid ui primary button">signin</a>
                         <a href="#" id="signin_mobile">signin</a>
                     </li>
                     <li>
-                        <a href="#" id="signup_fluid" class="ui primary fluid btn-disappear button">signup</a>
-                        <a href="#" class="mobile signup">signup</a>
+                        <a href="#" id="signup_fluid" class="fluid ui primary button">signup</a>
+                        <a href="#" id="signup_mobile">signup</a>
                     </li>
 
                 </ul>
@@ -237,11 +281,31 @@
 
         <!--raspi section-->
         <section class="raspi_section">
-            
+            <h1>IoT Hub is connected!!</h1>
         </section>
 
+        <!--light section       -->
+        <section class="light_section">
+            <!--img section        -->
+            <section class="img_section">
+                <img src="../static/images/전구.png" alt="">
+            </section>
 
+            <!--onoff_section        -->
+            <section class="onoff_section">
+                <ul>
+                    <li>
+                        <p>Light</p>
+                        <button class="fluid ui primary button">ON</button>
+                    </li>
+                    <li>
+                        <p>Light</p>
+                        <button class="fluid ui primary button">OFF</button>
+                    </li>
+                </ul>
+            </section>
 
+        </section>
 
 
 
