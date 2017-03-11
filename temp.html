@@ -1,0 +1,51 @@
+<ul class="info_list">
+    <!--
+    <li><a href="">signin</a></li>
+    <li><a href="">signup</a></li>
+    <li><a href="">inquiry</a></li>
+    -->
+
+
+    <li>
+        {% if res %}
+            <p>{{ res }}</p>
+            <a href="/signout" class="fluid ui primary button">로그아웃</a>
+            <a href="/signdel" class="fluid ui primary button">회원탈퇴</a>
+        {% else %}
+            <a href="/signin" id="signin_fluid" class="fluid ui primary button">로그인</a>
+            <a href="/signin" id="signin_mobile">signin</a>
+            <a href="/signup" id="signup_fluid" class="fluid ui primary button">회원가입</a>
+            <a href="/signup" id="signup_mobile">signup</a>
+
+        {% endif %}
+
+        <p>{{ resp.data }}</p>
+        <a href="/signin" id="signin_fluid" class="fluid ui primary button">signin</a>
+        <a href="/signin" id="signin_mobile">signin</a>
+    </li>
+    <li>
+        <p>{{ resp.data }}</p>
+        <a href="#" id="signup_fluid" class="fluid ui primary button">signup</a>
+        <a href="#" id="signup_mobile">signup</a>
+    </li>
+
+</ul>
+
+
+<ul class="info_list">
+    <!--
+    <li><a href="">signin</a></li>
+    <li><a href="">signup</a></li>
+    <li><a href="">inquiry</a></li>
+    -->
+
+    <li>
+        <a href="/signin" id="signin_fluid" class="fluid ui primary button">signin</a>
+        <a href="/signin" id="signin_mobile">signin</a>
+    </li>
+    <li>
+        <a href="#" id="signup_fluid" class="fluid ui primary button">signup</a>
+        <a href="#" id="signup_mobile">signup</a>
+    </li>
+
+</ul>

@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>FLAT DESIGN</title>
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="shortcut icon" href="../static/images/favicon/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="images/icon/flat-design-touch.png">
 
 
@@ -26,27 +27,28 @@
         * {
             box-sizing: border-box;
         }
-        
+
         html {
             font-size: 16px;
         }
+
         /*----------------------- 모바일용 CSS ----------------------*/
         /* 기본 CSS */
-        
+
         #wrap {
-            border: solid 1px #000;
-            display: flex;
+        {#            border: solid 1px #000;#} display: flex;
             flex-flow: column nowrap;
             width: 100%;
             margin: 0 auto;
             max-width: 1200px;
         }
-        
+
         #wrap section {
-            border: solid 1px #000;
+        {#            border: solid 1px #000;#}
         }
+
         /* header 영역 CSS */
-        
+
         .header_section {
             order: 1;
             background: #2ecc71;
@@ -58,11 +60,11 @@
             flex-flow: row nowrap;
             justify-content: space-between;
         }
-        
+
         .info_section {
             display: flex;
         }
-        
+
         .info_list {
             position: absolute;
             top: 20%;
@@ -70,17 +72,11 @@
             z-index: 20;
             display: none;
         }
-        
-        #signin_fluid {
+
+        .pc.fluid.primary.button {
             display: none;
         }
-        
-        #signup_fluid {
-            display: none;
-        }
-        
-        #signin_mobile {}
-        
+
         .info_toggle_btn {
             width: 30px;
             width: 1.875rem;
@@ -93,17 +89,19 @@
             background: url(../static/images/s_images/menu_toggle_btn.png) no-repeat;
             cursor: pointer;
         }
-        
+
         .logo_section {
             align-self: center;
             color: white;
             text-shadow: 0px 1px 1px #000;
         }
-        
-        .logo_section a img {}
-        
-        .logo_section h1 {}
-        
+
+        .logo_section a img {
+        }
+
+        .logo_section h1 {
+        }
+
         .config_section {
             width: 30px;
             width: 1.875rem;
@@ -113,15 +111,23 @@
             margin-right: 10px;
             margin-right: 0.625rem;
         }
+
         /*raspi_section  */
+        .raspi_section {
+            order: 2;
+            background: #aabbcc;
+            text-align: center;
+        }
+
         /*----------------------- 태블릿용 CSS ----------------------*/
-        
+
         @media all and (min-width: 768px) {
             /* 기본 CSS */
             #wrap {
                 width: 80%;
                 position: relative;
             }
+
             /*header section            */
             .header_section {
                 display: flex;
@@ -129,6 +135,7 @@
                 height: 150px;
                 width: 100%;
             }
+
             .info_section {
                 position: absolute;
                 top: 10px;
@@ -136,58 +143,47 @@
                 right: 10px;
                 right: 0.625rem;
             }
+
             .info_list {
                 display: flex !important;
                 flex-flow: row nowrap;
                 position: static;
             }
+
             .info_list li {
-                border: solid 1px #000;
+            {#                border: solid 1px #000;#}
                 /*                display: block;*/
                 margin-left: 15px;
                 margin-left: 0.625rem;
             }
+
             .info_toggle_btn {
                 display: none;
             }
-            
-            #signin_fluid {
+
+            .pc.fluid.primary.button {
                 display: flex;
             }
-            #signup_fluid {
-                display: flex;
-            }
-            .mobile .signup {
+
+            .mobile {
                 display: none;
             }
-            #signup_mobile {
-                display: none;
-            }
+
             .logo_section {
                 order: 2;
                 margin-left: 15px;
                 margin-left: 0.625rem;
             }
+
             .config_section {
                 display: none;
                 order: 3;
             }
-            .btn-disappear {
-                display: none;
-            }
-            .mobile {
-            .signup{
-
-            }
-                .login {
-                    display: none;
-                }
-            }
-
 
         }
+
         /*----------------------- PC용 CSS ----------------------*/
-        
+
         @media all and (min-width: 960px) {
             /* 기본 CSS */
             #wrap {
@@ -199,54 +195,77 @@
 </head>
 
 <body>
-    <div id="wrap">
+<div id="wrap">
 
-        <!--header section-->
-        <section class="header_section">
+    <!--header section-->
+    <section class="header_section">
 
-            <section class="info_section">
-                <ul class="info_list">
-                    <!--
-                    <li><a href="">signin</a></li>
-                    <li><a href="">signup</a></li>
-                    <li><a href="">inquiry</a></li>
--->
-                    <li>
-                        <a href="#" id="signin_fluid" class="fluid ui primary mobile login button">signin</a>
-                        <a href="#" id="signin_mobile">signin</a>
-                    </li>
-                    <li>
-                        <a href="#" id="signup_fluid" class="ui primary fluid btn-disappear button">signup</a>
-                        <a href="#" class="mobile signup">signup</a>
-                    </li>
+        <section class="info_section">
+            <ul class="info_list">
+                <!--
+                <li><a href="">signin</a></li>
+                <li><a href="">signup</a></li>
+                <li><a href="">inquiry</a></li>
+                -->
+                {% if data.res %}
+                    {% set str1 = "로그아웃" %}
+                    {% set url1 = url_for('signout') %}
 
-                </ul>
-                <span class="info_toggle_btn">전체 메뉴 토글 버튼</span>
-            </section>
+                {% else %}
+                    {% set str1 = "로그인" %}
+                    {% set url1 = url_for('signin') %}
 
-            <section class="logo_section">
-                <!--            <a href="#"><img src="images/logo.png" alt=""></a>-->
-                <h1>MOEM</h1>
-            </section>
+                {% endif %}
 
-            <section class="config_section">
-                <img src="../static/images/s_images/info_icon_01.png" alt="">
-            </section>
+                <li>
+                    {% if data.username %}
+                        <p>사용자 : {{ data.username }}</p>
+                    {% else %}
 
+                    {% endif %}
+                </li>
+                <li>
+                    <a href="{{ url1 }}" id="signout_fluid" class="pc fluid ui primary button">{{ str1 }}</a>
+                    <a href="{{ url1 }}" id="signout_mobile" class="mobile">{{ str1 }}</a>
+                </li>
+                <li>
+                    {% if data.res %}
+                        <a href="/signdel" id="signdel_fluid" class="pc fluid ui primary button">회원탈퇴</a>
+                        <a href="/signdel" id="signdel_mobile" class="mobile">회원탈퇴</a>
+                    {% else %}
+                        <a href="/signup" id="signup_fluid" class="pc fluid ui primary button">회원가입</a>
+                        <a href="/signup" id="signup_mobile" class="mobile">회원가입</a>
+
+                    {% endif %}
+                </li>
+
+            </ul>
+            <span class="info_toggle_btn">전체 메뉴 토글 버튼</span>
         </section>
 
-        <!--raspi section-->
-        <section class="raspi_section">
-            
+        <section class="logo_section">
+            <!--            <a href="#"><img src="images/logo.png" alt=""></a>-->
+            <h1>MOEM</h1>
         </section>
 
+        <section class="config_section">
+            <img src="../static/images/s_images/info_icon_01.png" alt="">
+        </section>
+
+    </section>
+
+    <!--raspi section-->
+    <section class="raspi_section">
+        {% if data.res %}
+            <h1>{{ data.res }}</h1>
+        {% else %}
+            <h1>before hub, login first'</h1>
+        {% endif %}
+
+    </section>
 
 
-
-
-
-
-    </div>
+</div>
 </body>
 
 </html>

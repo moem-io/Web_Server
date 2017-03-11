@@ -1,0 +1,5 @@
+export BASE_URL='http://127.0.0.1:5000/api/'
+export ACCESS_TOKEN_URL='http://127.0.0.1:5000/oauth/token'
+export AUTHORIZE_URL='http://127.0.0.1:5000/oauth/authorize'
+
+
