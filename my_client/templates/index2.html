@@ -119,6 +119,33 @@
             text-align: center;
         }
 
+        .card_section {
+            order: 3;
+            background: #fff;
+            width: 100%;
+        }
+
+        .card_section ul {
+        }
+
+        .card_section ul li {
+            background: #ee3344;
+            /*            height: 100px;*/
+            color: aliceblue;
+            /*            color: aqua;*/
+            padding: 10px;
+            /*            padding: 0.625rem;*/
+            margin: 10px;
+            /*            margin: 0.625rem;*/
+        }
+
+        .card_section ul li .card_detail {
+            /*            height: 50px;*/
+            background: #ee3344;
+            border: 1px solid #000;
+            height: 100px;
+        }
+
         /*----------------------- 태블릿용 CSS ----------------------*/
 
         @media all and (min-width: 768px) {
@@ -263,6 +290,47 @@
         {% endif %}
 
     </section>
+
+    <!--card_section-->
+    <section class="card_section">
+        <ul class="card_list">
+            <li class="card">
+                <section class="card_detail" onclick="card_detail()">
+                    밟아야 꺼진다!!
+                </section>
+            </li>
+            <li class="card">
+                <section class="card_detail">
+                    b
+                </section>
+            </li>
+            <li class="card">
+                <section class="card_detail">
+                    c
+                </section>
+            </li>
+        </ul>
+
+    </section>
+
+
+</div>
+
+<!--script-->
+<script>
+    function card_detail() {
+        var card_detail = document.getElementsByClassName("card_detail");
+        //            card_detail[0].style.backgroundColor = "red";
+        //            card_detail[0].style.height = "300px";
+        if (card_detail[0].style.height == "100px") {
+            //                card_detail[0].style.backgroundColor = "red";
+            card_detail[0].style.height = "300px";
+        } else {
+            card_detail[0].style.height = "100px";
+        }
+
+    }
+</script>
 
 
 </div>
