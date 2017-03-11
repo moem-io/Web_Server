@@ -7,7 +7,7 @@ from my_client.routes.oauth import remote
 
 # url = 'http://localhost:5000/board'
 # url = 'http://13.124.19.161:5000/board'
-url_hub = 'http://localhost:5000/hub_status'
+url_hub = 'http://13.124.19.161:5000/hub_status'
 url_board = 'http://localhost:5000/board'
 
 @app.route('/')
@@ -43,7 +43,7 @@ def board():
         title = form.title.data
         payload = {'title': title}
         # res = post(url, data=json.dumps(payload)) # 안 됨
-        # res = post(url, data=payload) # 되긴 하는데 json아님
+        # res = post(url, data=payl oad) # 되긴 하는데 json아님
         res = post(url_board, json=payload)
 
         #Todo 여기 성공 실패 분기 해야 함
