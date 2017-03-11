@@ -59,6 +59,9 @@
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
+
+            position: fixed;
+        {#            bottom: 0;#}
         }
 
         .info_section {
@@ -117,6 +120,12 @@
             order: 2;
             background: #aabbcc;
             text-align: center;
+            width: 100%;
+            margin-top: 50px;
+
+            /*            position: fixed;*/
+            /*            top: 50px;*/
+            /*            left: 0px;*/
         }
 
         /*card_section*/
@@ -126,7 +135,8 @@
             width: 100%;
         }
 
-        .card_section ul {}
+        .card_section ul {
+        }
 
         .card_section ul li {
             background: #ee3344;
@@ -206,6 +216,40 @@
             /*            border: 1px solid #000;*/
         }
 
+        /*footer_section*/
+        .footer_section {
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-flow: row;
+            justify-content: space-around;
+            width: 100%;
+            height: 50px;
+            background: #2ecc71;
+            text-align: center;
+            /*            border: 1px solid #000;*/
+        }
+
+        .footer_section div {
+            display: flex;
+            justify-content: center;
+            /*            border: 1px solid #000;*/
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer_section div p1 {
+            font-size: 30px;
+            align-self: center;
+            /*            border: 1px solid #000;*/
+            color: white;
+            text-shadow: 0px 1px 1px #000;
+        }
+
+        .footer_section div:first-child {
+            /*            border: 1px solid #000;*/
+            background: #25aa71;
+        }
 
         /*----------------------- 태블릿용 CSS ----------------------*/
 
@@ -352,94 +396,107 @@
 
     </section>
 
-        <!--card_section-->
-        <section class="card_section">
-            <ul class="card_list">
-                <li class="card">
-                    <section class="card_detail">
-                        <div class="top">
-                            <p1 class="card_name">밟아야 꺼진다!!</p1>
-                            <div class="card_onoff">
-                                <button class="card_onoff_btn" onclick="card_onoff()">off</button>
-                            </div>
+    <!--card_section-->
+    <section class="card_section">
+        <ul class="card_list">
+            <li class="card">
+                <section class="card_detail">
+                    <div class="top">
+                        <p1 class="card_name">밟아야 꺼진다!!</p1>
+                        <div class="card_onoff">
+                            <button class="card_onoff_btn" onclick="card_onoff()">off</button>
                         </div>
-                        <div class="content">
-                            <div class="content_top">
-                                <p1 class="content_name">content</p1>
-                                <br>
-                                <p1 class="content_name">content_top</p1>
-                            </div>
-                            <div class="content_detail">
-                                <p1>content_detail</p1>
-                            </div>
+                    </div>
+                    <div class="content">
+                        <div class="content_top">
+                            <p1 class="content_name">content</p1>
+                            <br>
+                            <p1 class="content_name">content_top</p1>
                         </div>
-                        <div class="footer">
-                            <div class="card_more">
-                                <button class="card_more_btn" onclick="card_detail()">more</button>
-                            </div>
+                        <div class="content_detail">
+                            <p1>content_detail</p1>
                         </div>
+                    </div>
+                    <div class="footer">
+                        <div class="card_more">
+                            <button class="card_more_btn" onclick="card_detail()">more</button>
+                        </div>
+                    </div>
 
-                    </section>
-                </li>
-                <li class="card">
-                    <section class="card_detail">
-                        b
-                    </section>
-                </li>
-                <li class="card">
-                    <section class="card_detail">
-                        c
-                    </section>
-                </li>
-            </ul>
+                </section>
+            </li>
+            <li class="card">
+                <section class="card_detail">
+                    b
+                </section>
+            </li>
+            <li class="card">
+                <section class="card_detail">
+                    c
+                </section>
+            </li>
+        </ul>
 
-        </section>
+    </section>
+
+    <!--footer_section-->
+    <section class="footer_section">
+        <div class="1_f">
+            <p1>APP</p1>
+        </div>
+        <div class="2_f">
+            <p1>LOG</p1>
+        </div>
+        <div class="3_f">
+            <p1>NODE</p1>
+        </div>
+    </section>
 
 
 </div>
 
-    <!--script-->
-    <script>
-        function card_detail() {
-            var card_detail = document.getElementsByClassName("card_detail");
-            var content_detail = document.getElementsByClassName("content_detail");
-            var card_more_btn = document.getElementsByClassName("card_more_btn");
+<!--script-->
+<script>
+    function card_detail() {
+        var card_detail = document.getElementsByClassName("card_detail");
+        var content_detail = document.getElementsByClassName("content_detail");
+        var card_more_btn = document.getElementsByClassName("card_more_btn");
 
-            //            card_detail[0].style.backgroundColor = "red";
-            //            card_detail[0].style.height = "300px";
+        //            card_detail[0].style.backgroundColor = "red";
+        //            card_detail[0].style.height = "300px";
 
-            if (card_more_btn[0].textContent == "more") {
-                //                card_detail[0].style.backgroundColor = "red";
-                card_detail[0].style.height = "300px";
-                content_detail[0].style.display = "flex";
-                card_more_btn[0].textContent = "less";
-            } else {
-                card_detail[0].style.height = "100px";
-                content_detail[0].style.display = "none";
-                card_more_btn[0].textContent = "more";
-
-            }
+        if (card_more_btn[0].textContent == "more") {
+            //                card_detail[0].style.backgroundColor = "red";
+            card_detail[0].style.height = "300px";
+            content_detail[0].style.display = "flex";
+            card_more_btn[0].textContent = "less";
+        } else {
+            card_detail[0].style.height = "100px";
+            content_detail[0].style.display = "none";
+            card_more_btn[0].textContent = "more";
 
         }
 
-        function card_onoff() {
-            var onoff = document.getElementsByClassName("card_onoff_btn");
-            var card_detail = document.getElementsByClassName("card_detail");
-            var card = document.getElementsByClassName("card");
+    }
 
-            //            alert(onoff[0].textContent)
-            if (onoff[0].textContent == "on") {
-                onoff[0].textContent = "off";
-                card_detail[0].style.background = "#ee3344";
-                card[0].style.background = "#ee3344";
+    function card_onoff() {
+        var onoff = document.getElementsByClassName("card_onoff_btn");
+        var card_detail = document.getElementsByClassName("card_detail");
+        var card = document.getElementsByClassName("card");
 
-            } else {
-                onoff[0].textContent = "on";
-                card_detail[0].style.background = "#cccccc";
-                card[0].style.background = "#cccccc";
-            }
+        //            alert(onoff[0].textContent)
+        if (onoff[0].textContent == "on") {
+            onoff[0].textContent = "off";
+            card_detail[0].style.background = "#ee3344";
+            card[0].style.background = "#ee3344";
+
+        } else {
+            onoff[0].textContent = "on";
+            card_detail[0].style.background = "#cccccc";
+            card[0].style.background = "#cccccc";
         }
-    </script>
+    }
+</script>
 
 </div>
 </body>
