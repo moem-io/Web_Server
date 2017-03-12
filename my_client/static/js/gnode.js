@@ -20,8 +20,8 @@ var dataset = {
 
 
 //Width and height
-var w = 500;
-var h = 500;
+var w = "100%";
+var h = "100%";
 
 var colors = d3.scale.category10();
 
