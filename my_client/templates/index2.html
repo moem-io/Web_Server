@@ -15,15 +15,24 @@
     <link rel="apple-touch-icon-precomposed" href="images/icon/flat-design-touch.png">
 
 
-    <!--시맨틱ui 기본 폰트 사이즈가 달라짐-->
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!--semantic-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
 
+    <!--d3-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
+    <!--js-->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/flat.min.js"></script>
 
     <style>
+
+
         * {
             box-sizing: border-box;
         }
@@ -126,6 +135,16 @@
             /*            position: fixed;*/
             /*            top: 50px;*/
             /*            left: 0px;*/
+        }
+
+        /*node_section*/
+        #node {
+            order: 3;
+            align-self: center;
+        {#            position: relative;#} width: 100%;
+            height: 500px;
+            border: 1px solid black;
+            background-color: #fff;
         }
 
         /*card_section*/
@@ -232,25 +251,44 @@
             /*            border: 1px solid #000;*/
         }
 
-        .footer_section div {
-            display: flex;
-            justify-content: center;
-            /*            border: 1px solid #000;*/
-            width: 100%;
-            height: 100%;
+        {#        .footer_section div {#}
+        {#            display: flex;#}
+        {#            justify-content: center;#}
+        {#            /*            border: 1px solid #000;*/#}
+        {#            width: 100%;#}
+        {#            height: 100%;#}
+        {#        }#}
+        {##}
+        {#        .footer_section div p1 {#}
+        {#            font-size: 30px;#}
+        {#            align-self: center;#}
+        {#            /*            border: 1px solid #000;*/#}
+        {#            color: white;#}
+        {#            text-shadow: 0px 1px 1px #000;#}
+        {#        }#}
+        {##}
+        {#        .footer_section div:first-child {#}
+        {#            /*            border: 1px solid #000;*/#}
+        {#            background: #25aa71;#}
+        {#        }#}
+
+        .footer_section .ui.three {
+            background: #2ecc71;
+
         }
 
-        .footer_section div p1 {
-            font-size: 30px;
-            align-self: center;
-            /*            border: 1px solid #000;*/
+        .ui.three .item {
             color: white;
-            text-shadow: 0px 1px 1px #000;
+        {#            text-shadow: 0px 1px 1px #000;#}
         }
 
-        .footer_section div:first-child {
-            /*            border: 1px solid #000;*/
-            background: #25aa71;
+        .ui.three .item:hover {
+            color: white;
+        }
+
+        .ui.three .item.active {
+            color: white;
+        {#            text-shadow: 0px 1px 1px #000;#}
         }
 
         /*----------------------- 태블릿용 CSS ----------------------*/
@@ -443,17 +481,28 @@
 
     <!--footer_section-->
     <section class="footer_section">
-        <div class="1_f">
-            <p1>APP</p1>
+        <div class="ui three item menu">
+            <a class="active meun item">APP</a>
+            <a class="meun item">LOG</a>
+            <a class="meun item">NODE</a>
         </div>
-        <div class="2_f">
-            <p1>LOG</p1>
-        </div>
-        <div class="3_f">
-            <p1>NODE</p1>
-        </div>
+
     </section>
 
+    {#    <!--footer_section-->#}
+    {#    <section class="footer_section">#}
+    {#        <div class="1_f">#}
+    {#            <p1>APP</p1>#}
+    {#        </div>#}
+    {#        <div class="2_f">#}
+    {#            <p1>LOG</p1>#}
+    {#        </div>#}
+    {#        <div class="3_f">#}
+    {#            <p1>NODE</p1>#}
+    {#        </div>#}
+    {#    </section>#}
+
+    <svg id="node"></svg>
 
 </div>
 
@@ -498,6 +547,37 @@
             card[0].style.background = "#cccccc";
         }
     }
+
+</script>
+
+<script src="../static/js/gnode.js"></script>
+
+<script>
+    $('#node').css("display", "none")
+</script>
+<script>
+    $('.meun.item').click(function () {
+        //            alert('ho');
+        if (!$(this).hasClass('active')) {
+            $('.meun.item').removeClass('active')
+        }
+        $(this).addClass('active')
+        //            alert($(this).text())
+
+        if ($('.active').text() == "NODE") {
+            //                alert($('.active').text())
+            $('.card_section').css("display", "none");
+            $('#node').css("display", "block");
+
+        } else if ($('.active').text() == "APP") {
+            $('.card_section').css("display", "block");
+            $('#node').css("display", "none");
+
+        } else {
+            $('.card_section').css("display", "none");
+            $('#node').css("display", "none");
+        }
+    })
 </script>
 
 </div>
