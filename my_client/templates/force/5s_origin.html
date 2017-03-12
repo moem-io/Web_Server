@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sample</title>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+</head>
+<body>
+
+<h1>force layout</h1>
+
+<script type="text/javascript">
+
+
+			//Original data
+			var dataset = {
+				nodes: [
+					{ name: "Hub", value:"4", rgb:(31,119,180)},
+					{ name: "Bob", value:"2", rgb:(255,127,14) },
+					{ name: "Carrie", value:"4", color:"black" },
+					{ name: "Donovan", value:"4" },
+					{ name: "Edward", value:"4" },
+					{ name: "Felicity", value:"4" },
+					{ name: "George", value:"4" },
+					{ name: "Hannah", value:"4" },
+					{ name: "Iris", value:"4" },
+					{ name: "Jerry", value:"4" }
+				],
+				edges: [
+					{ source: 0, target: 1, graph:1 },
+					{ source: 0, target: 2, graph:100 },
+					{ source: 0, target: 3, graph:3 },
+					{ source: 0, target: 4, graph:3 },
+					{ source: 1, target: 5, graph:3 },
+					{ source: 2, target: 5, graph:5 },
+					{ source: 2, target: 5, graph:8 },
+					{ source: 3, target: 4, graph:8 },
+					{ source: 5, target: 8, graph:8 },
+					{ source: 5, target: 9, graph:8 },
+					{ source: 6, target: 7, graph:8 },
+					{ source: 7, target: 8, graph:8 },
+					{ source: 8, target: 9, graph:100 }
+				]
+			};
+
+
+			//Width and height
+			var w = 1500;
+			var h = 1300;
+
+			//Initialize a default force layout, using the nodes and edges in dataset
+			var force = d3.layout.force()
+								 .nodes(dataset.nodes)
+								 .links(dataset.edges)
+								 .size([w, h])
+								 .linkDistance(function(edges){
+                                     return edges.graph;
+                                 })
+//                                 .charge(function(d, i) { return i==0 ? -10000 : -500; })
+								 .charge([-1000])
+								 .start();
+
+			var colors = d3.scale.category10();
+
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+
+			//Create edges as lines
+			var edges = svg.selectAll("line")
+				.data(dataset.edges)
+				.enter()
+				.append("line")
+				.style("stroke", "#ccc")
+				.style("stroke-width", 1);
+
+			//Create nodes as circles
+			var nodes = svg.selectAll("circle")
+				.data(dataset.nodes)
+				.enter()
+				.append("circle")
+//				.attr("r", 10)
+                .attr("r", function(d) { return d.value * 3; })
+				.style("fill", function(d, i) {
+					return colors(i);
+				})
+				.call(force.drag);
+
+            var labels = nodes.append("text")
+                .text(function(d) { return d.name; });
+
+			//Every time the simulation "ticks", this will be called
+			force.on("tick", function() {
+
+				edges.attr("x1", function(d) { return d.source.x; })
+					 .attr("y1", function(d) { return d.source.y; })
+					 .attr("x2", function(d) { return d.target.x; })
+					 .attr("y2", function(d) { return d.target.y; });
+
+				nodes.attr("cx", function(d) { return d.x; })
+					 .attr("cy", function(d) { return d.y; });
+
+			});
+
+
+		</script>
+
+
+
+</body>
+</html>
+
+
