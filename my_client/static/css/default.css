@@ -226,16 +226,16 @@ html {
 }
 
 .ui.three .item {
-    color: white;
+    color: white !important;
     /*text-shadow: 0px 1px 1px #000;*/
 }
 
 .ui.three .item:hover {
-    color: white;
+    color: white !important;
 }
 
 .ui.three .item.active {
-    color: white;
+    color: white !important;
 }
 /*text-shadow: 0px 1px 1px #000;*/
 
