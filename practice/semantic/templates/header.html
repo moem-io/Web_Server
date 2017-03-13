@@ -1,0 +1,55 @@
+<header class="header">
+
+    <div class="ui container">
+
+
+        <div class="ui inverted text menu">
+
+            <nav class="active nav item">
+                <a data-toggle="collapse" data-target=".navbar-collapse" href="#one" href="" class="hamburger item">
+                    <i class="sidebar large icon"></i>
+                </a>
+            </nav>
+
+            <div class="logo right item">
+                <h1>MOEM</h1>
+            </div>
+
+            <section class="info_section right item">
+                <div class="ui dropdown">
+                    <a href="" class="setting item">
+                        <i class="setting large icon"></i>
+                    </a>
+                    <div class="menu">
+                        <a href="{{ url_for('index') }}" class="item">
+                            <i class="user icon"></i>
+                            나의 정보
+                        </a>
+                        <a href="{{ url_for('index') }}" class="item">
+                            <i class="settings icon"></i>
+                            계정 설정
+                        </a>
+                        <a href="{{ url_for('index') }}" class="item">
+                            <i class="help icon"></i>
+                            FAQ
+                        </a>
+                        <a href="{{ url_for('index') }}" class="item">
+                            <i class="sign out icon"></i>
+                            로그 아웃
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+
+
+    </div>
+
+</header>
+
+<script>
+    $('.ui.sidebar').sidebar('attach events', '.ui.text.menu > nav.item > .hamburger.item');
+    $('.ui.dropdown').dropdown();
+</script>

@@ -1,9 +1,9 @@
-from my_client.app import app
-from flask import render_template, session, redirect, url_for
-from requests import get, post, put, delete, Request
+from flask import render_template, session
+from requests import post
 
-from my_client.forms.board import writingForm
+from my_client.app import app
 from my_client.routes.oauth import remote
+from my_client.forms.board import writingForm
 
 # url = 'http://localhost:5000/board'
 # url = 'http://13.124.19.161:5000/board'
@@ -34,7 +34,7 @@ def index():
         'username':username,
         'res':res,
     }
-    return render_template('index2.html', data=data)
+    return render_template('index.html', data=data)
 
 @app.route('/board', methods=['GET', 'POST'])
 def board():

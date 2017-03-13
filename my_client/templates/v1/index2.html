@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>FLAT DESIGN</title>
+
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="../../static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/v1/default.css">
+
+    <!--img-->
+    <link rel="shortcut icon" href="../../static/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="images/icon/flat-design-touch.png">
+
+    <!--jquery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!--semantic-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+
+    <!--d3-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <!--js-->
+{#    <script src="../static/js/jquery.min.js"></script> jquery oeverlap > fail...#}
+    <script src="../../static/js/v1/flat.min.js"></script>
+
+
+</head>
+
+<body>
+<div class="ui left sidebar inverted vertical labeled icon menu">
+    <a class="item">
+        <i class="home icon"></i>
+        HOME
+    </a>
+    <a class="item">
+        2
+    </a>
+    <a class="item">
+        3
+    </a>
+</div>
+<div class="pusher">
+    <!-- Site content !-->
+    <div id="wrap">
+
+
+        <!--header section-->
+        <section class="header_section">
+
+            <section class="info_section">
+                <ul class="info_list">
+                    <!--
+                    <li><a href="">signin</a></li>
+                    <li><a href="">signup</a></li>
+                    <li><a href="">inquiry</a></li>
+                    -->
+                    {% if data.res %}
+                        {% set str1 = "로그아웃" %}
+                        {% set url1 = url_for('signout') %}
+
+                    {% else %}
+                        {% set str1 = "로그인" %}
+                        {% set url1 = url_for('signin') %}
+
+                    {% endif %}
+
+                    <li>
+                        {% if data.username %}
+                            <p>사용자 : {{ data.username }}</p>
+                        {% else %}
+
+                        {% endif %}
+                    </li>
+                    <li>
+                        <a href="{{ url1 }}" id="signout_fluid" class="pc fluid ui primary button">{{ str1 }}</a>
+                        <a href="{{ url1 }}" id="signout_mobile" class="mobile">{{ str1 }}</a>
+                    </li>
+                    <li>
+                        {% if data.res %}
+                            <a href="/signdel" id="signdel_fluid" class="pc fluid ui primary button">회원탈퇴</a>
+                            <a href="/signdel" id="signdel_mobile" class="mobile">회원탈퇴</a>
+                        {% else %}
+                            <a href="/signup" id="signup_fluid" class="pc fluid ui primary button">회원가입</a>
+                            <a href="/signup" id="signup_mobile" class="mobile">회원가입</a>
+
+                        {% endif %}
+                    </li>
+
+                </ul>
+                <i class="info big content icon inverted"></i>
+
+            </section>
+
+            <section class="logo_section">
+                <!--            <a href="#"><img src="images/logo.png" alt=""></a>-->
+                <h1>MOEM</h1>
+            </section>
+
+            <section class="config_section">
+                <i class="big home icon inverted"></i>
+
+            </section>
+
+        </section>
+
+        <!--raspi section-->
+        <section class="raspi_section">
+            {% if data.res %}
+                <h1>{{ data.res }}</h1>
+            {% else %}
+                <h1>before hub, login first'</h1>
+            {% endif %}
+
+        </section>
+
+        <!--card_section-->
+        <section class="card_section">
+            <ul class="card_list">
+                <li class="card">
+                    <section class="card_detail">
+                        <div class="top">
+                            <p1 class="card_name">밟아야 꺼진다!!</p1>
+                            <div class="card_onoff">
+                                <button class="card_onoff_btn" onclick="card_onoff()">off</button>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <div class="content_top">
+                                <p1 class="content_name">content</p1>
+                                <br>
+                                <p1 class="content_name">content_top</p1>
+                            </div>
+                            <div class="content_detail">
+                                <p1>content_detail</p1>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="card_more">
+                                <button class="card_more_btn" onclick="card_detail()">more</button>
+                            </div>
+                        </div>
+
+                    </section>
+                </li>
+                <li class="card">
+                    <section class="card_detail">
+                        b
+                    </section>
+                </li>
+                <li class="card">
+                    <section class="card_detail">
+                        c
+                    </section>
+                </li>
+            </ul>
+
+        </section>
+
+        <!--footer_section-->
+        <section class="footer_section">
+            <div class="ui teal three item inverted menu">
+                <a class="active meun item">APP</a>
+                <a class="meun item">LOG</a>
+                <a class="meun item">NODE</a>
+            </div>
+
+        </section>
+
+        <svg id="node"></svg>
+
+    </div>
+</div>
+
+
+<!--script-->
+<script src="../../static/js/v1/init.js"></script>
+
+<script src="../../static/js/gnode.js"></script>
+
+</div>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!--jquery-->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<!--semantic-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+
+
+<style>
+    header {
+        /*        background: #00b5ad;*/
+        /*        border: 1px solid #000;*/
+        margin: 0;
+    }
+    
+    header .ui.container {
+        margin: 0 !important;
+        width: auto !important;
+        /*        background: #00b5ad;*/
+    }
+    
+    header .ui.container .ui.menu {
+        background: #00b5ad;
+        margin: 0 !important;
+        /*        width: 100% !important;*/
+        /*                border: solid 1px #000;*/
+    }
+    
+    header .ui.container .ui.menu .item {
+        margin: 0;
+    }
+</style>
+
+
+
+<header class="header">
+
+    <div class="ui container">
+        <div class="ui text menu">
+
+
+           
+            <nav class="active nav item">
+                <a a data-toggle="collapse" data-target=".navbar-collapse" href="#one" href="" class="hamburger item">
+                    <i class="sidebar large icon"></i>
+                </a>
+            </nav>
+
+
+
+            <div class="logo right item">
+                <h1>MOEM</h1>
+            </div>
+            
+            
+            
+            <section class="info_section right item">
+                <div class="ui dropdown">
+                    <a href="" class="setting item">
+                        <i class="setting large icon">
+                        </i>
+                    </a>
+                    <div class="menu">
+                        <div class="item">neew</div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            
+        </div>
+    </div>
+
+</header>
+
+<script>
+    $('.ui.sidebar')
+        .sidebar('toggle');
+    $('.ui.dropdown')
+        .dropdown();
+</script>

@@ -1,8 +1,8 @@
-from my_client.app import app
-from flask import render_template, session, redirect, url_for
-from requests import get, post, put, delete, Request
+from flask import session, redirect, url_for
 
+from my_client.app import app
 from my_client.routes.oauth import remote
+
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():

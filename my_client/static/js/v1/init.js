@@ -64,3 +64,9 @@ function card_onoff() {
         card[0].style.background = "#cccccc";
     }
 }
+
+$('.info.content.icon').click(function () {
+    $('.ui.sidebar')
+        .sidebar('toggle')
+    ;
+});

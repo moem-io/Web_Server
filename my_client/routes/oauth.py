@@ -1,5 +1,6 @@
-from flask import Flask, redirect, request, render_template, url_for, session, jsonify
+from flask import redirect, request, url_for, session
 from flask_oauthlib.client import OAuth
+
 from my_client.app import app
 
 # CLIENT_ID = 'LYOcOFFgXql56WH2xsh9nMYOcbd4TApeCZWgV5dd'
