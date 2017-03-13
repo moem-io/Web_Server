@@ -1,8 +1,2 @@
-// jQuery(function ($) {
-//     $(".hamburger.item").click(function () {
-//         // alert('hi');
-//         $('.ui.sidebar')
-//             .sidebar('toggle')
-//         ;
-//     });
-// });
+$('.ui.sidebar').sidebar('attach events', '.ui.text.menu > nav.item > .hamburger.item');
+$('.ui.dropdown').dropdown();

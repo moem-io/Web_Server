@@ -1,0 +1,9 @@
+footer {
+
+}
+
+footer .ui.menu {
+    border-radius: 0 !important;
+    position: fixed;
+    bottom: 0;
+}
