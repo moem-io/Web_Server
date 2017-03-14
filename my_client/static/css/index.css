@@ -3,3 +3,7 @@ section.app_section{
     margin-bottom: 50px;
     /*background: #aabbcc;*/
 }
+
+section.app_section .ui.card{
+    align-self: center;
+}
