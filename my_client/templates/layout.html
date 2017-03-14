@@ -19,11 +19,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
     <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
 
+    <!--d3-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
     <!--css-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/node.css') }}"/>
 
 </head>
 <body>
@@ -51,6 +55,7 @@
 
 <!--js-->
 <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/gnode.js') }}"></script>
 
 
 </body>

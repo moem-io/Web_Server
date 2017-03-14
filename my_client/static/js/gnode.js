@@ -20,7 +20,7 @@ var dataset = {
 
 
 //Width and height
-var w = 300;
+var w = 500;
 var h = 500;
 
 var colors = d3.scale.category10();
@@ -64,7 +64,7 @@ var gnodes = d3.select("#node")
 var node = gnodes.append("circle")
     .attr("class", "node")
     .attr("r", function (d) {
-        return d.radius
+        return d.radius * 2
     })
     .style("fill", function (d) {
         return d.rgb;

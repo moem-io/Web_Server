@@ -34,7 +34,19 @@ def index():
         'username':username,
         'res':res,
     }
-    return render_template('index.html', data=data)
+    return render_template('app.html', data=data)
+
+@app.route('/app')
+def app_section():
+    return render_template('app.html')
+
+@app.route('/log')
+def log():
+    return render_template('app.html')
+
+@app.route('/node')
+def node():
+    return render_template('node.html')
 
 @app.route('/board', methods=['GET', 'POST'])
 def board():
@@ -49,7 +61,7 @@ def board():
         #Todo 여기 성공 실패 분기 해야 함
         print(res)
 
-        # return render_template('index.html')
+        # return render_template('app.html')
         return str(res.text)
 
     return render_template('board.html', form=form)
