@@ -28,6 +28,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/node.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/block.css') }}"/>
+
+    <!--block-->
+    <script src="../static/js/block/blockly_compressed.js"></script>
+    <script src="../static/js/block/python_compressed.js"></script>
+    <script src="../static/js/block/blocks_compressed.js"></script>
+    <script src="../static/js/msg/js/ko.js"></script>
+    <script src="../static/js/block/block_init.js"></script>
 
 </head>
 <body>
@@ -37,7 +45,7 @@
 {% endblock %}
 
 <div class="pusher">
-    <div class="wrap">
+    <div id="wrap" >
         {% block header %}
             {% include 'header.html' %}
         {% endblock %}

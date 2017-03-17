@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+{% block title %}Make{% endblock %}
+
+{% block content %}
+    <div class="block">
+
+        <section class="block_section">
+
+            {#        <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>#}
+{#            <div id="blocklyDiv" style="height: 70vh; width: 80vw;"></div>#}
+
+            <xml id="toolbox" style="display: none">
+                <category name="g" colour="0">
+                    <block type="text_print"></block>
+
+                </category>
+                <category name="a" colour="50">
+                    <block type="logic_compare"></block>
+
+
+                </category>
+                <category name="b" colour="100">
+
+                    <block type="controls_repeat_ext"></block>
+
+                </category>
+                <category name="c" colour="150">
+                    <block type="controls_if"></block>
+
+                </category>
+                <category name="d" colour="200">
+                    <block type="math_number"></block>
+
+                </category>
+                <category name="ee" colour="250">
+                    <block type="math_arithmetic"></block>
+
+
+                </category>
+                <!--<sep gap="32"></sep>-->
+
+                <category name="f" colour="300">
+                    <block type="text"></block>
+                </category>
+
+
+            </xml>
+
+            <script>
+                var workspace = Blockly.inject('blocklyDiv',
+                    {
+                        media: '../../media/',
+                        toolbox: document.getElementById('toolbox')
+                    });
+
+                function myUpdateFunction(event) {
+                    var code = Blockly.Python.workspaceToCode(workspace);
+                    document.getElementById('textarea').value = code;
+                }
+                workspace.addChangeListener(myUpdateFunction);
+            </script>
+
+        </section>
+
+        <section class="script_section">
+            <h1>tewrsse</h1>
+            <p>ewewe</p>
+
+
+            <input type="button" value="push">
+            <textarea id="textarea" style="width: 100px; height: 100px; background:#aaa;"></textarea>
+
+        </section>
+
+    </div>
+
+{% endblock %}

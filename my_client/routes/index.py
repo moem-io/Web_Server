@@ -42,7 +42,7 @@ def app_section():
 
 @app.route('/log')
 def log():
-    return render_template('app.html')
+    return render_template('block.html')
 
 @app.route('/node')
 def node():

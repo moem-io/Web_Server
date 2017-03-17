@@ -1,0 +1,16 @@
+div.block {
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+section.block_section {
+    margin:10px;
+    /*background: #aabbcc;*/
+}
+
+section.block_section #blocklyDiv {
+    position: relative;
+}

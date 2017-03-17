@@ -12,14 +12,36 @@
 
             <!--logo-->
             <div class="logo right item">
-                <h1>DIYT</h1>
+                <a href="/app"><h1>DIYT</h1></a>
             </div>
+
+            <!--nav-->
+            <nav class="nav ui teal inverted menu">
+                <a href="" class="hover item">Make</a>
+                <a href="" class="item">Control</a>
+                <a href="" class="item">Share</a>
+            </nav>
+
+{#            <!--nav-->#}
+{#            <nav class="ui teal inverted menu">#}
+{#                <a href="" class="item"><div class=" active tiny ui teal button">Make</div></a>#}
+{#                <a href="" class="item"><div class="teal tiny ui button">Control</div></a>#}
+{#                <a href="" class="item"><div class="teal tiny ui button">Share</div></a>#}
+{#            </nav>#}
+
+{#            <nav class="ui teal inverted grid">#}
+{#                <a href="" class="three wide column"><div class=" active  ui teal button">Make</div></a>#}
+{#                <a href="" class="three wide column"><div class="teal  ui button">Control</div></a>#}
+{#                <a href="" class="three wide column"><div class="teal  ui button">Share</div></a>#}
+{#            </nav>#}
 
             <!--info-->
             <section class="info_section right item">
                 <div class="ui dropdown">
-                    <a href="" class="setting item">
-                        <i class="setting large icon"></i>
+                    <a href="" class="info item">
+{#                        <i class="setting large icon"></i>#}
+                        <i class="large arrow right icon"></i>
+                        <p class="login">로그인</p>
                     </a>
                     <div class="menu">
                         <a href="{{ url_for('index') }}" class="item">
