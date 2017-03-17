@@ -22,27 +22,32 @@
                 <a href="" class="item">Share</a>
             </nav>
 
-{#            <!--nav-->#}
-{#            <nav class="ui teal inverted menu">#}
-{#                <a href="" class="item"><div class=" active tiny ui teal button">Make</div></a>#}
-{#                <a href="" class="item"><div class="teal tiny ui button">Control</div></a>#}
-{#                <a href="" class="item"><div class="teal tiny ui button">Share</div></a>#}
-{#            </nav>#}
+            {#            <!--nav-->#}
+            {#            <nav class="ui teal inverted menu">#}
+            {#                <a href="" class="item"><div class=" active tiny ui teal button">Make</div></a>#}
+            {#                <a href="" class="item"><div class="teal tiny ui button">Control</div></a>#}
+            {#                <a href="" class="item"><div class="teal tiny ui button">Share</div></a>#}
+            {#            </nav>#}
 
-{#            <nav class="ui teal inverted grid">#}
-{#                <a href="" class="three wide column"><div class=" active  ui teal button">Make</div></a>#}
-{#                <a href="" class="three wide column"><div class="teal  ui button">Control</div></a>#}
-{#                <a href="" class="three wide column"><div class="teal  ui button">Share</div></a>#}
-{#            </nav>#}
+            {#            <nav class="ui teal inverted grid">#}
+            {#                <a href="" class="three wide column"><div class=" active  ui teal button">Make</div></a>#}
+            {#                <a href="" class="three wide column"><div class="teal  ui button">Control</div></a>#}
+            {#                <a href="" class="three wide column"><div class="teal  ui button">Share</div></a>#}
+            {#            </nav>#}
 
             <!--info-->
             <section class="info_section right item">
+                {% if  'remote_oauth' not in request.cookies %}
+                <a href="/signup" class="info item">
+                    {#                        <i class="setting large icon"></i>#}
+                    <i class="large arrow right icon"></i>
+                    <p class="login">로그인</p>
+                </a>
+                {% else %}
                 <div class="ui dropdown">
-                    <a href="" class="info item">
-{#                        <i class="setting large icon"></i>#}
-                        <i class="large arrow right icon"></i>
-                        <p class="login">로그인</p>
-                    </a>
+                    <div class="info item">
+                        <i class="setting large icon"></i>
+                    </div>
                     <div class="menu">
                         <a href="{{ url_for('index') }}" class="item">
                             <i class="user icon"></i>
@@ -62,6 +67,9 @@
                         </a>
                     </div>
                 </div>
+                {% endif %}
+
+
             </section>
 
 
