@@ -1,5 +1,5 @@
 /* 기본 CSS */
-.header {
+.top_header {
     width: inherit !important;
     position: fixed;
     top: 0;
@@ -8,12 +8,12 @@
 
 }
 
-.header * {
+.top_header  * {
 
     /*border: solid 1px #000;*/
 }
 
-.header .ui.container {
+.top_header  .ui.container {
     background: #00b5ad;
     margin-left: 0em !important;
     margin-right: 0em !important;
@@ -21,26 +21,28 @@
     /*border: solid 1px #000;*/
 }
 
-.header .ui.container .ui.menu {
+.top_header  .ui.container .ui.menu {
     /*background: #00b5ad;*/
     margin: 0;
     /*border: solid 1px #000;*/
 }
 
-.header .ui.container .ui.menu .nav.menu {
+.top_header  .ui.container .ui.menu .nav.menu {
     display: none;
 }
 
-.header .ui.container .ui.menu .info_section .info .arrow {
+
+
+.top_header  .ui.container .ui.menu .info_section .info .arrow {
     margin: 0 !important;
     display: block;
 }
 
-.header .ui.container .ui.menu .info_section .info .login {
+.top_header  .ui.container .ui.menu .info_section .info .login {
     display: none !important;
 }
 
-.header .ui.container .ui.menu .info_section .ui.dropdown .menu {
+.top_header  .ui.container .ui.menu .info_section .ui.dropdown .menu {
     left: auto !important;
     right: 0px !important;
 }
@@ -48,33 +50,34 @@
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */
-    .header {
+    .top_header  {
         /*align-self: center !important;*/
         width: inherit !important;
 
     }
 
-    .header .ui.container .ui.menu .hamburger {
+    .top_header  .ui.container .ui.menu .hamburger {
         display: none;
     }
 
-    .header .ui.container .ui.menu .logo {
+    .top_header  .ui.container .ui.menu .logo {
         margin-left: 0px !important;
     }
 
-    .header .ui.container .ui.menu .nav.menu {
+    .top_header    .ui.container .ui.menu .nav.menu {
         font-size: 1.2rem;
         display: flex;
     }
 
+
     /*header .ui.container .ui.menu .info_section .ui.dropdown .info .setting {*/
     /*display: none;*/
     /*}*/
-    .header .ui.container .ui.menu .info_section .ui.dropdown .info .arrow {
+    .top_header  .ui.container .ui.menu .info_section .ui.dropdown .info .arrow {
         display: block !important;
     }
 
-    .header .ui.container .ui.menu .info_section .ui.dropdown .info .login {
+    .top_header  .ui.container .ui.menu .info_section .ui.dropdown .info .login {
         display: block !important;
         font-size: 1.1rem;
     }
@@ -84,7 +87,7 @@
 /*----------------------- PC용 CSS ----------------------*/
 @media all and (min-width: 960px) {
     /* 기본 CSS */
-    .header {
+    .top_header {
         width: inherit !important;
         /*max-width: 1200px !important;*/
     }

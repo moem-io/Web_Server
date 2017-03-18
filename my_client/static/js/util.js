@@ -2,16 +2,16 @@ $(document).ready(function () {
     $('.ui.sidebar').sidebar('attach events', '.ui.text.menu > nav.item > .hamburger.item');
     $('.ui.dropdown').dropdown();
 
-    $('.footer .menu .item').removeClass('active');
-    $('.footer .menu .item').filter(function () {
+    $('.control_footer .menu .item').removeClass('active');
+    $('.control_footer .menu .item').filter(function () {
         var url = window.location.href;
         // console.log('this.href', this.href);
         // console.log('url', url);
         return this.href == url;
     }).addClass('active');
 
-    $('.header .nav.menu .item').removeClass('active');
-    $('.header .nav.menu .item').filter(function () {
+    $('.top_header .nav.menu .item').removeClass('active');
+    $('.top_header .nav.menu .item').filter(function () {
         var url = window.location.href;
         // console.log('this.href', this.href);
         // console.log('url', url);

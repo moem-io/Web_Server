@@ -74,7 +74,7 @@
     }
 
     .ui.raised.segment.block_section {
-        width: 50%;
+        width: 70%;
         height: 100%;
         padding: 14px !important;
         /*margin: 5px !important;*/
@@ -88,26 +88,17 @@
         /*height: 100%;*/
     }
 
-    .two .ui.raised.segment.script_section {
+    .ui.raised.segment.script_section {
         margin: 0 !important;
         /*border: 1px solid #000;*/
-        /*width: 30%;*/
+        width: 30%;
         height: 100%;
         padding: 14px !important;
-
     }
 
     .script_section #textarea {
-        width: 100%;
-        height: 25vh;
-    }
-
-    .two {
-        margin: 0 !important;
-        width: 30%;
-        display: flex;
-        flex-flow: column nowrap;
-
+        width:100%;
+        height: 30vh;
     }
 }
 
