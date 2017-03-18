@@ -8,25 +8,29 @@ div.block {
     height: 100%;
 }
 
-section.block_section {
+section.ui.raised.segment.block_section {
     width: auto;
     height: 100%;
+    padding: 0 !important;
+    /*margin: 5px !important;*/
 }
 
 section.block_section #blocklyDiv {
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
 }
 
-section.script_section {
+section.ui.raised.segment.script_section {
     width: auto;
     height: 100%;
+    padding: 0 !important;
+
 }
 
 section.script_section #textarea {
     background: #eee;
     width: 100vw;
-    height: 50vh;
+    height: 30vh;
 }
 
 /*----------------------- 태블릿용 CSS ----------------------*/
@@ -43,13 +47,11 @@ section.script_section #textarea {
         height: 100%;
     }
 
-    section.block_section {
-        /*margin: 10px;*/
-        border: 1px solid #000;
+    section.ui.raised.segment.block_section {
         width: auto;
-
         height: 100%;
-
+        padding: 14px !important;
+        /*margin: 5px !important;*/
     }
 
     section.block_section #blocklyDiv {
@@ -62,7 +64,7 @@ section.script_section #textarea {
 
     section.script_section {
         /*margin: 10px;*/
-        border: 1px solid #000;
+        /*border: 1px solid #000;*/
         width: auto;
 
         height: 100%;

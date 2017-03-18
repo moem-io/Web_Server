@@ -100,7 +100,15 @@ def control_node():
 #
 @app.route('/make')
 def make():
-    data = None
+    remote_me = None
+    if 'remote_oauth' in session:
+        remote_me = remote.get('me')
+    username = None
+    if remote_me:
+        username = remote_me.data.get('username')
+
+    data = {}
+    data['username'] = username
     return render_template('block.html', data=data)
 
 
@@ -111,7 +119,15 @@ def control():
 
 @app.route('/share')
 def share():
-    data = None
+    remote_me = None
+    if 'remote_oauth' in session:
+        remote_me = remote.get('me')
+    username = None
+    if remote_me:
+        username = remote_me.data.get('username')
+
+    data = {}
+    data['username'] = username
     return render_template('share.html', data=data)
 
 
