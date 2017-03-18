@@ -1,6 +1,6 @@
 <header class="header">
     <div class="ui container">
-        <div class="ui inverted pointing text menu">
+        <nav class="ui inverted pointing text menu">
 
 
             <!--nav-->
@@ -12,14 +12,14 @@
 
             <!--logo-->
             <div class="logo right item">
-                <a href="/app"><h1>DIYT</h1></a>
+                <a href="/"><h1>DIYT</h1></a>
             </div>
 
             <!--nav-->
-            <nav class="nav ui teal inverted menu">
-                <a href="" class="hover item">Make</a>
-                <a href="" class="item">Control</a>
-                <a href="" class="item">Share</a>
+            <nav class="nav ui teal inverted secondary menu">
+                <a href="/make" class="active item">Make</a>
+                <a href="/control" class="item">Control</a>
+                <a href="/share" class="item">Share</a>
             </nav>
 
             {#            <!--nav-->#}
@@ -37,7 +37,7 @@
 
             <!--info-->
             <section class="info_section right item">
-                {% if  'remote_oauth' not in request.cookies %}
+                {% if not data.username %}
                 <a href="/signin" class="info item">
                     {#                        <i class="setting large icon"></i>#}
                     <i class="large arrow right icon"></i>
@@ -46,6 +46,8 @@
                 {% else %}
                 <div class="ui dropdown">
                     <div class="info item">
+                        <span>{{ data.username }} 님,</span>
+                        <span>Hub : {{ data.hub_status }}</span>
                         <i class="setting large icon"></i>
                     </div>
                     <div class="menu">
@@ -61,7 +63,7 @@
                             <i class="help icon"></i>
                             FAQ
                         </a>
-                        <a href="{{ url_for('index') }}" class="item">
+                        <a href="{{ url_for('signout') }}" class="item">
                             <i class="sign out icon"></i>
                             로그 아웃
                         </a>

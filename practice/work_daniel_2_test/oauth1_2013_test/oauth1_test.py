@@ -247,7 +247,7 @@ def index():
         session['id'] = user.id
         return redirect('/')
     user = current_user()
-    return render_template('app.html', user=user)
+    return render_template('control_app.html', user=user)
 
 
 @app.route('/client')

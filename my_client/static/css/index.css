@@ -1,0 +1,18 @@
+section.main_section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+section .ui.vertical.segment {
+    position: relative;
+    width: 90%;
+    /*max-width: 1200px;*/
+    border: 1px solid #000;
+
+}
+
+section .ui.segment .main_img {
+    width: 80%;
+    border: 1px solid #000;
+
+}

@@ -16,7 +16,7 @@ def signin():
 @app.route('/signout')
 def signout():
     session.pop('remote_oauth', None)
-    # session.pop('id', None)
+    session.pop('id', None)
     return redirect(url_for('index'))
 
 

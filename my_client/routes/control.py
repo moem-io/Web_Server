@@ -5,21 +5,27 @@ from my_client.app import app
 from my_client.routes.oauth import remote
 from my_client.forms.board import writingForm
 
-@app.route('/')
-def index():
+
+url = 'http://13.124.19.161:5000/upload'
+
+
+@app.route('/upload')
+def upload():
     resp = None
     if 'remote_oauth' in session:
         resp = remote.get('upload')
 
-    username = None
+    # username = None
+    username = 'a'
     if resp:
         username = resp.data.get('username')
     print(username)
 
     res = None
-    if username:
+    # if username:
+    if True:
         payload = {'username': username}
-        response = post(url_hub, json=payload)
+        response = post(url, json=payload)
         print(response.text)
         res = response.text
         # print(str(res.text))
@@ -30,4 +36,4 @@ def index():
         'username':username,
         'res':res,
     }
-    return render_template('app.html', data=data)
+    return render_template('control_app.html', data=data)

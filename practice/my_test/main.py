@@ -85,7 +85,7 @@ def authorized():
 
 @app.route('/')
 def index():
-    return render_template('app.html')
+    return render_template('control_app.html')
 
 
 if __name__ == '__main__':

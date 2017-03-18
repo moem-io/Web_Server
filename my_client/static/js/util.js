@@ -6,7 +6,8 @@ $(document).ready(function () {
 
     $('.footer .menu .item').filter(function () {
         var url = window.location.href;
-        // console.log(this.href);
+        // console.log('this.href', this.href);
+        // console.log('url', url);
         return this.href == url;
     }).addClass('active');
 });

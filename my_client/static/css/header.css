@@ -62,16 +62,15 @@ header .ui.container .ui.menu .info_section .ui.dropdown .info .login {
         margin-left: 0px !important;
     }
 
-
     header .ui.container .ui.menu .nav.menu {
-        font-size:1.2rem;
+        font-size: 1.2rem;
         display: flex;
     }
+
 
     /*header .ui.container .ui.menu .info_section .ui.dropdown .info .setting {*/
     /*display: none;*/
     /*}*/
-
     header .ui.container .ui.menu .info_section .ui.dropdown .info .arrow {
         display: block !important;
     }
