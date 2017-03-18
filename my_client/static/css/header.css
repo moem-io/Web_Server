@@ -31,18 +31,20 @@ header .ui.container .ui.menu .nav.menu {
     display: none;
 }
 
-header .ui.container .ui.menu .info_section .ui.dropdown .menu {
-    left: auto !important;
-    right: 0px !important;
-}
 
-header .ui.container .ui.menu .info_section .ui.dropdown .info .arrow {
+
+header .ui.container .ui.menu .info_section .info .arrow {
     margin: 0 !important;
     display: block;
 }
 
-header .ui.container .ui.menu .info_section .ui.dropdown .info .login {
-    display: none;
+header .ui.container .ui.menu .info_section .info .login {
+    display: none !important;
+}
+
+header .ui.container .ui.menu .info_section .ui.dropdown .menu {
+    left: auto !important;
+    right: 0px !important;
 }
 
 /*----------------------- 태블릿용 CSS ----------------------*/
@@ -85,7 +87,7 @@ header .ui.container .ui.menu .info_section .ui.dropdown .info .login {
 /*----------------------- PC용 CSS ----------------------*/
 @media all and (min-width: 960px) {
     /* 기본 CSS */
-    .header {
+    header {
         width: 90% !important;
         max-width: 1200px !important;
         align-self: center !important;

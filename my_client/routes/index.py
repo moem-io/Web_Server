@@ -45,7 +45,8 @@ def index():
         data = {
             'username': username,
             'hub_status': hub_info.data['hub_status'],
-            'hub_id': hub_info.data['hub_id']
+            'hub_id': hub_info.data['hub_id'],
+            'control': False
         }
 
     return render_template('index.html', data=data)
@@ -62,6 +63,7 @@ def control_app():
 
     data = {}
     data['username'] = username
+    data['control'] = True
     return render_template('control_app.html', data=data)
 
 
@@ -76,6 +78,7 @@ def control_log():
 
     data = {}
     data['username'] = username
+    data['control'] = True
     return render_template('control_log.html', data=data)
 
 
@@ -90,6 +93,7 @@ def control_node():
 
     data = {}
     data['username'] = username
+    data['control'] = True
     return render_template('node.html', data=data)
 
 

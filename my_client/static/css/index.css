@@ -1,14 +1,18 @@
 section.main_section {
     margin-top: 60px;
     margin-bottom: 60px;
+
+    /*display: flex;*/
+    /*flex-flow: column nowrap;*/
+    /*justify-content: center !important;*/
+
+
 }
 
 section .ui.vertical.segment {
-    position: relative;
-    width: 90%;
-    /*max-width: 1200px;*/
-    border: 1px solid #000;
-
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+    width: auto !important;
 }
 
 section .ui.segment .main_img {

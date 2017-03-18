@@ -5,10 +5,9 @@
     <div class="block">
 
         <section class="block_section">
-
-            {#        <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>#}
-            <div id="blocklyDiv" style="width: 50vw; height: 80vh; "></div>
-
+            <h1>Block</h1>
+            <p>make the block</p>
+            <div id="blocklyDiv"></div>
             <xml id="toolbox" style="display: none">
                 <category name="g" colour="0">
                     <block type="text_print"></block>
@@ -43,9 +42,7 @@
                     <block type="text"></block>
                 </category>
 
-
             </xml>
-
             <script>
                 var workspace = Blockly.inject('blocklyDiv',
                     {
@@ -59,21 +56,18 @@
                 }
                 workspace.addChangeListener(myUpdateFunction);
             </script>
-
         </section>
+
 
         <section class="script_section">
             <h1>Script</h1>
             <p>Change to Python</p>
-
-            <div>
-                <textarea id="textarea" style="width: 40vw; height: 60vh; background:#aaa;"></textarea>
+            <div class="script">
+                <textarea id="textarea"></textarea>
             </div>
             <a href="/upload">
                 <div class="teal ui button">upload</div>
-
             </a>
-
         </section>
 
     </div>

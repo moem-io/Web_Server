@@ -5,5 +5,5 @@ section.app_section{
 }
 
 section.app_section .ui.card{
-    align-self: center;
+    /*align-self: center;*/
 }

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/control_app.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/node.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/block.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"/>
@@ -48,16 +48,19 @@
 
 <div class="pusher">
     <div id="wrap" >
-        {% block header %}
+        {% block wrap %}
             {% include 'header.html' %}
         {% endblock %}
 
         {% block content %}
         {% endblock %}
 
-        {% block footer %}
-            {% include 'footer.html' %}
-        {% endblock %}
+        {% if data.control %}
+            {% block control_footer %}
+                {% include 'control_footer.html' %}
+            {% endblock %}
+        {% endif %}
+
     </div>
 
 </div>
