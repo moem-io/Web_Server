@@ -3,39 +3,91 @@ div.block {
     margin-bottom: 60px;
 
     display: flex;
-    flex-flow: row nowrap;
-    border: 1px solid #000;
+    flex-flow: column nowrap;
     width: 100%;
     height: 100%;
 }
 
 section.block_section {
-    margin: 10px;
-    width: 50%;
+    width: auto;
     height: 100%;
-    /*background: #aabbcc;*/
 }
 
 section.block_section #blocklyDiv {
-    /*position: relative;*/
-    /*width: 50vw;*/
-    /*height: 80vh;*/
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 section.script_section {
-    margin: 10px;
-    width: 50%;
-}
-
-section.script_section .script {
-
+    width: auto;
+    height: 100%;
 }
 
 section.script_section #textarea {
-    /*width: 20vw;*/
-    /*height: 80vh;*/
-    width: 100%;
-    height: 100%;
+    background: #eee;
+    width: 100vw;
+    height: 50vh;
+}
+
+/*----------------------- 태블릿용 CSS ----------------------*/
+@media all and (min-width: 768px) {
+    /* 기본 CSS */
+    div.block {
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        display: flex;
+        flex-flow: row nowrap;
+        /*border: 1px solid #000;*/
+        width: 100%;
+        height: 100%;
+    }
+
+    section.block_section {
+        /*margin: 10px;*/
+        border: 1px solid #000;
+        width: auto;
+
+        height: 100%;
+
+    }
+
+    section.block_section #blocklyDiv {
+        /*position: relative;*/
+        width: 40vw;
+        height: 100vh;
+        /*width: 100%;*/
+        /*height: 100%;*/
+    }
+
+    section.script_section {
+        /*margin: 10px;*/
+        border: 1px solid #000;
+        width: auto;
+
+        height: 100%;
+
+    }
+
+    section.script_section #textarea {
+        width: 40vw;
+        height: 90vh;
+    }
+}
+
+/*----------------------- PC용 CSS ----------------------*/
+@media all and (min-width: 960px) {
+    /* 기본 CSS */
+    section.block_section #blocklyDiv {
+        /*position: relative;*/
+        width: 35vw;
+        height: 100vh;
+        /*width: 100%;*/
+        /*height: 100%;*/
+    }
+
+    section.script_section #textarea {
+        width: 35vw;
+        height: 90vh;
+    }
 }

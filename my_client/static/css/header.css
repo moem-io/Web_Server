@@ -90,7 +90,6 @@ header .ui.container .ui.menu .info_section .ui.dropdown .menu {
     header {
         width: 90% !important;
         max-width: 1200px !important;
-        align-self: center !important;
     }
 }
 
