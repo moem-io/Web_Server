@@ -1,12 +1,12 @@
-footer {
-    width: 100% !important;
+.control_footer {
+    width: inherit !important;
     position: fixed;
     bottom: 0;
     z-index: 900 !important;
     /*border:1px solid #000;*/
 }
 
-footer .ui.container {
+.control_footer  .ui.container {
     /*background: #00b5ad;*/
 
     margin-left: 0em !important;
@@ -15,7 +15,7 @@ footer .ui.container {
 
 }
 
-footer .ui.container .ui.menu {
+.control_footer  .ui.container .ui.menu {
     margin: 0 !important;
     border-radius: 0 !important;
 
@@ -24,9 +24,9 @@ footer .ui.container .ui.menu {
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */
-    footer {
-        align-self: center !important;
-        width: 80% !important;
+    .control_footer  {
+        /*align-self: center !important;*/
+        width: inherit !important;
     }
 
 }
@@ -34,7 +34,7 @@ footer .ui.container .ui.menu {
 /*----------------------- PC용 CSS ----------------------*/
 @media all and (min-width: 960px) {
     /* 기본 CSS */
-    footer {
+    .control_footer  {
         display: none;
 
     }

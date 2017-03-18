@@ -1,95 +1,113 @@
-div.block {
+.block {
     margin-top: 60px;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
 
     display: flex;
     flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 
-section.ui.raised.segment.block_section {
-    width: auto;
+.ui.raised.segment.block_section {
+    width: 100%;
     height: 100%;
     padding: 0 !important;
     /*margin: 5px !important;*/
 }
 
-section.block_section #blocklyDiv {
-    width: 100vw;
+.block_section #blocklyDiv {
+    width: 100%;
     height: 50vh;
 }
 
-section.ui.raised.segment.script_section {
-    width: auto;
+.ui.raised.segment.script_section {
+    width: 100%;
     height: 100%;
     padding: 0 !important;
 
 }
 
-section.script_section #textarea {
+.script_section #textarea {
     background: #eee;
-    width: 100vw;
+    width: 100%;
     height: 30vh;
+}
+
+.script_section.ui.segment .upload {
+    margin: 10px;
 }
 
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */
-    div.block {
-        margin-top: 60px;
-        margin-bottom: 60px;
-
-        display: flex;
-        flex-flow: row nowrap;
-        /*border: 1px solid #000;*/
+    .ui.raised.segment.block_section {
         width: 100%;
         height: 100%;
-    }
-
-    section.ui.raised.segment.block_section {
-        width: auto;
-        height: 100%;
-        padding: 14px !important;
+        padding: 0 !important;
         /*margin: 5px !important;*/
     }
 
-    section.block_section #blocklyDiv {
-        /*position: relative;*/
-        width: 40vw;
-        height: 100vh;
-        /*width: 100%;*/
-        /*height: 100%;*/
+    .block_section #blocklyDiv {
+        width: 100%;
+        height: 50vh;
     }
 
-    section.script_section {
-        /*margin: 10px;*/
-        /*border: 1px solid #000;*/
-        width: auto;
-
+    .ui.raised.segment.script_section {
+        width: 100%;
         height: 100%;
+        padding: 0 !important;
 
     }
 
-    section.script_section #textarea {
-        width: 40vw;
-        height: 90vh;
+    .script_section #textarea {
+        background: #eee;
+        width: 100%;
+        height: 30vh;
     }
 }
 
 /*----------------------- PC용 CSS ----------------------*/
 @media all and (min-width: 960px) {
     /* 기본 CSS */
-    section.block_section #blocklyDiv {
+    .block {
+        flex-flow: row nowrap;
+    }
+
+    .ui.raised.segment.block_section {
+        width: 50%;
+        height: 100%;
+        padding: 14px !important;
+        /*margin: 5px !important;*/
+    }
+
+    .block_section #blocklyDiv {
         /*position: relative;*/
-        width: 35vw;
-        height: 100vh;
+        width: 100%;
+        height: 80vh;
         /*width: 100%;*/
         /*height: 100%;*/
     }
 
-    section.script_section #textarea {
-        width: 35vw;
-        height: 90vh;
+    .two .ui.raised.segment.script_section {
+        margin: 0 !important;
+        /*border: 1px solid #000;*/
+        /*width: 30%;*/
+        height: 100%;
+        padding: 14px !important;
+
+    }
+
+    .script_section #textarea {
+        width: 100%;
+        height: 25vh;
+    }
+
+    .two {
+        margin: 0 !important;
+        width: 30%;
+        display: flex;
+        flex-flow: column nowrap;
+
     }
 }
+

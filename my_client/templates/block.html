@@ -4,7 +4,7 @@
 {% block content %}
     <div class="block">
 
-        <section class="block_section ui raised segment">
+        <div class="block_section ui raised segment">
             <h1>Block</h1>
             <p>make the block</p>
             <div id="blocklyDiv"></div>
@@ -56,19 +56,33 @@
                 }
                 workspace.addChangeListener(myUpdateFunction);
             </script>
-        </section>
+        </div>
 
+        <div class="two ui raised segment">
 
-        <section class="script_section ui raised segment">
-            <h1>Script</h1>
-            <p>Change to Python</p>
-            <div class="script">
-                <textarea id="textarea"></textarea>
+            <div class="script_section ui raised segment">
+                <h1>Script</h1>
+                <p>Change to Python</p>
+                <div class="script">
+                    <textarea id="textarea"></textarea>
+                </div>
+                <a href="/upload">
+                    <div class="upload teal ui right floated button">upload</div>
+                </a>
             </div>
-            <a href="/upload">
-                <div class="teal ui right floated button">upload</div>
-            </a>
-        </section>
+
+            <div class="script_section ui raised segment">
+                <h1>Script</h1>
+                <p>Change to Python</p>
+                <div class="script">
+                    <textarea id="textarea"></textarea>
+                </div>
+                <a href="/upload">
+                    <div class="upload teal ui right floated button">upload</div>
+                </a>
+            </div>
+
+        </div>
 
     </div>
 
