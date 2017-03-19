@@ -1,4 +1,5 @@
 from flask import session, redirect, url_for
+from requests import get
 
 from my_client.app import app
 from my_client.routes.oauth import remote
@@ -15,8 +16,12 @@ def signin():
 
 @app.route('/signout')
 def signout():
+    # session.pop('id', None)
+
+    # res = get(app.config['BASE_URL']+'signout')
+    res = remote.get('signout')
+    print('res', res)
     session.pop('remote_oauth', None)
-    session.pop('id', None)
     return redirect(url_for('index'))
 
 
