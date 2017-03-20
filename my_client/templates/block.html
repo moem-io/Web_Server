@@ -116,11 +116,18 @@
 
                 var workspace = Blockly.inject('blocklyDiv',
                     {
-{#                        media: '../../media/',#}
+                        {#                        media: '../../media/',#}
                         media: "https://blockly-demo.appspot.com/static/media/",
                         toolbox: document.getElementById('toolbox'),
                         grid: {spacing: 20, length: 3, colour: '#ccc', snap: true},
-                        zoom:{controls:true, wheel:true, startScale:1.0, maxScale:2, minScale:0.5, scaleSpeed:1.1},
+                        zoom: {
+                            controls: true,
+                            wheel: true,
+                            startScale: 1.0,
+                            maxScale: 2,
+                            minScale: 0.5,
+                            scaleSpeed: 1.1
+                        },
                         trashcan: true
                     });
 
@@ -134,14 +141,16 @@
 
 
         <div class="script_section ui raised segment">
+
             <h1>Script</h1>
             <p>Change to Python</p>
+
             <div class="script">
-                <textarea id="textarea"></textarea>
+                <textarea id="textarea" name="upload_app" form="upload_form"></textarea>
             </div>
-            <a href="/upload">
-                <div class="upload teal ui right floated button">upload</div>
-            </a>
+            <form action="/upload" method="post" id="upload_form">
+                <input type="submit" class="upload teal ui right floated button" value="upload">
+            </form>
         </div>
 
 

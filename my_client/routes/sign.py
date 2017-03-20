@@ -19,8 +19,8 @@ def signout():
     # session.pop('id', None)
 
     # res = get(app.config['BASE_URL']+'signout')
-    res = remote.get('signout')
-    print('res', res)
+    # res = remote.get('signout')
+    # print('res', res)
     session.pop('remote_oauth', None)
     return redirect(url_for('index'))
 
