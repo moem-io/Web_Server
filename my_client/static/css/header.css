@@ -1,6 +1,7 @@
 /* 기본 CSS */
 .top_header {
     width: inherit !important;
+    max-width: inherit !important;
     position: fixed;
     top: 0;
     z-index: 999 !important;
