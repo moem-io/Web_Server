@@ -51,7 +51,6 @@ def index():
 
     return render_template('index.html', data=data)
 
-
 @app.route('/control/app')
 def control_app():
     remote_me = None
@@ -129,6 +128,9 @@ def share():
     data = {}
     data['username'] = username
     return render_template('share.html', data=data)
+
+
+
 
 
 #
