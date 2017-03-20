@@ -38,26 +38,37 @@ Blockly.Msg.CONTROLS_FOREACH_HELPURL = "https://ko.wikipedia.org/wiki/For_%EB%A3
 Blockly.Msg.CONTROLS_FOREACH_TITLE = "각 항목에 대해 %1 목록으로 %2";
 Blockly.Msg.CONTROLS_FOREACH_TOOLTIP = "리스트 안에 들어있는 각 아이템들을, 순서대로 변수 '%1' 에 한 번씩 저장시키고, 그 때 마다 명령을 실행합니다.";
 Blockly.Msg.CONTROLS_FOR_HELPURL = "https://ko.wikipedia.org/wiki/For_%EB%A3%A8%ED%94%84";
-Blockly.Msg.CONTROLS_FOR_TITLE = "으로 계산 %1 %2에서 %4을 이용하여 %3로";
+
+// Blockly.Msg.CONTROLS_FOR_TITLE = "으로 계산 %1 %2에서 %4을 이용하여 %3로";
+Blockly.Msg.CONTROLS_FOR_TITLE = "변수 %1를 %2에서 %3까지 %4씩 증가하며";
+
 Blockly.Msg.CONTROLS_FOR_TOOLTIP = "변수 \"%1\"은 지정된 간격으로 시작 수에서 끝 수까지를 세어 지정된 블록을 수행해야 합니다.";
 Blockly.Msg.CONTROLS_IF_ELSEIF_TOOLTIP = "\"만약\" 블럭에 조건 검사를 추가합니다.";
 Blockly.Msg.CONTROLS_IF_ELSE_TOOLTIP = "\"만약\" 블럭의 마지막에, 모든 검사 결과가 거짓인 경우 실행할 부분을 추가합니다.";
 Blockly.Msg.CONTROLS_IF_HELPURL = "https://ko.wikipedia.org/wiki/%EC%A1%B0%EA%B1%B4%EB%AC%B8";
 Blockly.Msg.CONTROLS_IF_IF_TOOLTIP = "섹션을 추가, 제거하거나 순서를 변경하여 이 if 블럭을 재구성합니다.";
+
 Blockly.Msg.CONTROLS_IF_MSG_ELSE = "아니라면";
 Blockly.Msg.CONTROLS_IF_MSG_ELSEIF = "다른 경우";
 Blockly.Msg.CONTROLS_IF_MSG_IF = "만약";
+
 Blockly.Msg.CONTROLS_IF_TOOLTIP_1 = "조건식의 계산 결과가 참이면, 명령을 실행합니다.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_2 = "조건식의 계산 결과가 참이면, 첫 번째 블럭의 명령을 실행하고, 그렇지 않으면 두 번째 블럭의 명령을 실행합니다.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_3 = "첫 번째 조건식의 계산 결과가 참이면, 첫 번째 블럭의 명령을 실행하고, 두 번째 조건식의 계산 결과가 참이면, 두 번째 블럭의 명령을 실행합니다.";
 Blockly.Msg.CONTROLS_IF_TOOLTIP_4 = "첫 번째 조건식의 계산 결과가 참이면, 첫 번째 블럭의 명령을 실행하고, 두 번째 조건식의 계산 결과가 참이면, 두 번째 블럭의 명령을 실행하고, ... , 어떤 조건식의 계산 결과도 참이 아니면, 마지막 블럭의 명령을 실행합니다.";
 Blockly.Msg.CONTROLS_REPEAT_HELPURL = "https://ko.wikipedia.org/wiki/For_루프";
-Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = "하기";
+
+// Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = "하기";
+Blockly.Msg.CONTROLS_REPEAT_INPUT_DO = "실행:";
+
 Blockly.Msg.CONTROLS_REPEAT_TITLE = "%1회 반복";
+
 Blockly.Msg.CONTROLS_REPEAT_TOOLTIP = "여러 번 반복해 명령들을 실행합니다.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_HELPURL = "https://ko.wikipedia.org/wiki/While_%EB%A3%A8%ED%94%84";
-Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "다음까지 반복";
-Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "동안 반복";
+
+Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_UNTIL = "조건이 거짓 인 동안 반복";
+Blockly.Msg.CONTROLS_WHILEUNTIL_OPERATOR_WHILE = "조건이 참 인 동안 반복";
+
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_UNTIL = "값이 거짓일 때, 몇 가지 선언을 합니다.";
 Blockly.Msg.CONTROLS_WHILEUNTIL_TOOLTIP_WHILE = "값이 참일 때, 몇 가지 선언을 합니다.";
 Blockly.Msg.DELETE_ALL_BLOCKS = "모든 블록 %1개를 삭제하겠습니까?";
@@ -189,7 +200,10 @@ Blockly.Msg.MATH_ARITHMETIC_TOOLTIP_MINUS = "두 수간의 차이를 반환합�
 Blockly.Msg.MATH_ARITHMETIC_TOOLTIP_MULTIPLY = "두 수의 곱을 반환합니다.";
 Blockly.Msg.MATH_ARITHMETIC_TOOLTIP_POWER = "첫 번째 수를 두 번째 수 만큼, 거듭제곱 한 결과값을 돌려줍니다.";
 Blockly.Msg.MATH_CHANGE_HELPURL = "https://en.wikipedia.org/wiki/Programming_idiom#Incrementing_a_counter";
-Blockly.Msg.MATH_CHANGE_TITLE = "바꾸기 %1 만큼 %2";
+
+// Blockly.Msg.MATH_CHANGE_TITLE = "바꾸기 %1 만큼 %2";
+Blockly.Msg.MATH_CHANGE_TITLE = "%1를 %2만큼 증가하기";
+
 Blockly.Msg.MATH_CHANGE_TOOLTIP = "변수 '%1' 에 저장되어있는 값에, 어떤 수를 더해, 변수에 다시 저장합니다.";
 Blockly.Msg.MATH_CONSTANT_HELPURL = "https://en.wikipedia.org/wiki/Mathematical_constant";
 Blockly.Msg.MATH_CONSTANT_TOOLTIP = "일반적인 상수 값들 중 하나를 돌려줍니다. : π (3.141…), e (2.718…), φ (1.618…), sqrt(2) (1.414…), sqrt(½) (0.707…), or ∞ (infinity).";
@@ -233,7 +247,10 @@ Blockly.Msg.MATH_RANDOM_FLOAT_HELPURL = "https://en.wikipedia.org/wiki/Random_nu
 Blockly.Msg.MATH_RANDOM_FLOAT_TITLE_RANDOM = "임의 분수";
 Blockly.Msg.MATH_RANDOM_FLOAT_TOOLTIP = "0.0 (포함)과 1.0 (배타적) 사이의 임의 분수 값을 돌려줍니다.";
 Blockly.Msg.MATH_RANDOM_INT_HELPURL = "https://en.wikipedia.org/wiki/Random_number_generation";
-Blockly.Msg.MATH_RANDOM_INT_TITLE = "랜덤정수(%1<= n <=%2)";
+
+// Blockly.Msg.MATH_RANDOM_INT_TITLE = "랜덤정수(%1<= n <=%2)";
+Blockly.Msg.MATH_RANDOM_INT_TITLE = "%1부터 %2까지 임의의 정수";
+
 Blockly.Msg.MATH_RANDOM_INT_TOOLTIP = "두 주어진 제한된 범위 사이의 임의 정수값을 돌려줍니다.";
 Blockly.Msg.MATH_ROUND_HELPURL = "https://en.wikipedia.org/wiki/Rounding";
 Blockly.Msg.MATH_ROUND_OPERATOR_ROUND = "반올림";
