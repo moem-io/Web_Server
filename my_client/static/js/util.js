@@ -39,8 +39,8 @@ function open_chatroom() {
 //창 가로 크기가 500 미만일 경우
         console.log("960");
         // $('.app_section.ui.segment').css('display','none');
-        // $('.app_section.ui.segment').removeClass('segment');
-        // $('.ui.centered.cards').css('margin-top', '60px', 'margin-bottom', '60px');
+        $('.app_section.ui.segment').removeClass('segment');
+        $('.ui.centered.cards').css('margin-top', '60px', 'margin-bottom', '60px');
 
     } else {
 //창 가로 크기가 500보다 클 경우
