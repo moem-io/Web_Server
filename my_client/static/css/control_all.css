@@ -1,10 +1,13 @@
 /* 기본 CSS */
 .control_all_top_margin {
-    margin-top: 35px;
+    /*margin-top: 35px;*/
+    margin-top: 50px;
 }
 
 .control_all_bottom_margin {
-    margin-bottom: 35px;
+    /*margin-bottom: 35px;*/
+    margin-top: 50px;
+
 }
 
 .control_all_app_section.ui.segment {
@@ -17,7 +20,22 @@
     display: none !important;
 }
 
-.control_all_app_section.ui.segment .app_section.ui.items .item {
+.control_all_log_section.ui.segment .log_section.ui.items .log_title.item {
+    display: none !important;
+}
+
+.control_all_node_section.ui.segment .node_section.ui.items .node_title.item {
+    display: none !important;
+}
+
+.control_all_node_section.ui.segment .node_section.ui.items .ui.raised.segment {
+    margin: 0 !important;
+}
+
+#node {
+    align-self: center;
+    width: 500px;
+    height: 500px;
 }
 
 /*----------------------- 태블릿용 CSS ----------------------*/
@@ -32,11 +50,20 @@
     .control_all_top_margin {
         margin-top: 50px;
     }
+
     .control_all_bottom_margin {
         margin-bottom: 0px !important;
     }
 
     .control_all_app_section.ui.segment .app_section.ui.items .app_title.item {
+        display: block !important;
+    }
+
+    .control_all_log_section.ui.segment .log_section.ui.items .log_title.item {
+        display: block !important;
+    }
+
+    .control_all_node_section.ui.segment .node_section.ui.items .node_title.item {
         display: block !important;
     }
 
@@ -46,16 +73,25 @@
         margin-left: auto !important;
         margin-right: auto !important;
     }
+
     .control_all_log_section.ui.segment {
         max-width: 1200px !important;
         width: auto !important;
         margin-left: auto !important;
         margin-right: auto !important;
     }
+
     .control_all_node_section.ui.segment {
         max-width: 1200px !important;
         width: auto !important;
         margin-left: auto !important;
         margin-right: auto !important;
     }
+
+    .control_all_node_section.ui.segment .node_section.ui.items .ui.raised.segment {
+        width: 500px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
 }

@@ -26,26 +26,72 @@ $(document).ready(function () {
         return this.href == url || this.href + '/app' == url || this.href + '/log' == url || this.href + '/node' == url;
     }).addClass('active');
 
+
+    $('.top_header .nav.menu .item').filter(function () {
+        var url = window.location.href;
+        // console.log('this.href', this.href);
+        // console.log('url', url);
+        var windowWidth = $(window).width();
+
+        if (windowWidth < 960) {
+            if (this.href + '/app' == url) {
+                $('.control_all_log_section').css('display', 'none');
+                $('.control_all_node_section').css('display', 'none');
+            } else if (this.href + '/log' == url) {
+                $('.control_all_app_section').css('display', 'none');
+                $('.control_all_node_section').css('display', 'none');
+            } else if (this.href + '/node' == url) {
+                $('.control_all_app_section').css('display', 'none');
+                $('.control_all_log_section').css('display', 'none');
+            }
+        }
+    });
+
+
 });
 
-// $(window).resize(function () {
-//     //창크기 변화 감지
-//     open_chatroom();
-// });
-//
-// function open_chatroom() {
-//     var windowWidth = $(window).width();
-//     if (windowWidth < 960) {
-// //창 가로 크기가 500 미만일 경우
+$(window).resize(function () {
+    //창크기 변화 감지
+    hide_else();
+});
+
+function hide_else() {
+    $('.top_header .nav.menu .item').filter(function () {
+        var url = window.location.href;
+        // console.log('this.href', this.href);
+        // console.log('url', url);
+        var windowWidth = $(window).width();
+
+        if (windowWidth < 960) {
+            if (this.href + '/app' == url) {
+                $('.control_all_log_section').css('display', 'none');
+                $('.control_all_node_section').css('display', 'none');
+            } else if (this.href + '/log' == url) {
+                $('.control_all_app_section').css('display', 'none');
+                $('.control_all_node_section').css('display', 'none');
+            } else if (this.href + '/node' == url) {
+                $('.control_all_app_section').css('display', 'none');
+                $('.control_all_log_section').css('display', 'none');
+            }
+        } else {
+            $('.control_all_app_section').css('display', 'block');
+            $('.control_all_log_section').css('display', 'block');
+            $('.control_all_node_section').css('display', 'block');
+
+        }
+    });
+
+    // if (windowWidth < 960) {
+//창 가로 크기가 500 미만일 경우
 //         console.log("960");
-//         // $('.app_section.ui.segment').css('display','none');
-//         $('.app_section.ui.segment').removeClass('segment');
-//         $('.ui.centered.cards').css('margin-top', '60px', 'margin-bottom', '60px');
-//
-//     } else {
-// //창 가로 크기가 500보다 클 경우
+    // $('.app_section.ui.segment').css('display','none');
+    // $('.app_section.ui.segment').removeClass('segment');
+    // $('.ui.centered.cards').css('margin-top', '60px', 'margin-bottom', '60px');
+
+    // } else {
+//창 가로 크기가 500보다 클 경우
 //         console.log("200");
-//         $('.app_section.ui').addClass('segment');
-//         $('.ui.centered.cards').css('margin-top', '0px', 'margin-bottom', '0px');
-//     }
-// }
+    // $('.app_section.ui').addClass('segment');
+    // $('.ui.centered.cards').css('margin-top', '0px', 'margin-bottom', '0px');
+    // }
+}

@@ -8,8 +8,8 @@
 
 #node {
     align-self: center;
-    width: 100%;
+    width: 500px;
     height: 500px;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     /*background-color: #fff;*/
 }
