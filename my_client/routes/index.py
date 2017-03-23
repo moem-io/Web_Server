@@ -63,6 +63,7 @@ def control_app():
     data = {}
     data['username'] = username
     data['control'] = True
+    data['app'] = True
     return render_template('control_all.html', data=data)
 
 
@@ -78,6 +79,8 @@ def control_log():
     data = {}
     data['username'] = username
     data['control'] = True
+    data['log'] = True
+
     return render_template('control_all.html', data=data)
 
 
@@ -93,6 +96,8 @@ def control_node():
     data = {}
     data['username'] = username
     data['control'] = True
+    data['node'] = True
+
     return render_template('control_all.html', data=data)
 
 

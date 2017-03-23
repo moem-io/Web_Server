@@ -1,11 +1,12 @@
 {% extends 'layout.html' %}
-{% block title %}DIYT{% endblock %}
+{% block title %}Control{% endblock %}
 
 {% block content %}
     <div class="control_all_top_margin"></div>
 
 
     {# app #}
+
     <div class="control_all_app_section ui segment">
 
         <div class="app_section ui items">
@@ -206,8 +207,10 @@
         </div>
 
     </div>
+    {#    {% endif %}#}
 
     {# log #}
+    {#    {% if data.log %}#}
     <div class="control_all_log_section ui segment">
         <div class="log_section ui items">
 
@@ -222,8 +225,10 @@
 
         </div>
     </div>
+    {#    {% endif %}#}
 
     {# node #}
+    {#    {% if data.node %}#}
     <div class="control_all_node_section ui segment">
         <div class="node_section ui items">
 
@@ -245,7 +250,21 @@
 
         </div>
     </div>
+    {#    {% endif %}#}
 
+{#    <script>$('.control_all_app_section').css('display', 'none');</script>#}
+{#    <script>$('.control_all_log_section').css('display', 'none');</script>#}
+{#    <script>$('.control_all_node_section').css('display', 'none');</script>#}
+
+{#    {% if data.app %}#}
+        <!--<script>$('.control_all_app_section').css('display', 'block');</script>-->
+{#    {% endif %}#}
+{#    {% if data.log %}#}
+        <!--<script>$('.control_all_log_section').css('display', 'block');</script>-->
+{#    {% endif %}#}
+{#    {% if data.node %}#}
+        <!--<script>$('.control_all_node_section').css('display', 'block');</script>-->
+{#    {% endif %}#}
 
     <div class="control_all_bottom_margin"></div>
 {% endblock %}
