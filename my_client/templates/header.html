@@ -38,37 +38,38 @@
             <!--info-->
             <section class="info_section right item">
                 {% if not data.username %}
-                <a href="/signin" class="info item">
-                    {#                        <i class="setting large icon"></i>#}
-                    <i class="large arrow right icon"></i>
-                    <p class="login">로그인</p>
-                </a>
+                    <a href="/signin" class="signin info item">
+                        <i class="large arrow right icon"></i>
+                        <p class="login">로그인</p>
+                    </a>
                 {% else %}
-                <div class="ui dropdown">
-                    <div class="info item">
-{#                        <span>{{ data.username }} 님,</span>#}
-{#                        <span>Hub : {{ data.hub_status }}</SPAN>#}
-                        <i class="setting large icon"></i>
+
+                    <span class="username">{{ data.username }} 님,</span>
+                    <span class="hub_status">Hub : {{ data.hub_status }}</SPAN>
+
+                    <div class="ui dropdown">
+                        <div class="info item">
+                            <i class="setting large icon"></i>
+                        </div>
+                        <div class="menu">
+                            <a href="{{ url_for('index') }}" class="item">
+                                <i class="user icon"></i>
+                                나의 정보
+                            </a>
+                            <a href="{{ url_for('index') }}" class="item">
+                                <i class="settings icon"></i>
+                                계정 설정
+                            </a>
+                            <a href="{{ url_for('index') }}" class="item">
+                                <i class="help icon"></i>
+                                FAQ
+                            </a>
+                            <a href="{{ url_for('signout') }}" class="item">
+                                <i class="sign out icon"></i>
+                                로그 아웃
+                            </a>
+                        </div>
                     </div>
-                    <div class="menu">
-                        <a href="{{ url_for('index') }}" class="item">
-                            <i class="user icon"></i>
-                            나의 정보
-                        </a>
-                        <a href="{{ url_for('index') }}" class="item">
-                            <i class="settings icon"></i>
-                            계정 설정
-                        </a>
-                        <a href="{{ url_for('index') }}" class="item">
-                            <i class="help icon"></i>
-                            FAQ
-                        </a>
-                        <a href="{{ url_for('signout') }}" class="item">
-                            <i class="sign out icon"></i>
-                            로그 아웃
-                        </a>
-                    </div>
-                </div>
                 {% endif %}
 
 

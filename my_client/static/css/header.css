@@ -9,12 +9,12 @@
 
 }
 
-.top_header  * {
+.top_header * {
 
     /*border: solid 1px #000;*/
 }
 
-.top_header  .ui.container {
+.top_header .ui.container {
     background: #00b5ad;
     margin-left: 0em !important;
     margin-right: 0em !important;
@@ -22,65 +22,75 @@
     /*border: solid 1px #000;*/
 }
 
-.top_header  .ui.container .ui.menu {
+.top_header .ui.container .ui.menu {
     /*background: #00b5ad;*/
     margin: 0;
     /*border: solid 1px #000;*/
 }
 
-.top_header  .ui.container .ui.menu .nav.menu {
+.top_header .ui.container .ui.menu .nav.menu {
     display: none;
 }
 
-
-
-.top_header  .ui.container .ui.menu .info_section .info .arrow {
+.top_header .ui.container .ui.menu .info_section .signin .arrow {
     margin: 0 !important;
     display: block;
 }
 
-.top_header  .ui.container .ui.menu .info_section .info .login {
+.top_header .ui.container .ui.menu .info_section .signin .login {
     display: none !important;
 }
 
-.top_header  .ui.container .ui.menu .info_section .ui.dropdown .menu {
-    left: auto !important;
-    right: 0px !important;
+.top_header .ui.container .ui.menu .info_section .username {
+    display: none !important;
+}
+
+.top_header .ui.container .ui.menu .info_section .hub_status {
+    display: none !important;
+
 }
 
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */
-    .top_header  {
+    .top_header {
         /*align-self: center !important;*/
         width: inherit !important;
 
     }
 
-    .top_header  .ui.container .ui.menu .hamburger {
+    .top_header .ui.container .ui.menu .hamburger {
         display: none;
     }
 
-    .top_header  .ui.container .ui.menu .logo {
+    .top_header .ui.container .ui.menu .logo {
         margin-left: 0px !important;
     }
 
-    .top_header    .ui.container .ui.menu .nav.menu {
+    .top_header .ui.container .ui.menu .nav.menu {
         font-size: 1.2rem;
         display: flex;
     }
 
-
-    /*header .ui.container .ui.menu .info_section .ui.dropdown .info .setting {*/
-    /*display: none;*/
-    /*}*/
-    .top_header  .ui.container .ui.menu .info_section .ui.dropdown .info .arrow {
-        display: block !important;
+    .top_header .ui.container .ui.menu .info_section .signin .arrow {
+        display: none !important;
     }
 
-    .top_header  .ui.container .ui.menu .info_section .ui.dropdown .info .login {
+    .top_header .ui.container .ui.menu .info_section .signin .login {
         display: block !important;
         font-size: 1.1rem;
+    }
+
+    .top_header .ui.container .ui.menu .info_section .username {
+        display: block !important;
+        font-size: 1.1rem;
+
+    }
+
+    .top_header .ui.container .ui.menu .info_section .hub_status {
+        display: block !important;
+        font-size: 1.1rem;
+
     }
 
 }
