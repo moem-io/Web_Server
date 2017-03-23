@@ -2,10 +2,13 @@
 {% block title %}DIYT{% endblock %}
 
 {% block content %}
-    <section class="app_section">
+    <section class="app_section ui segment">
 
+        <div class="app_section_title">
+            <h1>APP</h1>
+        </div>
 
-        <div class="ui centered cards">
+        <div class="app_cards ui centered cards">
 
             <div class="card">
 
@@ -191,4 +194,24 @@
 
         </div>
     </section>
+
+    <section class="log_section ui segment">
+        <div class="title">
+            <h1>LOG</h1>
+        </div>
+        <div class="log ui raised segment">
+
+        </div>
+    </section>
+
+
+    <section class="node_section ui segment">
+        <div class="title">
+            <h1>NODE</h1>
+        </div>
+        <div class="node ui raised segment">
+            <svg id="node"></svg>
+        </div>
+    </section>
+
 {% endblock %}

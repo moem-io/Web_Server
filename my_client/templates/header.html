@@ -44,14 +44,19 @@
                     </a>
                 {% else %}
 
-                    <span class="username">{{ data.username }} 님,</span>
-                    <span class="hub_status">Hub : {{ data.hub_status }}</SPAN>
+                    <span class="username">{{ data.username }} 님</span>
+                    {#                    <span class="hub_status">Hub : {{ data.hub_status }}</SPAN>#}
 
                     <div class="ui dropdown">
                         <div class="info item">
                             <i class="setting large icon"></i>
                         </div>
                         <div class="menu">
+                            <a href="{{ url_for('hub_register') }}" class="item">
+                                <i class="wifi icon"></i>
+                                허브 {{ data.hub_status }}
+                            </a>
+                            <div class="divider"></div>
                             <a href="{{ url_for('index') }}" class="item">
                                 <i class="user icon"></i>
                                 나의 정보

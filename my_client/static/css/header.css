@@ -28,6 +28,12 @@
     /*border: solid 1px #000;*/
 }
 
+.top_header  .ui.container .ui.menu .info_section .ui.dropdown .menu {
+    left: auto !important;
+    right: 0px !important;
+}
+
+
 .top_header .ui.container .ui.menu .nav.menu {
     display: none;
 }
@@ -45,10 +51,9 @@
     display: none !important;
 }
 
-.top_header .ui.container .ui.menu .info_section .hub_status {
-    display: none !important;
-
-}
+/*.top_header .ui.container .ui.menu .info_section .hub_status {*/
+    /*display: none !important;*/
+/*}*/
 
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
@@ -87,11 +92,10 @@
 
     }
 
-    .top_header .ui.container .ui.menu .info_section .hub_status {
-        display: block !important;
-        font-size: 1.1rem;
-
-    }
+    /*.top_header .ui.container .ui.menu .info_section .hub_status {*/
+        /*display: block !important;*/
+        /*font-size: 1.1rem;*/
+    /*}*/
 
 }
 

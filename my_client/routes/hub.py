@@ -26,7 +26,14 @@ def upload():
     return redirect(url_for('index'))
 
 
-
+@app.route('/hub_register', methods=['GET', 'POST'])
+def hub_register():
+    if 'remote_oauth' not in session:
+        return remote.authorize(
+            callback=url_for('authorized', _external=True)
+        )
+    hub_register = remote.get('hub_register')
+    return redirect(url_for('index'))
 
 
 

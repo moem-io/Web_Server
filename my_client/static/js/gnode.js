@@ -26,6 +26,7 @@ var h = 500;
 var colors = d3.scale.category10();
 
 
+
 //Initial default force
 var force = d3.layout.force()
     .nodes(dataset.nodes)
@@ -76,7 +77,6 @@ var labels = gnodes.append("text")
     .text(function (d) {
         return d.name;
     });
-
 
 force.on("tick", function () {
     links.attr("x1", function (d) {
