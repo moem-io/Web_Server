@@ -1,0 +1,308 @@
+{% extends 'layout.html' %}
+{% block title %}DIYT{% endblock %}
+
+{% block content %}
+    <div class="control_all_top_margin"></div>
+
+
+    {# app #}
+    <div class="control_all_app_section ui segment">
+
+        <div class="app_section ui items">
+
+            <div class="app_title item">
+                <div class="app_title content">
+                    <div class="header">APP</div>
+                    <div class="ui teal right floated button">Add</div>
+                    <div class="meta">블록비의 APP에서 센서 정보를 보거나 모터를 제어해 봅시다.</div>
+                </div>
+            </div>
+
+            <div class="ui centered cards">
+                <div class="card">
+
+                    <div class="app_info content">
+
+                        <div class="title ui grid ">
+                            <div class="twelve wide column">
+                                <h1>Knock & OFF</h1>
+                            </div>
+                            <div class="four wide column">
+                                <div class="right floated teal tiny ui button">ON</div>
+                            </div>
+                        </div>
+
+                        <div class="sub ui grid">
+                            <div class="fourteen wide column">
+                                <div class="meta">
+                                    Auto turn off the light by knocking
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <i class="center aligned right floated link options icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="sensor content">
+
+                        <div class="header">
+                            <h3>Knock Sensor</h3>
+                        </div>
+                        <div class="description">
+                            <div class="ui grid">
+                                <div class="two wide column"><i class="bullseye icon"></i></div>
+                                <div class="six wide column">value : 45%</div>
+                                <div class="two wide column"><i class="hand rock icon"></i></div>
+                                <div class="six wide column">two</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="actuator content">
+
+                        <div class="header">
+                            <h3>Motor</h3>
+                        </div>
+                        <div class="meta">
+                            <p>If value > 50 and count : two</p>
+                            <p>Then motor turn</p>
+                        </div>
+                        <div class="ui teal inverted two item menu">
+                            <a class="active item">ON</a>
+                            <a class="item">OFF</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--2-->
+                <div class="card">
+
+                    <div class="app_info content">
+
+                        <div class="title ui grid ">
+                            <div class="twelve wide column">
+                                <h1>Temp & Close</h1>
+                            </div>
+                            <divi class="four wide column">
+                                <div class="right floated teal tiny ui toggle button">ON</div>
+                            </divi>
+                        </div>
+
+                        <div class="sub ui grid">
+                            <div class="fourteen wide column">
+                                <div class="meta">
+                                    Auto closing door system by temperature
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <i class="right floated link options icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="sensor content">
+
+                        <div class="header">
+                            <h3>Temp & Humi</h3>
+                        </div>
+                        <div class="description">
+                            <div class="ui grid">
+                                <div class="two wide column"><i class="sun icon"></i></div>
+                                <div class="six wide column">24°C</div>
+                                <div class="two wide column"><i class="theme icon"></i></div>
+                                <div class="six wide column">15%</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="actuator content">
+
+                        <div class="header">
+                            <h3>Motor</h3>
+                        </div>
+                        <div class="meta">
+                            <p>If Temp < 18°C</p>
+                            <p>Then motor turn</p>
+                        </div>
+                        <div class="ui teal inverted two item menu">
+                            <a class="active item">ON</a>
+                            <a class="item">OFF</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--3-->
+                <div class="card">
+
+                    <div class="app_info content">
+
+                        <div class="title ui grid ">
+                            <div class="twelve wide column">
+                                <h1>Temp & Close</h1>
+                            </div>
+                            <divi class="four wide column">
+                                <div class="right floated teal tiny ui toggle button">ON</div>
+                            </divi>
+                        </div>
+
+                        <div class="sub ui grid">
+                            <div class="fourteen wide column">
+                                <div class="meta">
+                                    Auto closing door system by temperature
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <i class="right floated link options icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="sensor content">
+
+                        <div class="header">
+                            <h3>Temp & Humi</h3>
+                        </div>
+                        <div class="description">
+                            <div class="ui grid">
+                                <div class="two wide column"><i class="sun icon"></i></div>
+                                <div class="six wide column">24°C</div>
+                                <div class="two wide column"><i class="theme icon"></i></div>
+                                <div class="six wide column">15%</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="actuator content">
+
+                        <div class="header">
+                            <h3>Motor</h3>
+                        </div>
+                        <div class="meta">
+                            <p>If Temp < 18°C</p>
+                            <p>Then motor turn</p>
+                        </div>
+                        <div class="ui teal inverted two item menu">
+                            <a class="active item">ON</a>
+                            <a class="item">OFF</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    {# log #}
+    <div class="control_all_log_section ui segment">
+        <div class="log_section ui items">
+
+            <div class="log_title item">
+                <div class="log_title content">
+                    <div class="header">LOG</div>
+                    <div class="ui teal right floated button">Refresh</div>
+                    <div class="meta">APP에서 측정한 센서 기록이나 제어 기록을 확인합니다.</div>
+                </div>
+            </div>
+
+            <div class="ui centered cards">
+
+                <div class="card">
+
+                    <div class="app_info content">
+
+                        <div class="title ui grid ">
+                            <div class="twelve wide column">
+                                <h1>Temp & Close</h1>
+                            </div>
+                            <divi class="four wide column">
+                                <div class="right floated teal tiny ui toggle button">ON</div>
+                            </divi>
+                        </div>
+
+                        <div class="sub ui grid">
+                            <div class="fourteen wide column">
+                                <div class="meta">
+                                    Auto closing door system by temperature
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <i class="right floated link options icon"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="sensor content">
+
+                        <div class="header">
+                            <h3>Temp & Humi</h3>
+                        </div>
+                        <div class="description">
+                            <div class="ui grid">
+                                <div class="two wide column"><i class="sun icon"></i></div>
+                                <div class="six wide column">24°C</div>
+                                <div class="two wide column"><i class="theme icon"></i></div>
+                                <div class="six wide column">15%</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="actuator content">
+
+                        <div class="header">
+                            <h3>Motor</h3>
+                        </div>
+                        <div class="meta">
+                            <p>If Temp < 18°C</p>
+                            <p>Then motor turn</p>
+                        </div>
+                        <div class="ui teal inverted two item menu">
+                            <a class="active item">ON</a>
+                            <a class="item">OFF</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    {# node #}
+    <div class="control_all_node_section ui segment">
+        <div class="node_section ui items">
+
+            <div class="node_title item">
+                <div class="node_title content">
+                    <div class="header">NODE</div>
+                    <div class="ui teal right floated button">Refresh</div>
+                    <div class="meta">IoT허브의 노드 연결 정보를 확인할 수 있습니다.</div>
+                </div>
+            </div>
+
+            <svg id="node"></svg>
+
+        </div>
+    </div>
+
+
+    <div class="control_all_bottom_margin"></div>
+{% endblock %}

@@ -6,7 +6,6 @@
     top: 0;
     z-index: 999 !important;
     /*border: solid 1px #000;*/
-
 }
 
 .top_header * {
@@ -20,19 +19,32 @@
     margin-right: 0em !important;
     width: auto !important;
     /*border: solid 1px #000;*/
+
 }
 
 .top_header .ui.container .ui.menu {
     /*background: #00b5ad;*/
     margin: 0;
     /*border: solid 1px #000;*/
+    height: 40px !important;
 }
 
-.top_header  .ui.container .ui.menu .info_section .ui.dropdown .menu {
+.top_header .ui.container .ui.inverted.menu .nav.ui.teal.inverted.secondary.menu {
+    /*background: #00b5ad;*/
+    margin: 0;
+    /*border: solid 1px #000;*/
+    /*height: 40px !important;*/
+    min-height: 40px !important;
+}
+
+.top_header .ui.container .ui.menu .logo.right.item a h1{
+    /*font-size: 2.0rem !important;*/
+}
+
+.top_header .ui.container .ui.menu .info_section .ui.dropdown .menu {
     left: auto !important;
     right: 0px !important;
 }
-
 
 .top_header .ui.container .ui.menu .nav.menu {
     display: none;
@@ -52,7 +64,7 @@
 }
 
 /*.top_header .ui.container .ui.menu .info_section .hub_status {*/
-    /*display: none !important;*/
+/*display: none !important;*/
 /*}*/
 
 /*----------------------- 태블릿용 CSS ----------------------*/
@@ -93,8 +105,8 @@
     }
 
     /*.top_header .ui.container .ui.menu .info_section .hub_status {*/
-        /*display: block !important;*/
-        /*font-size: 1.1rem;*/
+    /*display: block !important;*/
+    /*font-size: 1.1rem;*/
     /*}*/
 
 }

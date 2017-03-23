@@ -18,6 +18,7 @@
 .control_footer  .ui.container .ui.menu {
     margin: 0 !important;
     border-radius: 0 !important;
+    height: 40px !important;
 
 }
 
