@@ -118,7 +118,7 @@ def control_node():
     data['control'] = True
     data['node'] = True
 
-    return render_template('node.html', data=data)
+    return render_template('control_all.html', data=data)
 
 
 #
