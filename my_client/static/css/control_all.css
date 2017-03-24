@@ -24,7 +24,8 @@
 }
 
 .control_all_node_section.ui.segment {
-    display: none;
+    /*display: none;*/
+    display: block;
 }
 
 .control_all_app_section.ui.segment .app_section.ui.items .app_title.item {

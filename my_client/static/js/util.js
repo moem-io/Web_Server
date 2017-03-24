@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // $('.control_all_app_section').css('display', 'none');
     // $('.control_all_log_section').css('display', 'none');
-    // $('.control_all_node_section').css('display', 'none');
+    $('.control_all_node_section').css('display', 'none');
 
     $('.ui.sidebar').sidebar('attach events', '.ui.text.menu > nav.item > .hamburger.item');
     $('.ui.dropdown').dropdown();
