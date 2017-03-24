@@ -61,9 +61,14 @@ def control_app():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
+
     username = None
-    if remote_me:
+    if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
+        print('username', username)
+    else:
+        session.pop('remote_oauth', None)
+
 
     data = {}
     data['username'] = username
@@ -77,9 +82,14 @@ def control_log():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
+
     username = None
-    if remote_me:
+    if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
+        print('username', username)
+    else:
+        session.pop('remote_oauth', None)
+
 
     data = {}
     data['username'] = username
@@ -94,9 +104,14 @@ def control_node():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
+
     username = None
-    if remote_me:
+    if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
+        print('username', username)
+    else:
+        session.pop('remote_oauth', None)
+
 
     data = {}
     data['username'] = username
@@ -112,9 +127,14 @@ def make():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
+
     username = None
-    if remote_me:
+    if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
+        print('username', username)
+    else:
+        session.pop('remote_oauth', None)
+
 
     data = {}
     data['username'] = username
@@ -131,9 +151,14 @@ def share():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
+
     username = None
-    if remote_me:
+    if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
+        print('username', username)
+    else:
+        session.pop('remote_oauth', None)
+
 
     data = {}
     data['username'] = username

@@ -7,7 +7,6 @@
 .control_all_bottom_margin {
     /*margin-bottom: 35px;*/
     margin-top: 50px;
-
 }
 
 .control_all_app_section.ui.segment {
@@ -16,16 +15,17 @@
     margin-right: 0 !important;
 }
 
-.control_all_app_section.ui.segment{
-    display: none;
-}
-.control_all_log_section.ui.segment{
-    display: none;
-}
-.control_all_node_section.ui.segment{
+.control_all_app_section.ui.segment {
     display: none;
 }
 
+.control_all_log_section.ui.segment {
+    display: none;
+}
+
+.control_all_node_section.ui.segment {
+    display: none;
+}
 
 .control_all_app_section.ui.segment .app_section.ui.items .app_title.item {
     display: none !important;
@@ -43,9 +43,22 @@
     margin: 0 !important;
 }
 
+/*log*/
+.control_all_log_section.ui.segment .log_section.ui.items .mobile_log {
+    display: block;
+}
+.control_all_log_section.ui.segment .log_section.ui.items .mobile_log.content.ui.segment .meta{
+    margin-bottom: 30px !important;
+}
+
+.control_all_log_section.ui.segment .log_section.ui.items .pc_log {
+    display: none;
+}
+
+/*node*/
 #node {
     align-self: center;
-    width: 500px;
+    width: 100%;
     height: 500px;
 }
 
@@ -105,4 +118,19 @@
         margin-right: auto !important;
     }
 
+    /*log*/
+    .control_all_log_section.ui.segment .log_section.ui.items .mobile_log {
+        display: none;
+    }
+
+    .control_all_log_section.ui.segment .log_section.ui.items .pc_log {
+        display: block;
+    }
+
+    /*node*/
+    #node {
+        align-self: center;
+        width: 500px;
+        height: 500px;
+    }
 }

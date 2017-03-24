@@ -20,6 +20,8 @@ var dataset = {
 
 
 //Width and height
+// var w = '100vw';
+// var h = '100vh';
 var w = 300;
 var h = 500;
 

@@ -43,6 +43,7 @@
     <script src="../static/js/block/block_init.js"></script>
 
 </head>
+{#<body onbeforeunload="closePage(event)">#}
 <body>
 
 {% block sidebar %}
@@ -72,6 +73,7 @@
 <!--js-->
 <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static', filename='js/gnode.js') }}"></script>
+{#<script type="text/javascript" src="{{ url_for('static', filename='js/close.js') }}"></script>#}
 
 
 </body>
