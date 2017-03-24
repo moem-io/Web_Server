@@ -25,8 +25,8 @@ $(document).ready(function () {
     $('.nav.sidebar.menu .item').removeClass('active');
     $('.nav.sidebar.menu .item').filter(function () {
         var url = window.location.href;
-        console.log('this.href', this.href);
-        console.log('url', url);
+        // console.log('this.href', this.href);
+        // console.log('url', url);
         return this.href == url || this.href + '/app' == url || this.href + '/log' == url || this.href + '/node' == url;
     }).addClass('active');
 
@@ -53,6 +53,19 @@ $(document).ready(function () {
         }
     });
 
+    var xmlText = localStorage.getItem("blockly.xml");
+    if (xmlText) {
+        Blockly.mainWorkspace.clear();
+        xmlDom = Blockly.Xml.textToDom(xmlText);
+        Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
+    }
+
+    window.onunload = function () {
+        if (event.clientX < 0 && event.clientY < 0) {
+            alert("브라우저를 종료하였습니다.");
+        }
+
+    };
 
 });
 

@@ -5,6 +5,7 @@ from my_client.app import app
 from my_client.routes.oauth import remote
 from my_client.forms.board import writingForm
 
+
 # url = 'http://localhost:5000/board'
 # url = 'http://13.124.19.161:5000/board'
 # url_hub = 'http://13.124.19.161:5000/hub_status'
@@ -20,9 +21,11 @@ def index():
         # return jsonify(remote_me.data)
         # print('remote_me', remote_me.data.get('username'))
     username = None
-    if remote_me:
+    if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
-    print('username', username)
+        print('username', username)
+    else:
+        session.pop('remote_oauth', None)
 
     hub_info = None
     if username:
@@ -51,6 +54,7 @@ def index():
         }
 
     return render_template('index.html', data=data)
+
 
 @app.route('/control/app')
 def control_app():
@@ -134,9 +138,6 @@ def share():
     data = {}
     data['username'] = username
     return render_template('share.html', data=data)
-
-
-
 
 
 #

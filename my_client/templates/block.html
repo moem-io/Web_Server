@@ -2,6 +2,10 @@
 {% block title %}Make{% endblock %}
 
 {% block content %}
+    <div class="block_menu ui menu">
+        <a class="item" onclick="saveWorkspace()">save</a>
+        <a class="item" onclick="loadWorkspace()">load</a>
+    </div>
     <div class="block">
 
         <div class="block_section ui raised segment">
@@ -133,6 +137,74 @@
                     document.getElementById('textarea').value = code;
                 }
                 workspace.addChangeListener(myUpdateFunction);
+
+
+                //
+                if (typeof(Storage) !== "undefined") {
+                    // Code for localStorage/sessionStorage.
+                    console.log('storage on!')
+                } else {
+                    // Sorry! No Web Storage support..
+                    console.log('Sorry! No Web Storage support')
+                }
+
+                function saveWorkspace() {
+                    var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
+                    var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
+
+                    localStorage.setItem("blockly.xml", xmlText);
+                }
+
+                function loadWorkspace() {
+                    var xmlText = localStorage.getItem("blockly.xml");
+                    if (xmlText) {
+                        Blockly.mainWorkspace.clear();
+                        xmlDom = Blockly.Xml.textToDom(xmlText);
+                        Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
+                    }
+                }
+
+
+            </script>
+
+            {#            <script for="window" event="onunload" language="javascript">#}
+            <script language="javascript">
+                function broswer_envent() {
+                    if (event.clientY < 0) {
+                        console.log('storage on!');
+                        alert("browser closed!!!");
+                    }
+                }
+                document.onkeydown = function () {
+                    // 새로고침 방지 ( Ctrl+R, Ctrl+N, F5 )
+                    if (event.ctrlKey == true && ( event.keyCode == 78 || event.keyCode == 82 ) || event.keyCode == 116) {
+                        event.keyCode = 0;
+                        event.cancelBubble = true;
+                        event.returnValue = false;
+                                                console.log('storage on!');
+
+                    }
+
+
+                    // 창 닫기( Alt+F4 ) 방지
+                    if (event.keyCode == 115) { // F4 눌렀을 시
+                        // 로그아웃 처리
+                        console.log('storage on!');
+
+                    }
+
+
+                    // 윈도우 창이 닫힐 경우
+                    if (event.keyCode == 505) {
+                        alert(document.body.onBeforeUnload);
+                                                console.log('storage on!');
+
+                    }
+
+
+                };
+
+
             </script>
         </div>
 
