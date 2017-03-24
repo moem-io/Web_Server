@@ -74,7 +74,7 @@ def control_app():
     data['username'] = username
     data['control'] = True
     data['app'] = True
-    return render_template('control_all.html', data=data)
+    return render_template('control_app.html', data=data)
 
 
 @app.route('/control/log')
@@ -118,7 +118,7 @@ def control_node():
     data['control'] = True
     data['node'] = True
 
-    return render_template('control_all.html', data=data)
+    return render_template('node.html', data=data)
 
 
 #
