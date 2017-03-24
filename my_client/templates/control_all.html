@@ -249,6 +249,9 @@
     {# node #}
     {#    {% if data.node %}#}
 
+    <!--d3-->
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
     <div class="control_all_node_section ui segment">
         <div class="node_section ui items">
 
@@ -263,7 +266,7 @@
 
             <div class="ui raised segment">
                 <div class="node_info content">
-                    {#                    <svg id="node"></svg>#}
+                    <svg id="node"></svg>
                 </div>
             </div>
 
@@ -271,26 +274,11 @@
         </div>
     </div>
 
-    <!--d3-->
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-    <svg id="node"></svg>
+    {#    <svg id="node"></svg>#}
 
     {#    {% endif %}#}
 
-    {#    <script>$('.control_all_app_section').css('display', 'none');</script>#}
-    {#    <script>$('.control_all_log_section').css('display', 'none');</script>#}
-    {#    <script>$('.control_all_node_section').css('display', 'none');</script>#}
-
-    {#    {% if data.app %}#}
-    <!--<script>$('.control_all_app_section').css('display', 'block');</script>-->
-    {#    {% endif %}#}
-    {#    {% if data.log %}#}
-    <!--<script>$('.control_all_log_section').css('display', 'block');</script>-->
-    {#    {% endif %}#}
-    {#    {% if data.node %}#}
-    <!--<script>$('.control_all_node_section').css('display', 'block');</script>-->
-    {#    {% endif %}#}
 
     <div class="control_all_bottom_margin"></div>
 {% endblock %}
