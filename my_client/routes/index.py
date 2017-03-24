@@ -17,8 +17,7 @@ def index():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
-        return jsonify(remote_me.data)
-
+        # return jsonify(remote_me.data)
         # print('remote_me', remote_me.data.get('username'))
     username = None
     if remote_me:
