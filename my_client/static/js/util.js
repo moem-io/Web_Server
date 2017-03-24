@@ -39,15 +39,17 @@ $(document).ready(function () {
 
         if (windowWidth < 960) {
             if (this.href + '/app' == url) {
-                $('.control_all_log_section').css('display', 'none');
-                $('.control_all_node_section').css('display', 'none');
+                $('.control_all_app_section').css('display', 'block');
             } else if (this.href + '/log' == url) {
-                $('.control_all_app_section').css('display', 'none');
-                $('.control_all_node_section').css('display', 'none');
+                $('.control_all_log_section').css('display', 'block');
             } else if (this.href + '/node' == url) {
-                $('.control_all_app_section').css('display', 'none');
-                $('.control_all_log_section').css('display', 'none');
+                $('.control_all_node_section').css('display', 'block');
             }
+        } else {
+            $('.control_all_app_section').css('display', 'block');
+            $('.control_all_log_section').css('display', 'block');
+            $('.control_all_node_section').css('display', 'block');
+
         }
     });
 

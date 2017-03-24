@@ -16,6 +16,17 @@
     margin-right: 0 !important;
 }
 
+.control_all_app_section.ui.segment{
+    display: none;
+}
+.control_all_log_section.ui.segment{
+    display: none;
+}
+.control_all_node_section.ui.segment{
+    display: none;
+}
+
+
 .control_all_app_section.ui.segment .app_section.ui.items .app_title.item {
     display: none !important;
 }

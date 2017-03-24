@@ -1,4 +1,4 @@
-from flask import render_template, session, url_for, redirect
+from flask import render_template, session, url_for, redirect, jsonify
 from requests import post
 
 from my_client.app import app
@@ -17,11 +17,13 @@ def index():
     remote_me = None
     if 'remote_oauth' in session:
         remote_me = remote.get('me')
+        return jsonify(remote_me.data)
+
         # print('remote_me', remote_me.data.get('username'))
     username = None
     if remote_me:
         username = remote_me.data.get('username')
-    # print(username)
+    print('username', username)
 
     hub_info = None
     if username:
