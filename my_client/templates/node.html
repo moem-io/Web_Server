@@ -1,8 +1,33 @@
 {% extends 'layout.html' %}
 {% block title %}BLOCKBEE{% endblock %}
 
+{#{% block content %}#}
+{#    <section class="node_section">#}
+{#        <svg id="node"></svg>#}
+{#    </section>#}
+{#{% endblock %}#}
+
 {% block content %}
-    <section class="node_section">
-        <svg id="node"></svg>
-    </section>
+    <div class="control_all_node_section ui segment">
+        <div class="node_section ui items">
+
+            <div class="node_title item">
+                <div class="node_title content">
+                    <div class="header">NODE</div>
+                    <div class="ui teal right floated button">Refresh</div>
+                    <div class="meta">IoT허브의 노드 연결 정보를 확인할 수 있습니다.</div>
+                </div>
+            </div>
+
+
+            <div class="ui raised segment">
+                <div class="node_info content">
+                    <svg id="node"></svg>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 {% endblock %}
+
