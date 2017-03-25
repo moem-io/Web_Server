@@ -1,21 +1,20 @@
+.index_top_margin {
+    /*margin-top: 35px;*/
+    margin-top: 50px;
+}
+
 section.main_section {
-    margin-top: 60px;
-    margin-bottom: 60px;
-
-    /*display: flex;*/
-    /*flex-flow: column nowrap;*/
-    /*justify-content: center !important;*/
-
 
 }
 
 section .ui.vertical.segment {
-    margin-left: 0em !important;
-    margin-right: 0em !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: auto !important;
+    max-width:1200px;
 }
 
 section .ui.segment .main_img {
-    width: 80%;
-    border: 1px solid #000;
+    width: 100%;
+    /*border: 1px solid #000;*/
 }
