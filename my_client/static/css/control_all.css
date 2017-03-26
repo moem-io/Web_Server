@@ -6,6 +6,7 @@
 
 .control_all_bottom_margin {
     /*margin-bottom: 35px;*/
+    margin-bottom: 50px;
 }
 
 .control_all_app_section.ui.segment {
@@ -125,6 +126,8 @@
 
     .control_all_log_section.ui.segment .log_section.ui.items .pc_log {
         display: block;
+    }
+    .control_all_log_section.ui.segment .log_section.ui.items .pc_log h1{
     }
 
     /*node*/
