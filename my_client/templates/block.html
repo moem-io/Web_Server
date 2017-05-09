@@ -3,6 +3,9 @@
 
 {% block content %}
     <div class="block_menu ui menu">
+        <a class="item">
+            <div class="ui input"><input type="text" placeholder="title"></div>
+        </a>
         <a class="item" onclick="saveWorkspace()">save</a>
         <a class="item" onclick="loadWorkspace()">load</a>
     </div>
@@ -28,8 +31,8 @@
                 <category name="출력" colour="30">
                     <block type="text_print"></block>
                     <block type="text"></block>
-{#                    <block type="my_print"></block>#}
-{#                    <block type="my_print2"></block>#}
+                    {#                    <block type="my_print"></block>#}
+                    {#                    <block type="my_print2"></block>#}
                     <block type="motor"></block>
 
                 </category>

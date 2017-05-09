@@ -1,5 +1,6 @@
+from functools import wraps
 from flask import render_template, session, url_for, request, redirect
-from requests import post
+from requests import post, get
 
 from my_client.app import app
 from my_client.routes.oauth import remote
@@ -35,17 +36,20 @@ def hub_register():
     hub_register = remote.get('hub_register')
     return redirect(url_for('index'))
 
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        return f(*args, **kwargs)
+    return decorated_function
+
+@app.route('/test/mqtt', methods=['GET', 'POST'])
+@login_required
+def test_mqtt():
+    res = get('https://api.moem.io/test/mqtt')
+    return redirect(request.referrer)
 
 
-
-
-
-
-
-
-
-
-# post
+    # post
     # res = None
     # if True:
         # response = post(url, json=payload)
