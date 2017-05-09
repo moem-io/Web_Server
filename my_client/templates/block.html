@@ -22,22 +22,35 @@
 
                 <category name="외부" colour="0">
                     <block type="weather"></block>
+                    <block type="dust"></block>
+                </category>
+
+                <category name="센서" colour="30">
+                    <block type="soil_humi_sensor"></block>
+                    <block type="temp_humi_sensor"></block>
+                    <block type="human_sensor"></block>
+                    <block type="distance_sensor"></block>
+                    <block type="knock_sensor"></block>
+                    <block type="btn_sensor"></block>
+                </category>
+
+                <category name="동작" colour="60">
+                    <block type="motor"></block>
+                    <block type="remote"></block>
+                    <block type="led"></block>
+                    <block type="buzzer"></block>
                 </category>
 
 
                 <sep gap="32"></sep>
 
 
-                <category name="출력" colour="30">
+                <category name="출력" colour="180">
                     <block type="text_print"></block>
                     <block type="text"></block>
-                    {#                    <block type="my_print"></block>#}
-                    {#                    <block type="my_print2"></block>#}
-                    <block type="motor"></block>
-
                 </category>
 
-                <category name="조건" colour="50">
+                <category name="조건" colour="200">
                     <block type="controls_if">
 
                     </block>
@@ -49,7 +62,7 @@
                     </block>
                 </category>
 
-                <category name="반복" colour="100">
+                <category name="반복" colour="220">
                     <block type="controls_repeat_ext">
                         <value name="TIMES">
                             <shadow type="math_number">
@@ -82,7 +95,7 @@
                     </block>
                 </category>
 
-                <category name="논리" colour="210">
+                <category name="논리" colour="240">
                     <block type="logic_compare"></block>
                     <block type="logic_operation"></block>
                     <block type="logic_negate"></block>
@@ -91,7 +104,7 @@
                     <block type="logic_ternary"></block>
                 </category>
 
-                <category name="연산" colour="200">
+                <category name="연산" colour="260">
                     <block type="math_number">
                         <field name="NUM">0</field>
                     </block>
@@ -116,9 +129,9 @@
 
                 <sep gap="32"></sep>
 
-                <category name="변수" colour="300" custom="VARIABLE">
+                <category name="변수" colour="280" custom="VARIABLE">
                 </category>
-                <category name="함수" colour="350" custom="PROCEDURE">
+                <category name="함수" colour="300" custom="PROCEDURE">
                 </category>
 
 
