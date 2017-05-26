@@ -2,13 +2,36 @@
 {% block title %}Make{% endblock %}
 
 {% block content %}
-    <div class="block_menu ui menu">
-        <a class="item">
-            <div class="ui input"><input type="text" placeholder="title"></div>
-        </a>
-        <a class="item" onclick="saveWorkspace()">save</a>
-        <a class="item" onclick="loadWorkspace()">load</a>
+
+    {# 이전 버전 #}
+{#        <div class="block_menu ui menu">#}
+{##}
+{#            <a class="item">#}
+{#                <div class="ui title input"><input form="upload_form" name="title" type="text" placeholder="title"></div>#}
+{#            </a>#}
+{#            <a class="item" onclick="saveWorkspace()">save</a>#}
+{#            <a class="item" onclick="loadWorkspace()">load</a>#}
+{##}
+{#            <input type="submit" class="upload teal ui right floated button" value="upload">#}
+{#        </div>#}
+
+    <div class="block_menu ui form">
+        <div class="ui menu field">
+
+            <a class="item">
+                <div class="ui title input"><input form="upload_form" name="title" type="text" placeholder="title">
+                </div>
+            </a>
+            <a class="item" onclick="saveWorkspace()">save</a>
+            <a class="item" onclick="loadWorkspace()">load</a>
+
+            <form class="item" action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">
+                <input type="submit" class="upload teal ui right floated button" value="upload">
+            </form>
+        </div>
     </div>
+
+
     <div class="block">
 
         <div class="block_section ui raised segment">
@@ -173,6 +196,7 @@
                     console.log('Sorry! No Web Storage support')
                 }
 
+
                 function saveWorkspace() {
                     var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
                     var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
@@ -196,7 +220,27 @@
                     }
                 }
 
-
+                $(document)
+                    .ready(function () {
+                        $('.ui.form')
+                            .form({
+                                fields: {
+                                    password: {
+                                        identifier: 'title',
+                                        rules: [
+                                            {
+                                                type: 'empty',
+                                                prompt: '타이틀을 입력하세요'
+                                            },
+                                            {
+                                                type: 'length[0]',
+                                                prompt: '타이틀은 3자 이상입니다'
+                                            }
+                                        ]
+                                    }
+                                }
+                            });
+                    });
             </script>
 
 
@@ -211,9 +255,9 @@
             <div class="script">
                 <textarea id="textarea" name="upload_app" form="upload_form"></textarea>
             </div>
-            <form action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">
-                <input type="submit" class="upload teal ui right floated button" value="upload">
-            </form>
+{#            <form action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">#}
+{#                <input type="submit" class="upload teal ui right floated button" value="upload">#}
+{#            </form>#}
         </div>
 
 

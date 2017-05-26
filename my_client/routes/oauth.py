@@ -1,7 +1,9 @@
 from flask import redirect, request, url_for, session
 from flask_oauthlib.client import OAuth
+from functools import wraps
 
 from my_client.app import app
+from urllib.parse import urlparse, urlencode, parse_qs
 
 # CLIENT_ID = 'LYOcOFFgXql56WH2xsh9nMYOcbd4TApeCZWgV5dd'
 # CLIENT_SECRET = '2D83nYX1GdvGYSq1ejWFzkYVFNApffJzc6z3PEVfUEdSnWsVre'
@@ -31,6 +33,14 @@ remote = oauth.remote_app(
 )
 
 
+@remote.tokengetter
+def get_oauth_token():
+    return session.get('remote_oauth')
+
+
+
+
+
 @app.route('/authorized')
 def authorized():
     print('authorized')
@@ -43,8 +53,10 @@ def authorized():
     print(resp)
     session['remote_oauth'] = (resp['access_token'], '')
     # return jsonify(oauth_token=resp['access_token'])
-    return redirect(url_for('index'))
 
-@remote.tokengetter
-def get_oauth_token():
-    return session.get('remote_oauth')
+    next_url = request.referrer
+    next_url = request.args.get('next')
+    params = parse_qs(urlparse(request.referrer).query)
+    next_url = params['next'][0] if 'next' in params else url_for('index')
+
+    return redirect(url_for('index'))

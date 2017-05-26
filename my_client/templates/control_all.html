@@ -203,7 +203,68 @@
 
                 </div>
 
+                <!--4-->
+                {% for i in data.apps%}
+                    <div class="card">
 
+                        <div class="app_info content">
+
+                            <div class="title ui grid ">
+                                <div class="twelve wide column">
+                                    <h1>{{ i.app_name }}</h1>
+                                </div>
+                                <divi class="four wide column">
+                                    <div class="right floated orange tiny ui toggle button">{{ i.app_switch }}</div>
+                                </divi>
+                            </div>
+
+                            <div class="sub ui grid">
+                                <div class="fourteen wide column">
+                                    <div class="meta">
+                                        {{ i.app_detail }}
+                                    </div>
+                                </div>
+                                <div class="two wide column">
+                                    <i class="right floated link options icon"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="sensor content">
+
+                            <div class="header">
+                                <h3>{{ i.app_input }}</h3>
+                            </div>
+                            <div class="description">
+                                <div class="ui grid">
+                                    <div class="two wide column"><i class="sun icon"></i></div>
+                                    <div class="six wide column">24°C</div>
+                                    <div class="two wide column"><i class="theme icon"></i></div>
+                                    <div class="six wide column">15%</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="actuator content">
+
+                            <div class="header">
+                                <h3>서보 모터</h3>
+                            </div>
+                            <div class="meta">
+                                <p>If Temp < 18°C</p>
+                                <p>Then motor turn</p>
+                            </div>
+                            <div class="ui orange inverted two item menu">
+                                <a class="{% if i.app_output_switch  %}active{% endif %} item">ON</a>
+                                <a class="{% if not i.app_output_switch  %}active{% endif %} item">OFF</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
             </div>
         </div>
 

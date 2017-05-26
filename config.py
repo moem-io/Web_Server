@@ -10,6 +10,7 @@ CLIENT_SECRET = os.environ['CLIENT_SECRET']
 
 SECRET_KEY = os.environ['SECRET_KEY']
 
+API_URL = os.environ['API_URL']
 BASE_URL = os.environ['BASE_URL']
 ACCESS_TOKEN_URL = os.environ['ACCESS_TOKEN_URL']
 AUTHORIZE_URL = os.environ['AUTHORIZE_URL']

@@ -1,9 +1,12 @@
-from flask import render_template, session, url_for, redirect, jsonify
+from flask import render_template, session, url_for, redirect, jsonify, request
 from requests import post
 
 from my_client.app import app
 from my_client.routes.oauth import remote
 from my_client.forms.board import writingForm
+
+from functools import wraps
+from urllib.parse import urlparse, urlencode, parse_qs
 
 
 # url = 'http://localhost:5000/board'
@@ -12,6 +15,22 @@ from my_client.forms.board import writingForm
 # url_hub = 'http://127.0.0.1:5000/hub_status'
 # url_board = 'http://127.0.0.1:5000/board'
 
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'remote_oauth' not in session:
+            # return redirect(get_oauth_url())
+            next_url = None  # 왜 None일때만 되는가?
+            next_url = request.referrer
+            next_url = 'http://127.0.0.1:8000/controll/app'
+            # print('next_url', next_url)
+            return remote.authorize(
+                callback=url_for('authorized', next=next_url, _external=True)
+            )
+        return f(*args, **kwargs)
+
+    return decorated_function
 
 @app.route('/')
 def index():
@@ -69,11 +88,28 @@ def control_app():
     else:
         session.pop('remote_oauth', None)
 
-
     data = {}
     data['username'] = username
     data['control'] = True
     data['app'] = True
+
+    data['apps'] = [{'app_num': 1,
+                     'app_name': '기상청 온도로 창문 닫기',
+                     'app_detail': '기상청의 온도를 가져와 창문을 닫아보자!',
+                     'app_input': '기상청 온도 및 습도',
+                     'app_switch': 'ON',
+
+                     'app_output_switch': True
+                     },
+                    {'app_num': 2,
+                     'app_name': '두번째앱',
+                     'app_detail': 'ㅎㅎ',
+                     'app_input': 'ㄸ',
+                     'app_switch': 'ON',
+
+                     'app_output_switch': False
+                     }]
+
     return render_template('control_all.html', data=data)
 
 
@@ -90,14 +126,12 @@ def control_log():
     else:
         session.pop('remote_oauth', None)
 
-
     data = {}
     data['username'] = username
     data['control'] = True
     data['log'] = True
 
     return render_template('control_all.html', data=data)
-
 
 @app.route('/control/node')
 def control_node():
@@ -111,7 +145,6 @@ def control_node():
         print('username', username)
     else:
         session.pop('remote_oauth', None)
-
 
     data = {}
     data['username'] = username
@@ -134,7 +167,6 @@ def make():
         print('username', username)
     else:
         session.pop('remote_oauth', None)
-
 
     data = {}
     data['username'] = username
@@ -159,7 +191,6 @@ def share():
     else:
         session.pop('remote_oauth', None)
 
-
     data = {}
     data['username'] = username
     return render_template('share.html', data=data)
@@ -183,3 +214,16 @@ def board():
         return str(res.text)
 
     return render_template('board.html', form=form)
+
+
+
+
+def get_oauth_url():
+
+    params = {
+        'response_type': 'code',
+        'client_id': app.config.get('CLIENT_ID'),
+        'redirect_uri': 'http://127.0.0.1:8000/authorized',
+        'scope': 'email',
+    }
+    return "{0}?{1}".format(app.config.get('AUTHORIZE_URL'), urlencode(params))
