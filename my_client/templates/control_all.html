@@ -20,191 +20,8 @@
             </div>
 
             <div class="ui centered cards">
-                <div class="card">
-
-                    <div class="app_info content">
-
-                        <div class="title ui grid ">
-                            <div class="twelve wide column">
-                                <h1>노크로 불 끄기</h1>
-                            </div>
-                            <div class="four wide column">
-                                <div class="right floated teal tiny ui button">ON</div>
-                            </div>
-                        </div>
-
-                        <div class="sub ui grid">
-                            <div class="fourteen wide column">
-                                <div class="meta">
-                                    {#                                    Auto turn off the light by knocking#}
-                                    노크센서를 두 번 두드려 내 방 전등을 꺼보자!
-                                </div>
-                            </div>
-                            <div class="two wide column">
-                                <i class="center aligned right floated link options icon"></i>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="sensor content">
-
-                        <div class="header">
-                            <h3>노크 센서</h3>
-                        </div>
-                        <div class="description">
-                            <div class="ui grid">
-                                <div class="two wide column"><i class="bullseye icon"></i></div>
-                                <div class="six wide column">세기 : 45%</div>
-                                <div class="two wide column"><i class="hand rock icon"></i></div>
-                                <div class="six wide column">두 번</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="actuator content">
-
-                        <div class="header">
-                            <h3>서보 모터</h3>
-                        </div>
-                        <div class="meta">
-                            <p>If value > 50 and count : two</p>
-                            <p>Then motor turn</p>
-                        </div>
-                        <div class="ui teal inverted two item menu">
-                            <a href="/test/mqtt" class="active item">ON</a>
-                            <a class="item">OFF</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!--2-->
-                <div class="card">
-
-                    <div class="app_info content">
-
-                        <div class="title ui grid ">
-                            <div class="twelve wide column">
-                                <h1>압력감지로 알람 끄기</h1>
-                            </div>
-                            <divi class="four wide column">
-                                <div class="right floated teal tiny ui toggle button">ON</div>
-                            </divi>
-                        </div>
-
-                        <div class="sub ui grid">
-                            <div class="fourteen wide column">
-                                <div class="meta">
-                                    화장실 앞 카펫의 압력 감지 센서를 밟아야 알람이 꺼진다!
-                                </div>
-                            </div>
-                            <div class="two wide column">
-                                <i class="right floated link options icon"></i>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="sensor content">
-
-                        <div class="header">
-                            <h3>압력감지</h3>
-                        </div>
-                        <div class="description">
-                            <div class="ui grid">
-                                <div class="two wide column"><i class="angle double down icon"></i></div>
-                                <div class="six wide column">24 Pa</div>
-                                {#                                <div class="two wide column"><i class="theme icon"></i></div>#}
-                                {#                                <div class="six wide column">15%</div>#}
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="actuator content">
-
-                        <div class="header">
-                            <h3>부저</h3>
-                        </div>
-                        <div class="meta">
-                            <p>If pressure < 18°C</p>
-                            <p>Then buzzer turn</p>
-                        </div>
-                        <div class="ui teal inverted two item menu">
-                            <a class="active item">ON</a>
-                            <a class="item">OFF</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!--3-->
-                <div class="card">
-
-                    <div class="app_info content">
-
-                        <div class="title ui grid ">
-                            <div class="twelve wide column">
-                                <h1>기상청 온도로 창문 닫기</h1>
-                            </div>
-                            <divi class="four wide column">
-                                <div class="right floated orange tiny ui toggle button">ON</div>
-                            </divi>
-                        </div>
-
-                        <div class="sub ui grid">
-                            <div class="fourteen wide column">
-                                <div class="meta">
-                                    기상청의 온도를 가져와 창문을 닫아보자!
-                                </div>
-                            </div>
-                            <div class="two wide column">
-                                <i class="right floated link options icon"></i>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="sensor content">
-
-                        <div class="header">
-                            <h3>기상청 온도 및 습도</h3>
-                        </div>
-                        <div class="description">
-                            <div class="ui grid">
-                                <div class="two wide column"><i class="sun icon"></i></div>
-                                <div class="six wide column">24°C</div>
-                                <div class="two wide column"><i class="theme icon"></i></div>
-                                <div class="six wide column">15%</div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="actuator content">
-
-                        <div class="header">
-                            <h3>서보 모터</h3>
-                        </div>
-                        <div class="meta">
-                            <p>If Temp < 18°C</p>
-                            <p>Then motor turn</p>
-                        </div>
-                        <div class="ui orange inverted two item menu">
-                            <a class="active item">ON</a>
-                            <a class="item">OFF</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
                 <!--4-->
-                {% for i in data.apps%}
+                {% for i in data.apps %}
                     <div class="card">
 
                         <div class="app_info content">
@@ -214,7 +31,19 @@
                                     <h1>{{ i.app_name }}</h1>
                                 </div>
                                 <divi class="four wide column">
-                                    <div class="right floated orange tiny ui toggle button">{{ i.app_switch }}</div>
+                                    <a href="/switch/{{ i.id }}">
+                                        <div class="right floated {% if i.app_switch %}teal{% else %}orange{% endif %} tiny ui animated fade button">
+                                            {% if i.app_switch %}
+                                                <div class="visible content">ON</div>
+                                                <div class="hidden content">OFF</div>
+                                            {% else %}
+                                                <div class="visible content">OFF</div>
+                                                <div class="hidden content">ON</div>
+                                            {% endif %}
+
+
+                                        </div>
+                                    </a>
                                 </divi>
                             </div>
 
@@ -238,10 +67,10 @@
                             </div>
                             <div class="description">
                                 <div class="ui grid">
-                                    <div class="two wide column"><i class="sun icon"></i></div>
-                                    <div class="six wide column">24°C</div>
-                                    <div class="two wide column"><i class="theme icon"></i></div>
-                                    <div class="six wide column">15%</div>
+                                    {% for j in i.app_input_detail %}
+                                        <div class="two wide column"><i class="{{ j['icon'] }}"></i></div>
+                                        <div class="six wide column">{{ j['value'] }}</div>
+                                    {% endfor %}
                                 </div>
                             </div>
 
@@ -252,13 +81,13 @@
                             <div class="header">
                                 <h3>서보 모터</h3>
                             </div>
-                            <div class="meta">
-                                <p>If Temp < 18°C</p>
-                                <p>Then motor turn</p>
-                            </div>
-                            <div class="ui orange inverted two item menu">
-                                <a class="{% if i.app_output_switch  %}active{% endif %} item">ON</a>
-                                <a class="{% if not i.app_output_switch  %}active{% endif %} item">OFF</a>
+{#                            <div class="meta">#}
+{#                                <p>If Temp < 18°C</p>#}
+{#                                <p>Then motor turn</p>#}
+{#                            </div>#}
+                            <div class="ui teal inverted two item menu">
+                                <a class="{% if i.app_output_detail %}active{% endif %} item">ON</a>
+                                <a class="{% if not i.app_output_detail %}active{% endif %} item">OFF</a>
                             </div>
 
                         </div>

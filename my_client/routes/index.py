@@ -1,5 +1,5 @@
 from flask import render_template, session, url_for, redirect, jsonify, request
-from requests import post
+from requests import post, get
 
 from my_client.app import app
 from my_client.routes.oauth import remote
@@ -7,14 +7,11 @@ from my_client.forms.board import writingForm
 
 from functools import wraps
 from urllib.parse import urlparse, urlencode, parse_qs
+import json
+import paho.mqtt.client as mqtt
+import time
 
-
-# url = 'http://localhost:5000/board'
-# url = 'http://13.124.19.161:5000/board'
-# url_hub = 'http://13.124.19.161:5000/hub_status'
-# url_hub = 'http://127.0.0.1:5000/hub_status'
-# url_board = 'http://127.0.0.1:5000/board'
-
+api_url = app.config['API_URL']
 
 def login_required(f):
     @wraps(f)
@@ -84,7 +81,7 @@ def control_app():
     username = None
     if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
-        print('username', username)
+        # print('username', username)
     else:
         session.pop('remote_oauth', None)
 
@@ -93,22 +90,25 @@ def control_app():
     data['control'] = True
     data['app'] = True
 
-    data['apps'] = [{'app_num': 1,
-                     'app_name': '기상청 온도로 창문 닫기',
-                     'app_detail': '기상청의 온도를 가져와 창문을 닫아보자!',
-                     'app_input': '기상청 온도 및 습도',
-                     'app_switch': 'ON',
+    mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
+    mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
+    mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.loop(2)
 
-                     'app_output_switch': True
-                     },
-                    {'app_num': 2,
-                     'app_name': '두번째앱',
-                     'app_detail': 'ㅎㅎ',
-                     'app_input': 'ㄸ',
-                     'app_switch': 'ON',
+    time.sleep(1)
 
-                     'app_output_switch': False
-                     }]
+    res = get(api_url + 'app_info')
+    data.update(json.loads(res.text))
+    # print('data', data['apps'])
+    for i in data['apps']:
+        # print('i', type(eval(json.dumps(i['app_input_detail']))))
+        # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
+        # print('i', type(i['app_input_detail']))
+        # print('i', i)
+        # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
+        i['app_input_detail'] = eval(i['app_input_detail'])
+
+    # print('data type', type(json.loads(res.text)))
 
     return render_template('control_all.html', data=data)
 

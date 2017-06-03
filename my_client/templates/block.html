@@ -4,16 +4,16 @@
 {% block content %}
 
     {# 이전 버전 #}
-{#        <div class="block_menu ui menu">#}
-{##}
-{#            <a class="item">#}
-{#                <div class="ui title input"><input form="upload_form" name="title" type="text" placeholder="title"></div>#}
-{#            </a>#}
-{#            <a class="item" onclick="saveWorkspace()">save</a>#}
-{#            <a class="item" onclick="loadWorkspace()">load</a>#}
-{##}
-{#            <input type="submit" class="upload teal ui right floated button" value="upload">#}
-{#        </div>#}
+    {#        <div class="block_menu ui menu">#}
+    {##}
+    {#            <a class="item">#}
+    {#                <div class="ui title input"><input form="upload_form" name="title" type="text" placeholder="title"></div>#}
+    {#            </a>#}
+    {#            <a class="item" onclick="saveWorkspace()">save</a>#}
+    {#            <a class="item" onclick="loadWorkspace()">load</a>#}
+    {##}
+    {#            <input type="submit" class="upload teal ui right floated button" value="upload">#}
+    {#        </div>#}
 
     <div class="block_menu ui form">
         <div class="ui menu field">
@@ -28,6 +28,12 @@
             <form class="item" action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">
                 <input type="submit" class="upload teal ui right floated button" value="upload">
             </form>
+            <a class="item">
+                <div class="ui title input"><input form="upload_form" name="sub_title" type="text"
+                                                   placeholder="sub_title">
+                </div>
+            </a>
+
         </div>
     </div>
 
@@ -125,6 +131,7 @@
                     <block type="logic_boolean"></block>
                     <block type="logic_null"></block>
                     <block type="logic_ternary"></block>
+                    <block type="SW"></block>
                 </category>
 
                 <category name="연산" colour="260">
@@ -225,7 +232,7 @@
                         $('.ui.form')
                             .form({
                                 fields: {
-                                    password: {
+                                    title: {
                                         identifier: 'title',
                                         rules: [
                                             {
@@ -234,7 +241,20 @@
                                             },
                                             {
                                                 type: 'length[0]',
-                                                prompt: '타이틀은 3자 이상입니다'
+                                                prompt: '타이틀은 1자 이상입니다'
+                                            }
+                                        ]
+                                    },
+                                    sub_title: {
+                                        identifier: 'sub_title',
+                                        rules: [
+                                            {
+                                                type: 'empty',
+                                                prompt: '서브타이틀을 입력하세요'
+                                            },
+                                            {
+                                                type: 'length[0]',
+                                                prompt: '서브타이틀은 1자 이상입니다'
                                             }
                                         ]
                                     }
@@ -255,9 +275,9 @@
             <div class="script">
                 <textarea id="textarea" name="upload_app" form="upload_form"></textarea>
             </div>
-{#            <form action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">#}
-{#                <input type="submit" class="upload teal ui right floated button" value="upload">#}
-{#            </form>#}
+            {#            <form action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">#}
+            {#                <input type="submit" class="upload teal ui right floated button" value="upload">#}
+            {#            </form>#}
         </div>
 
 
