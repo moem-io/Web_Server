@@ -51,7 +51,8 @@
 
                 <category name="외부" colour="0">
                     <block type="weather"></block>
-                    <block type="sky"></block>
+                    <block type="SKY"></block>
+                    <block type="PTY"></block>
                     <block type="PM10"></block>
                     <block type="PM25"></block>
                     <block type="O3"></block>
@@ -286,7 +287,7 @@
             <div class="ex_info_section ui raised segment">
 
                 <h1>Info</h1>
-                <p>External Information</p>
+                <p>Realtime External Information</p>
                 <div class="ex_info">
                     {% for i in data.ex_info.weather %}
                         {% if i.category == 'T1H' %}
@@ -296,14 +297,14 @@
                             <span>기상청 습도 : {{ i.obsrValue }}%</span><br>
                         {% endif %}
                         {% if i.category == 'SKY' %}
-                            {% if i.obsrValue  == 0 %}
-                                <span>하늘 상태 : 0 (맑음)</span><br>
-                            {% elif i.obsrValue  == 1 %}
-                                <span>하늘 상태 : 1 (구름 조금)</span><br>
+                            {% if i.obsrValue  == 1 %}
+                                <span>하늘 상태 : 1 (맑음)</span><br>
                             {% elif i.obsrValue  == 2 %}
-                                <span>하늘 상태 : 2 (구름 많음)</span><br>
+                                <span>하늘 상태 : 2 (구름 조금)</span><br>
                             {% elif i.obsrValue  == 3 %}
-                                <span>하늘 상태 : 3 (흐림)</span><br>
+                                <span>하늘 상태 : 3 (구름 많음)</span><br>
+                            {% elif i.obsrValue  == 4 %}
+                                <span>하늘 상태 : 4 (흐림)</span><br>
                             {% endif %}
                         {% endif %}
                         {% if i.category == 'PTY' %}
@@ -318,11 +319,11 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-                    {% for i in data.ex_info.mise %}
-                        <span>미세먼지(10㎛) : {{ i.PM10 }}</span><br>
-                        <span>초미세먼지(2.5㎛) : {{ i.PM25 }}</span><br>
-                        <span>오존농도(ppm) : {{ i.O3 }}</span><br>
-                    {% endfor %}
+                    {#                    {% for i in data.ex_info.mise %}#}
+                    <span>미세먼지(10㎛) : {{ data.ex_info.mise.PM10 }}</span><br>
+                    <span>초미세먼지(2.5㎛) : {{ data.ex_info.mise.PM25 }}</span><br>
+                    <span>오존농도(ppm) : {{ data.ex_info.mise.O3 }}</span><br>
+                    {#                    {% endfor %}#}
 
                 </div>
             </div>

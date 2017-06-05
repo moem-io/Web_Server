@@ -174,7 +174,7 @@ def make():
     data['username'] = username
     data['ex_info'] = json.loads(res.text)
 
-    print(data)
+    # print(data)
     return render_template('block.html', data=data)
 
 
