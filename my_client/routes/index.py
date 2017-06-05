@@ -168,8 +168,13 @@ def make():
     else:
         session.pop('remote_oauth', None)
 
+    res = get(api_url + 'ex_info')
+
     data = {}
     data['username'] = username
+    data['ex_info'] = json.loads(res.text)
+
+    print(data)
     return render_template('block.html', data=data)
 
 

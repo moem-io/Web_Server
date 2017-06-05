@@ -51,7 +51,10 @@
 
                 <category name="외부" colour="0">
                     <block type="weather"></block>
-                    <block type="dust"></block>
+                    <block type="sky"></block>
+                    <block type="PM10"></block>
+                    <block type="PM25"></block>
+                    <block type="O3"></block>
                 </category>
 
                 <category name="센서" colour="30">
@@ -266,18 +269,63 @@
 
         </div>
 
+        <div class="two_section ui raised segment">
+            <div class="script_section ui raised segment">
 
-        <div class="script_section ui raised segment">
+                <h1>Script</h1>
+                <p>Change to Python</p>
 
-            <h1>Script</h1>
-            <p>Change to Python</p>
-
-            <div class="script">
-                <textarea id="textarea" name="upload_app" form="upload_form"></textarea>
+                <div class="script">
+                    <textarea id="textarea" name="upload_app" form="upload_form"></textarea>
+                </div>
+                {#            <form action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">#}
+                {#                <input type="submit" class="upload teal ui right floated button" value="upload">#}
+                {#            </form>#}
             </div>
-            {#            <form action="/upload" method="post" id="upload_form" onclick="saveWorkspace2()">#}
-            {#                <input type="submit" class="upload teal ui right floated button" value="upload">#}
-            {#            </form>#}
+
+            <div class="ex_info_section ui raised segment">
+
+                <h1>Info</h1>
+                <p>External Information</p>
+                <div class="ex_info">
+                    {% for i in data.ex_info.weather %}
+                        {% if i.category == 'T1H' %}
+                            <span>기상청 온도 : {{ i.obsrValue }}°C</span><br>
+                        {% endif %}
+                        {% if i.category == 'REH' %}
+                            <span>기상청 습도 : {{ i.obsrValue }}%</span><br>
+                        {% endif %}
+                        {% if i.category == 'SKY' %}
+                            {% if i.obsrValue  == 0 %}
+                                <span>하늘 상태 : 0 (맑음)</span><br>
+                            {% elif i.obsrValue  == 1 %}
+                                <span>하늘 상태 : 1 (구름 조금)</span><br>
+                            {% elif i.obsrValue  == 2 %}
+                                <span>하늘 상태 : 2 (구름 많음)</span><br>
+                            {% elif i.obsrValue  == 3 %}
+                                <span>하늘 상태 : 3 (흐림)</span><br>
+                            {% endif %}
+                        {% endif %}
+                        {% if i.category == 'PTY' %}
+                            {% if i.obsrValue  == 0 %}
+                                <span>강수 형태 : 0 (없음)</span><br>
+                            {% elif i.obsrValue  == 1 %}
+                                <span>강수 형태 : 1 (비)</span><br>
+                            {% elif i.obsrValue  == 2 %}
+                                <span>강수 형태 : 2 (비/눈)</span><br>
+                            {% elif i.obsrValue  == 3 %}
+                                <span>강수 형태 : 3 (눈)</span><br>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for i in data.ex_info.mise %}
+                        <span>미세먼지(10㎛) : {{ i.PM10 }}</span><br>
+                        <span>초미세먼지(2.5㎛) : {{ i.PM25 }}</span><br>
+                        <span>오존농도(ppm) : {{ i.O3 }}</span><br>
+                    {% endfor %}
+
+                </div>
+            </div>
         </div>
 
 
