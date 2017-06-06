@@ -30,7 +30,7 @@ var json = httpGet("https://moem.io/node/connect/info");
 // var json = httpGet("http://127.0.0.1:8000/node/connect/info");
 // console.log(typeof(json));
 var dataset = JSON.parse(json);
-// console.log(dataset);
+console.log(dataset);
 
 //Width and height
 // var w = '100vw';
