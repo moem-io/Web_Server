@@ -6,7 +6,7 @@ from my_client.app import app
 from my_client.routes.oauth import remote
 from my_client.forms.board import writingForm
 import paho.mqtt.client as mqtt
-
+import json
 import time
 
 base_url = app.config['BASE_URL']
@@ -104,3 +104,24 @@ def output(id):
     mqttc.loop(2)
 
     return redirect(request.referrer)
+
+
+@app.route('/node/connect/info')
+def node_connect_info():
+    res = get(api_url+'node/connect/info')
+    data = {}
+
+    node = json.loads(json.loads(res.text)['node'])
+    for i in node:
+        i.pop('id')
+
+    link = json.loads(json.loads(res.text)['link'])
+    for i in link:
+        i.pop('id')
+
+    data['links'] = link
+    data['nodes'] = node
+
+    print('data', data)
+    return jsonify(data)
+

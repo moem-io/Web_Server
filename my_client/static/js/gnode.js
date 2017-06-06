@@ -1,23 +1,36 @@
-var dataset = {
-    nodes: [
-        {name: "0_Hub", radius: "10", rgb: "#5f5f5f"},
-        {name: "1_Node1", radius: "6", rgb: "#DD855C"},
-        {name: "1_Node2", radius: "6", rgb: "#DD855C"},
-        {name: "2_Node3", radius: "6", rgb: "#2793E8"},
-        {name: "2_Node4", radius: "6", rgb: "#2793E8"},
-        {name: "3_Node5", radius: "6", rgb: "#559900"},
-        {name: "3_Node6", radius: "6", rgb: "#559900"}
-    ],
-    links: [
-        {source: 0, target: 1, length: 10},
-        {source: 0, target: 2, length: 10},
-        {source: 1, target: 3, length: 50},
-        {source: 2, target: 4, length: 50},
-        {source: 3, target: 5, length: 100},
-        {source: 4, target: 6, length: 100}
-    ]
-};
+// var dataset = {
+//     nodes: [
+//         {name: "0_Hub", radius: "10", rgb: "#5f5f5f"},
+//         {name: "1_Node1", radius: "6", rgb: "#DD855C"},
+//         {name: "1_Node2", radius: "6", rgb: "#DD855C"},
+//         {name: "2_Node3", radius: "6", rgb: "#2793E8"},
+//         {name: "2_Node4", radius: "6", rgb: "#2793E8"},
+//         {name: "3_Node5", radius: "6", rgb: "#559900"},
+//         {name: "3_Node6", radius: "6", rgb: "#559900"}
+//     ],
+//     links: [
+//         {source: 0, target: 1, length: 10},
+//         {source: 0, target: 2, length: 10},
+//         {source: 1, target: 3, length: 50},
+//         {source: 2, target: 4, length: 50},
+//         {source: 3, target: 5, length: 100},
+//         {source: 4, target: 6, length: 100}
+//     ]
+// };
+// console.log(dataset);
 
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+// httpGet("https://api.moem.io/node/connect/info");
+var json = httpGet("http://127.0.0.1:8000/node/connect/info");
+// console.log(typeof(json));
+var dataset = JSON.parse(json);
+// console.log(dataset);
 
 //Width and height
 // var w = '100vw';

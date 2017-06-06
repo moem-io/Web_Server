@@ -2,6 +2,73 @@
 {% block title %}Control{% endblock %}
 
 {% block content %}
+    <style>
+        /* Popup container - can be anything you want */
+        .popup {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* The actual popup */
+        .popup .popuptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -80px;
+        }
+
+        /* Popup arrow */
+        .popup .popuptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        /* Toggle this class - hide and show the popup */
+        .popup .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
     <div class="control_all_top_margin"></div>
 
 
@@ -16,7 +83,7 @@
                     <div class="header">APP</div>
                     <div class="ui teal right floated button">Add</div>
                     <div class="meta">블록비의 APP에서 센서 정보를 보거나 모터를 제어해 봅시다.</div>
-{#                    <div>김정혜 사랑해</div>#}
+                    {#                    <div>김정혜 사랑해</div>#}
                 </div>
             </div>
 
@@ -55,7 +122,11 @@
                                     </div>
                                 </div>
                                 <div class="two wide column">
-                                    <i class="right floated link options icon"></i>
+                                    <div class="popup" onclick="linkPopup()">
+                                        <i class="right floated link options icon">
+                                            <span class="popuptext" id="myPopup">hi!</span>
+                                        </i>
+                                    </div>
                                 </div>
                             </div>
 
@@ -82,10 +153,10 @@
                             <div class="header">
                                 <h3>서보 모터</h3>
                             </div>
-{#                            <div class="meta">#}
-{#                                <p>If Temp < 18°C</p>#}
-{#                                <p>Then motor turn</p>#}
-{#                            </div>#}
+                            {#                            <div class="meta">#}
+                            {#                                <p>If Temp < 18°C</p>#}
+                            {#                                <p>Then motor turn</p>#}
+                            {#                            </div>#}
                             <div class="ui teal inverted two item menu">
                                 <a class="{% if i.app_output_detail %}active{% endif %} item">ON</a>
                                 <a class="{% if not i.app_output_detail %}active{% endif %} item">OFF</a>
@@ -149,7 +220,11 @@
             <div class="node_title item">
                 <div class="node_title content">
                     <div class="header">NODE</div>
-                    <div class="ui teal right floated button">Refresh</div>
+                    <a href="/control/node">
+                        <div class="ui teal right floated button">
+                            Refresh
+                        </div>
+                    </a>
                     <div class="meta">IoT허브의 노드 연결 정보를 확인할 수 있습니다.</div>
                 </div>
             </div>
@@ -158,6 +233,8 @@
             <div class="ui raised segment">
                 <div class="node_info content">
                     <svg id="node"></svg>
+                    {#                    <svg id="demo"></svg>#}
+
                 </div>
             </div>
 
@@ -165,6 +242,12 @@
         </div>
     </div>
 
+    <script>
+        function linkPopup() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+    </script>
 
     {#    <svg id="node"></svg>#}
 

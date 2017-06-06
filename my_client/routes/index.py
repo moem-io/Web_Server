@@ -95,7 +95,7 @@ def control_app():
     mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
-    time.sleep(1)
+    time.sleep(0.3)
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
@@ -122,7 +122,7 @@ def control_log():
     username = None
     if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
-        print('username', username)
+        # print('username', username)
     else:
         session.pop('remote_oauth', None)
 
@@ -131,7 +131,28 @@ def control_log():
     data['control'] = True
     data['log'] = True
 
+    mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
+    mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
+    mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.loop(2)
+
+    time.sleep(0.3)
+
+    res = get(api_url + 'app_info')
+    data.update(json.loads(res.text))
+    # print('data', data['apps'])
+    for i in data['apps']:
+        # print('i', type(eval(json.dumps(i['app_input_detail']))))
+        # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
+        # print('i', type(i['app_input_detail']))
+        # print('i', i)
+        # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
+        i['app_input_detail'] = eval(i['app_input_detail'])
+
+    # print('data type', type(json.loads(res.text)))
+
     return render_template('control_all.html', data=data)
+
 
 @app.route('/control/node')
 def control_node():
@@ -142,7 +163,7 @@ def control_node():
     username = None
     if remote_me and remote_me.status == 200:
         username = remote_me.data.get('username')
-        print('username', username)
+        # print('username', username)
     else:
         session.pop('remote_oauth', None)
 
@@ -151,7 +172,28 @@ def control_node():
     data['control'] = True
     data['node'] = True
 
+    mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
+    mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
+    mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.loop(2)
+
+    time.sleep(0.3)
+
+    res = get(api_url + 'app_info')
+    data.update(json.loads(res.text))
+    # print('data', data['apps'])
+    for i in data['apps']:
+        # print('i', type(eval(json.dumps(i['app_input_detail']))))
+        # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
+        # print('i', type(i['app_input_detail']))
+        # print('i', i)
+        # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
+        i['app_input_detail'] = eval(i['app_input_detail'])
+
+    # print('data type', type(json.loads(res.text)))
+
     return render_template('control_all.html', data=data)
+
 
 
 #
