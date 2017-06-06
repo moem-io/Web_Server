@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
     <!--css reset-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"/>
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"/>#}
 
     <!--jquery-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/control_all.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/control_footer.css') }}"/>
 
-{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/control_app.css') }}"/>#}
+    {#    <link rel="stylesheet" href="{{ url_for('static', filename='css/control_app.css') }}"/>#}
     {#        <link rel="stylesheet" href="{{ url_for('static', filename='css/node.css') }}"/>#}
 
     <!--block-->
@@ -41,6 +41,22 @@
     <script src="../static/js/block/blocks_compressed.js"></script>
     <script src="../static/js/msg/js/ko.js"></script>
     <script src="../static/js/block/block_init.js"></script>
+
+    <!--color picker-->
+    {#    <link rel="stylesheet" href="css/asColorPicker.css">#}
+    {#    <script src="libs/jquery-asColorPicker.min.js"></script>#}
+
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/picker/main.css') }}"/>#}
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/picker/normalize.css') }}"/>#}
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/picker/prism.css') }}"/>#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/asColorPicker.css') }}"/>
+    <script src="../static/js/picker/jquery-asColor.js"></script>
+    <script src="../static/js/picker/jquery-asGradient.js"></script>
+{#    <script src="../static/js/picker/jquery.js"></script>#}
+{#    <script src="../static/js/picker/jquery.toc.js"></script>#}
+{#    <script src="../static/js/picker/prism.js"></script>#}
+    <script src="../static/dist/jquery-asColorPicker.js"></script>
+
 
 </head>
 {#<body onbeforeunload="closePage(event)">#}
@@ -75,7 +91,6 @@
 <script type="text/javascript" src="{{ url_for('static', filename='js/gnode.js') }}"></script>
 {#<script type="text/javascript" src="{{ url_for('static', filename='js/test_node.js') }}"></script>#}
 {#<script type="text/javascript" src="{{ url_for('static', filename='js/close.js') }}"></script>#}
-
 
 
 </body>

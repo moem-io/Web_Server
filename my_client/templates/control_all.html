@@ -151,7 +151,7 @@
                         <div class="actuator content">
 
                             <div class="header">
-                                <h3>서보 모터</h3>
+                                <h3>{{ i.app_output }}</h3>
                             </div>
                             {#                            <div class="meta">#}
                             {#                                <p>If Temp < 18°C</p>#}
@@ -236,11 +236,21 @@
                     {#                    <svg id="demo"></svg>#}
 
                 </div>
+
+
             </div>
 
 
         </div>
     </div>
+
+    <input type='text' class="example_default" value="#000"/>
+    <script>
+        $(document).ready(function () {
+            $(".example_default").asColorPicker();
+        });
+    </script>
+
 
     <script>
         function linkPopup() {
