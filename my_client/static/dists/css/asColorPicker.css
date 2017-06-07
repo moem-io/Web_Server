@@ -64,9 +64,14 @@
     height: 100%;
 }
 
-.asColorPicker-input, .asColorPicker-trigger {
+.asColorPicker-input {
     vertical-align: middle;
-    /*width:90px;*/
+    width:100px;
+}
+
+.asColorPicker-trigger {
+    vertical-align: middle;
+    width:20px;
 }
 
 .asColorPicker-clear {

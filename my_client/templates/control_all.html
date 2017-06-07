@@ -160,13 +160,15 @@
                             {% if i.app_output == 'LED' %}
 
                                 <form class="item" action="/led_out/{{ i.id }}" method="post" id="rgb">
-                                    <input form="rgb" name="rgb{{ i.id }}" type='text' class="example_default" value="#000"/>
+                                    <input form="rgb" name="rgb{{ i.id }}" type='text' class="example_default"
+                                           value="#000"/>
                                     <script>
                                         $(document).ready(function () {
                                             $(".example_default").asColorPicker();
                                         });
                                     </script>
-                                    <input type="submit" class="teal ui right floated tiny button" value="ON">
+                                    <input type="submit" class="teal ui right floated small active button" value="OFF">
+                                    <input type="submit" class="teal ui right floated small button" value="ON">
                                 </form>
                             {% else %}
                                 <div class="ui teal inverted two item menu">
