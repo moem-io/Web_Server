@@ -95,7 +95,7 @@ def control_app():
     mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
-    time.sleep(0.3)
+    time.sleep(1)
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
@@ -136,7 +136,7 @@ def control_log():
     mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
-    time.sleep(0.3)
+    time.sleep(1)
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
@@ -177,7 +177,7 @@ def control_node():
     mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
-    time.sleep(0.3)
+    time.sleep(1)
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
