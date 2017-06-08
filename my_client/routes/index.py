@@ -104,6 +104,9 @@ def control_app():
 
     n_s = json.loads(get(api_url+'n_s_info').text)['n_s']
     # log = json.loads(get(api_url+'log/info').text)['log']
+    get_info = get(api_url+'log/info').text
+    print('get_info', get_info)
+    print('api_url', api_url)
     log = json.loads(get(api_url+'log/info').text)
 
     # for i, ch in enumerate(data['apps']):
