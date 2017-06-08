@@ -158,23 +158,38 @@
                             {#                                <p>Then motor turn</p>#}
                             {#                            </div>#}
                             {% if i.app_output == 'LED' %}
-
                                 <form class="item" action="/led_out/{{ i.id }}" method="post" id="rgb">
-                                    <input form="rgb" name="rgb{{ i.id }}" type='text' class="example_default"
-                                           value="#000"/>
+                                    <input name="rgb" type='text' class="example_default"
+                                           value="#{{ i.app_output_detail }}"/>
                                     <script>
                                         $(document).ready(function () {
                                             $(".example_default").asColorPicker();
                                         });
                                     </script>
-                                    <input type="submit" class="teal ui right floated small active button" value="OFF">
-                                    <input type="submit" class="teal ui right floated small button" value="ON">
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail == '000000' %}active{% endif %} button"
+                                           value="OFF">
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail != '000000' %}active{% endif %} button"
+                                           value="ON">
                                 </form>
-                            {% else %}
+                            {% elif i.app_output == '서보' %}
                                 <div class="ui teal inverted two item menu">
-                                    <a class="{% if i.app_output_detail %}active{% endif %} item">ON</a>
-                                    <a class="{% if not i.app_output_detail %}active{% endif %} item">OFF</a>
+                                    <a class="{% if i.app_output_detail != '0' %}active{% endif %} item">ON</a>
+                                    <a class="{% if i.app_output_detail == '0' %}active{% endif %} item">OFF</a>
                                 </div>
+                            {% elif i.app_output == '서보 모터' %}
+                                <form class="item" action="/output/{{ i.id }}" method="post" id="input_data">
+                                    <span>angle : </span>
+                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
+                                    <input id="angle_servo" name="input_data" type='text' value="{{ i.app_output_detail }}"/>
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail == '0' %}active{% endif %} button"
+                                           value="OFF">
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail != '0' %}active{% endif %} button"
+                                           value="ON">
+                                </form>
                             {% endif %}
 
                         </div>

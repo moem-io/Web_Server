@@ -72,6 +72,10 @@
 
 }
 
+#angle_servo{
+    width:80px;
+}
+
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */

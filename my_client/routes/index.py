@@ -92,7 +92,7 @@ def control_app():
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     time.sleep(1)
@@ -133,7 +133,7 @@ def control_log():
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     time.sleep(1)
@@ -174,7 +174,7 @@ def control_node():
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("control/app/00001214", 'app_save')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     time.sleep(1)

@@ -94,13 +94,29 @@ def switch(id):
     return redirect(request.referrer)
 
 
-@app.route('/output/<int:id>')
+@app.route('/output/<int:id>', methods=['GET', 'POST'])
 def output(id):
     # res = get(api_url+'switch/'+str(id))
 
+    if request.form.get('sub') == 'OFF':
+        input_data = '0'
+    # elif request.form.get('sub') == 'ON':
+    #     rgb = 'ffffff'
+    else:
+        input_data = request.form.get('input_data')
+        # print('rgb', rgb)
+
+    queue = request.form.get('queue')
+    if queue == '서보 모터':
+        queue = 'motor_q'
+    elif queue == '리모컨':
+        queue = 'remote_q'
+    elif queue == '부저':
+        queue = 'buzzer'
+
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("app/output_toggle/00001214", id)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("app/output/00001214", str(id)+','+input_data+','+queue)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     return redirect(request.referrer)
@@ -127,12 +143,20 @@ def node_connect_info():
 
 @app.route('/led_out/<int:id>', methods=['GET', 'POST'])
 def led_out(id):
-    print('id', id)
-    rgb = request.form.get('rgb')
-    print('rgb', rgb)
+    # print('id', id)
+
+    if request.form.get('sub') == 'OFF':
+        rgb = '000000'
+    # elif request.form.get('sub') == 'ON':
+    #     rgb = 'ffffff'
+    else:
+        rgb = request.form.get('rgb')
+        # print('rgb', rgb)
+        rgb = rgb.split('#')[1]
+
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("control/led/00001214", str(id)+',')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("control/led/00001214", str(id)+','+rgb)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     return redirect(request.referrer)
