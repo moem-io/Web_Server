@@ -13,6 +13,7 @@ import time
 
 api_url = app.config['API_URL']
 
+
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -28,6 +29,7 @@ def login_required(f):
         return f(*args, **kwargs)
 
     return decorated_function
+
 
 @app.route('/')
 def index():
@@ -100,16 +102,25 @@ def control_app():
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
     # print('data', data['apps'])
-    for i in data['apps']:
-        # print('i', type(eval(json.dumps(i['app_input_detail']))))
-        # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
-        # print('i', type(i['app_input_detail']))
-        # print('i', i)
-        # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
-        i['app_input_detail'] = eval(i['app_input_detail'])
+
+    n_s = json.loads(get(api_url+'n_s_info').text)['n_s']
+    # for i, ch in enumerate(data['apps']):
+    #     # print('i', type(eval(json.dumps(i['app_input_detail']))))
+    #     # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
+    #     # print('i', type(i['app_input_detail']))
+    #     # print('i', i)
+    #     # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
+    #     ch['app_input_detail'] = eval(ch['app_input_detail'])
+    #     ch['set'] = n_s[i]
+
+    for i, ch in enumerate(data['apps']):
+        ch['app_input_detail'] = eval(ch['app_input_detail'])
+        for j, kh in enumerate(n_s):
+            if kh['app_id'] == ch['app_id']:
+                ch['set'] = kh
 
     # print('data type', type(json.loads(res.text)))
-
+    print('data apps', data['apps'])
     return render_template('control_all.html', data=data)
 
 
@@ -195,7 +206,6 @@ def control_node():
     return render_template('control_all.html', data=data)
 
 
-
 #
 @app.route('/make')
 def make():
@@ -263,10 +273,7 @@ def board():
     return render_template('board.html', form=form)
 
 
-
-
 def get_oauth_url():
-
     params = {
         'response_type': 'code',
         'client_id': app.config.get('CLIENT_ID'),

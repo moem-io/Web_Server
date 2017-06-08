@@ -76,6 +76,13 @@
     width:80px;
 }
 
+#set_all{
+    align-self: flex-end;
+}
+#in_n, #in_s, #out_n, #out_s{
+    width:20px;
+}
+
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */

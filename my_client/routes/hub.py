@@ -12,6 +12,7 @@ import time
 base_url = app.config['BASE_URL']
 api_url = app.config['API_URL']
 
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     # if 'remote_oauth' not in session:
@@ -30,9 +31,9 @@ def upload():
 
     res = None
     if 'remote_oauth' in session:
-        res = remote.post(base_url+'upload', data=payload)
+        res = remote.post(base_url + 'upload', data=payload)
     else:
-        res = post(api_url+'upload', data=payload)
+        res = post(api_url + 'upload', data=payload)
         # print('res', jsonify(res.text).get('username'))
 
     # return redirect(url_for('index'))
@@ -116,7 +117,29 @@ def output(id):
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("app/output/00001214", str(id)+','+input_data+','+queue)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("app/output/00001214",
+                  str(id) + ',' + input_data + ',' + queue)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.loop(2)
+
+    return redirect(request.referrer)
+
+
+@app.route('/setting/<int:id>', methods=['GET', 'POST'])
+def setting(id):
+    # res = get(api_url+'switch/'+str(id))
+    app_id = str(id)
+    in_n = request.form.get('input_data_n')
+    in_s = request.form.get('input_data_s')
+    out_n = request.form.get('output_data_n')
+    out_s = request.form.get('output_data_s')
+
+    payload = {'in_n': in_n, 'in_s': in_s, 'out_n': out_n, 'out_s': out_s}
+    res = post(api_url + 'app/setting/' + app_id, data=payload)
+
+    mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
+    mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
+    mqttc.publish("app/setting/00001214",
+                  app_id + ',' + in_n + ',' + in_s + ',' + out_n + ',' + out_s)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     return redirect(request.referrer)
@@ -124,7 +147,7 @@ def output(id):
 
 @app.route('/node/connect/info')
 def node_connect_info():
-    res = get(api_url+'node/connect/info')
+    res = get(api_url + 'node/connect/info')
     data = {}
 
     node = json.loads(json.loads(res.text)['node'])
@@ -141,6 +164,7 @@ def node_connect_info():
     print('data', data)
     return jsonify(data)
 
+
 @app.route('/led_out/<int:id>', methods=['GET', 'POST'])
 def led_out(id):
     # print('id', id)
@@ -156,7 +180,7 @@ def led_out(id):
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
-    mqttc.publish("control/led/00001214", str(id)+','+rgb)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
+    mqttc.publish("control/led/00001214", str(id) + ',' + rgb)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
     return redirect(request.referrer)
