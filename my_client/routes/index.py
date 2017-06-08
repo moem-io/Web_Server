@@ -97,13 +97,15 @@ def control_app():
     mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
-    time.sleep(1)
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
     # print('data', data['apps'])
 
     n_s = json.loads(get(api_url+'n_s_info').text)['n_s']
+    # log = json.loads(get(api_url+'log/info').text)['log']
+    log = json.loads(get(api_url+'log/info').text)
+
     # for i, ch in enumerate(data['apps']):
     #     # print('i', type(eval(json.dumps(i['app_input_detail']))))
     #     # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
@@ -119,8 +121,17 @@ def control_app():
             if kh['app_id'] == ch['app_id']:
                 ch['set'] = kh
 
+    data.update((log))
+
+    # for i, ch in enumerate(data['apps']):
+    #     for j, kh in enumerate(log):
+    #         if kh['app_id'] == ch['app_id']:
+    #             ch['set'] = kh
+
     # print('data type', type(json.loads(res.text)))
-    print('data apps', data['apps'])
+    # print('data apps', data['apps'])
+
+    time.sleep(1)
     return render_template('control_all.html', data=data)
 
 
