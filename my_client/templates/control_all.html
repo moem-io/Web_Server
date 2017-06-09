@@ -250,6 +250,9 @@
 
             <div class="item">
                 <div class="pc_log content">
+                    {% if data.log != 'null\n' %}
+                        <h1 align="center">{{ data.log }}</h1>
+                    {% endif %}
                     <h1 align="center">node[1]에서 온도 : 24°C, 습도 : 18% 감지 at 2017. 03. 25 (Sat) 05:37:41</h1>
                     <h1 align="center">node[1]에서 온도 : 24°C, 습도 : 18% 감지 at 2017. 03. 25 (Sat) 05:37:41</h1>
                     <h1 align="center">node[1]에서 온도 : 24°C, 습도 : 18% 감지 at 2017. 03. 25 (Sat) 05:37:41</h1>

@@ -26,8 +26,8 @@ function httpGet(theUrl)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-var json = httpGet("https://moem.io/node/connect/info");
-// var json = httpGet("http://127.0.0.1:8000/node/connect/info");
+// var json = httpGet("https://moem.io/node/connect/info");
+var json = httpGet("http://127.0.0.1:8000/node/connect/info");
 // console.log(typeof(json));
 var dataset = JSON.parse(json);
 console.log(dataset);

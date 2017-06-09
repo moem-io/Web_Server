@@ -118,8 +118,9 @@ def control_app():
         for j, kh in enumerate(n_s):
             if kh['app_id'] == ch['app_id']:
                 ch['set'] = kh
-
+    log = get(api_url+'log/info')
     # print('data type', type(json.loads(res.text)))
+    data['log'] = log.text
     print('data apps', data['apps'])
     return render_template('control_all.html', data=data)
 
