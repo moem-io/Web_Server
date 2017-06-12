@@ -10,6 +10,7 @@ from urllib.parse import urlparse, urlencode, parse_qs
 import json
 import paho.mqtt.client as mqtt
 import time
+from collections import OrderedDict
 
 api_url = app.config['API_URL']
 
@@ -119,9 +120,15 @@ def control_app():
             if kh['app_id'] == ch['app_id']:
                 ch['set'] = kh
     log = get(api_url+'log/info')
-    # print('data type', type(json.loads(res.text)))
-    data['log'] = log.text
-    print('data apps', data['apps'])
+    temp_log = json.loads(log.text)['log']
+    temp_log.reverse()
+    data['log'] = temp_log
+
+    #
+    # data['log'] = sorted(json.loads(log.text)['log'], reverse=True)
+    # desc_log = OrderedDict(sorted(temp_log.items(), key=lambda kv: kv[1]['created_date']))
+
+    # print('data apps', data['apps'])
     return render_template('control_all.html', data=data)
 
 
