@@ -72,17 +72,20 @@
 
 }
 
-#angle_servo{
-    width:80px;
-}
-
 #set_all{
     align-self: flex-end;
 }
 #in_n, #in_s, #out_n, #out_s{
-    width:20px;
+    width:3rem;
 }
 
+#setting_save{
+    margin-top: 0.3rem;
+}
+
+#out_input{
+    width:5rem;
+}
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */

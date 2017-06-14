@@ -2,78 +2,9 @@
 {% block title %}Control{% endblock %}
 
 {% block content %}
-    <style>
-        /* Popup container - can be anything you want */
-        .popup {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* The actual popup */
-        .popup .popuptext {
-            visibility: hidden;
-            width: 160px;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 8px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -80px;
-        }
-
-        /* Popup arrow */
-        .popup .popuptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-
-        /* Toggle this class - hide and show the popup */
-        .popup .show {
-            visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
-
-        /* Add animation (fade in the popup) */
-        @-webkit-keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-
     <div class="control_all_top_margin"></div>
 
-
     {# app #}
-
     <div class="control_all_app_section ui segment">
 
         <div class="app_section ui items">
@@ -116,45 +47,46 @@
                             </div>
                             <div>
                                 <form class="item" action="/setting/{{ i.app_id }}" method="post" id="n_s_set">
-                                    <div class="sub ui grid">
-                                        <div class="fourteen wide column">
-                                            <div class="meta">
-                                                {{ i.app_detail }}
+                                    <div class="sub">
+                                        <div class="ui accordion ">
+                                            <div class="title">
+                                                <div class="meta">{{ i.app_detail }}</div>
+                                                <i class="right floated link options icon"></i>
+                                            </div>
+                                            <div id="set_all" class="content">
+                                                <p>
+                                                    <div class="right floated item">
+                                                        <div class="ui right pointing label">input</div>
+                                                        <div class="ui mini teal labeled input">
+                                                            <div class="ui teal label">node</div>
+                                                            <input placeholder="node" id="in_n" name="input_data_n" maxlength='3' type='text' value="{% if i.set %}{{ i.set.in_node }}{% else %}0{% endif %}"/>
+                                                        </div>
+                                                        <div class="ui mini labeled input">
+                                                            <div class="ui teal label">sensor</div>
+                                                            <input placeholder="sensor" id="in_s" name="input_data_s" maxlength='3' type='text' value="{% if i.set %}{{ i.set.in_sensor }}{% else %}0{% endif %}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right floated item">
+                                                        <div class="ui right pointing label">output</div>
+                                                        <div class="ui mini teal labeled input">
+                                                            <div class="ui teal label">node</div>
+                                                            <input placeholder="node" id="out_n" name="output_data_n" maxlength='3' type='text' value="{% if i.set %}{{ i.set.out_node }}{% else %}0{% endif %}"/>
+                                                        </div>
+                                                        <div class="ui mini labeled input">
+                                                            <div class="ui teal label">sensor</div>
+                                                            <input placeholder="sensor" id="out_s" name="output_data_s" maxlength='3' type='text' value="{% if i.set %}{{ i.set.out_sensor }}{% else %}0{% endif %}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div id="setting_save" class="right floated item">
+                                                        <input name="sub" type="submit" class="teal ui mini button" value="SAVE">
+                                                    </div>
+                                                </p>
                                             </div>
                                         </div>
-                                        <div class="two wide column">
-                                            {#                                    <div class="popup" onclick="linkPopup()">#}
-                                            {#                                        <i class="right floated link options icon">#}
-                                            {#                                            <span class="popuptext" id="myPopup">hi!</span>#}
-                                            {#                                        </i>#}
-                                            {#                                    </div>#}
-                                            <input name="sub" type="submit"
-                                                   class="teal ui right floated mini button"
-                                                   value="SAVE">
-                                        </div>
-
 
                                     </div>
 
-                                    <div id="set_all" class="ui right aligned segment">
 
-
-                                        <span class="">inputs > </span>
-                                        <span>node:</span>
-                                        <input id="in_n" name="input_data_n" type='text'
-                                               value="{% if i.set %}{{ i.set.in_node }}{% else %}0{% endif %}"/>
-                                        <span>sensor:</span>
-                                        <input id="in_s" name="input_data_s" type='text'
-                                               value="{% if i.set %}{{ i.set.in_sensor }}{% else %}0{% endif %}"/>
-                                        <br>
-                                        <span class="">output > </span>
-                                        <span>node:</span>
-                                        <input id="out_n" name="output_data_n" type='text'
-                                               value="{% if i.set %}{{ i.set.out_node }}{% else %}0{% endif %}"/>
-                                        <span>sensor:</span>
-                                        <input id="out_s" name="output_data_s" type='text'
-                                               value="{% if i.set %}{{ i.set.out_sensor }}{% else %}0{% endif %}"/>
-                                    </div>
                                 </form>
 
                             </div>
@@ -191,13 +123,19 @@
                             {#                            </div>#}
                             {% if i.app_output == 'LED' %}
                                 <form class="item" action="/led_out/{{ i.app_id }}" method="post" id="rgb">
-                                    <input name="rgb" type='text' class="example_default"
+                                    <div class="ui right pointing mini label">
+                                        rgb
+                                    </div>
+                                    <div class="ui mini input">
+                                        <input id="out_input" name="rgb" type='text' class="example_default"
                                            value="#{{ i.app_output_detail }}"/>
-                                    <script>
-                                        $(document).ready(function () {
-                                            $(".example_default").asColorPicker();
-                                        });
-                                    </script>
+                                        <script>
+                                            $(document).ready(function () {
+                                                $(".example_default").asColorPicker();
+                                            });
+                                        </script>
+                                    </div>
+
                                     <input name="sub" type="submit"
                                            class="teal ui right floated small {% if i.app_output_detail == '000000' %}active{% endif %} button"
                                            value="OFF">
@@ -212,10 +150,14 @@
                                 </div>
                             {% elif i.app_output == '서보 모터' %}
                                 <form class="item" action="/output/{{ i.app_id }}" method="post" id="input_data">
-                                    <span>angle : </span>
-                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
-                                    <input id="angle_servo" name="input_data" type='text'
+                                    <div class="ui right pointing mini label">
+                                        servo
+                                    </div>
+                                    <div class="ui mini input">
+                                        <input id="out_input" name="input_data" type='text'
                                            value="{{ i.app_output_detail }}"/>
+                                    </div>
+                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
                                     <input name="sub" type="submit"
                                            class="teal ui right floated small {% if i.app_output_detail == '0' %}active{% endif %} button"
                                            value="OFF">
@@ -225,10 +167,14 @@
                                 </form>
                             {% elif i.app_output == '리모컨' %}
                                 <form class="item" action="/output/{{ i.app_id }}" method="post" id="input_data">
-                                    <span>작동 : </span>
-                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
-                                    <input id="angle_servo" name="input_data" type='text'
+                                    <div class="ui right pointing mini label">
+                                        remote
+                                    </div>
+                                    <div class="ui mini input">
+                                        <input id="out_input" name="input_data" type='text'
                                            value="{{ i.app_output_detail }}"/>
+                                    </div>
+                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
                                     <input name="sub" type="submit"
                                            class="teal ui right floated small {% if i.app_output_detail == 'off' %}active{% endif %} button"
                                            value="OFF">
@@ -238,10 +184,14 @@
                                 </form>
                             {% elif i.app_output == '부저' %}
                                 <form class="item" action="/output/{{ i.app_id }}" method="post" id="input_data">
-                                    <span>음 : </span>
-                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
-                                    <input id="angle_servo" name="input_data" type='text'
+                                    <div class="ui right pointing mini label">
+                                        buzzer
+                                    </div>
+                                    <div class="ui mini input">
+                                        <input id="out_input" name="input_data" type='text'
                                            value="{{ i.app_output_detail }}"/>
+                                    </div>
+                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
                                     <input name="sub" type="submit"
                                            class="teal ui right floated small {% if i.app_output_detail == 'stop' %}active{% endif %} button"
                                            value="OFF">
@@ -259,10 +209,8 @@
         </div>
 
     </div>
-    {#    {% endif %}#}
 
     {# log #}
-    {#    {% if data.log %}#}
     <div class="control_all_log_section ui segment">
         <div class="log_section ui items">
 
@@ -307,14 +255,10 @@
             </div>
         </div>
     </div>
-    {#    {% endif %}#}
 
     {# node #}
-    {#    {% if data.node %}#}
-
     <!--d3-->
     <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
     <div class="control_all_node_section ui segment">
         <div class="node_section ui items">
 
@@ -341,17 +285,24 @@
 
         </div>
     </div>
+    {#    <svg id="node"></svg>#}
+    {#    {% endif %}#}
+
 
     <script>
         function linkPopup() {
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
         }
+        $('.ui.accordion')
+            .accordion({
+                selector:{
+                    trigger: '.title .icon'
+                }
+                }
+            )
+        ;
     </script>
-
-    {#    <svg id="node"></svg>#}
-
-    {#    {% endif %}#}
 
 
     <div class="control_all_bottom_margin"></div>
