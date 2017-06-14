@@ -159,16 +159,18 @@ def control_log():
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
-    # print('data', data['apps'])
-    for i in data['apps']:
-        # print('i', type(eval(json.dumps(i['app_input_detail']))))
-        # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
-        # print('i', type(i['app_input_detail']))
-        # print('i', i)
-        # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
-        i['app_input_detail'] = eval(i['app_input_detail'])
 
-    # print('data type', type(json.loads(res.text)))
+    n_s = json.loads(get(api_url+'n_s_info').text)['n_s']
+    for i, ch in enumerate(data['apps']):
+        ch['app_input_detail'] = eval(ch['app_input_detail'])
+        for j, kh in enumerate(n_s):
+            if kh['app_id'] == ch['app_id']:
+                ch['set'] = kh
+
+    log = get(api_url+'log/info')
+    temp_log = json.loads(log.text)['log']
+    temp_log.reverse()
+    data['log'] = temp_log
 
     return render_template('control_all.html', data=data)
 
@@ -200,16 +202,18 @@ def control_node():
 
     res = get(api_url + 'app_info')
     data.update(json.loads(res.text))
-    # print('data', data['apps'])
-    for i in data['apps']:
-        # print('i', type(eval(json.dumps(i['app_input_detail']))))
-        # i['app_input_detail'] = json.loads(json.dumps(i['app_input_detail']))
-        # print('i', type(i['app_input_detail']))
-        # print('i', i)
-        # i['app_input_detail'] = json.loads(json.dumps(eval(i['app_input_detail'])))
-        i['app_input_detail'] = eval(i['app_input_detail'])
 
-    # print('data type', type(json.loads(res.text)))
+    n_s = json.loads(get(api_url+'n_s_info').text)['n_s']
+    for i, ch in enumerate(data['apps']):
+        ch['app_input_detail'] = eval(ch['app_input_detail'])
+        for j, kh in enumerate(n_s):
+            if kh['app_id'] == ch['app_id']:
+                ch['set'] = kh
+
+    log = get(api_url+'log/info')
+    temp_log = json.loads(log.text)['log']
+    temp_log.reverse()
+    data['log'] = temp_log
 
     return render_template('control_all.html', data=data)
 
