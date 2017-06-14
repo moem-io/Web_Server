@@ -99,21 +99,21 @@ def switch(id):
 def output(id):
     # res = get(api_url+'switch/'+str(id))
 
-    if request.form.get('sub') == 'OFF':
-        input_data = '0'
-    # elif request.form.get('sub') == 'ON':
-    #     rgb = 'ffffff'
-    else:
-        input_data = request.form.get('input_data')
-        # print('rgb', rgb)
+    input_data = request.form.get('input_data')
 
     queue = request.form.get('queue')
     if queue == '서보 모터':
         queue = 'motor_q'
+        if request.form.get('sub') == 'OFF':
+            input_data = '0'
     elif queue == '리모컨':
         queue = 'remote_q'
+        if request.form.get('sub') == 'OFF':
+            input_data = 'off'
     elif queue == '부저':
-        queue = 'buzzer'
+        queue = 'buzzer_q'
+        if request.form.get('sub') == 'OFF':
+            input_data = 'stop'
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결

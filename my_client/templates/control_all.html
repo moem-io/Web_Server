@@ -223,6 +223,32 @@
                                            class="teal ui right floated small {% if i.app_output_detail != '0' %}active{% endif %} button"
                                            value="ON">
                                 </form>
+                            {% elif i.app_output == '리모컨' %}
+                                <form class="item" action="/output/{{ i.app_id }}" method="post" id="input_data">
+                                    <span>작동 : </span>
+                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
+                                    <input id="angle_servo" name="input_data" type='text'
+                                           value="{{ i.app_output_detail }}"/>
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail == 'off' %}active{% endif %} button"
+                                           value="OFF">
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail != 'off' %}active{% endif %} button"
+                                           value="ON">
+                                </form>
+                            {% elif i.app_output == '부저' %}
+                                <form class="item" action="/output/{{ i.app_id }}" method="post" id="input_data">
+                                    <span>음 : </span>
+                                    <input type="hidden" name="queue" value="{{ i.app_output }}">
+                                    <input id="angle_servo" name="input_data" type='text'
+                                           value="{{ i.app_output_detail }}"/>
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail == 'stop' %}active{% endif %} button"
+                                           value="OFF">
+                                    <input name="sub" type="submit"
+                                           class="teal ui right floated small {% if i.app_output_detail != 'stop' %}active{% endif %} button"
+                                           value="ON">
+                                </form>
                             {% endif %}
 
                         </div>

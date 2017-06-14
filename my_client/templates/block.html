@@ -60,22 +60,28 @@
                 </category>
 
                 <category name="센서" colour="30">
-{#                    <block type="soil_humi_sensor"></block>#}
+                    {#                    <block type="soil_humi_sensor"></block>#}
                     <block type="illumination_sensor"></block>
                     <block type="temp_humi_sensor"></block>
                     <block type="human_sensor"></block>
-{#                    <block type="distance_sensor"></block>#}
-{#                    <block type="knock_sensor"></block>#}
-{#                    <block type="btn_sensor"></block>#}
+                    {#                    <block type="distance_sensor"></block>#}
+                    {#                    <block type="knock_sensor"></block>#}
+                    {#                    <block type="btn_sensor"></block>#}
                     <block type="clap_sensor"></block>
                     <block type="btn_cnt_sensor"></block>
                     <block type="pressure_sensor"></block>
                 </category>
 
                 <category name="동작" colour="60">
-{#                    <block type="motor"></block>#}
+                    {#                    <block type="motor"></block>#}
                     <block type="remote"></block>
-                    <block type="led"></block>
+                    <block type="led">
+                        <value name="TIMES">
+                            <shadow type="math_number">
+                                <field name="NUM">101010</field>
+                            </shadow>
+                        </value>
+                    </block>
                     <block type="buzzer"></block>
                 </category>
 
