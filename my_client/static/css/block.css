@@ -54,6 +54,12 @@
     background: #eee;
 }
 
+.ui.dropdown .help.menu {
+    left: auto !important;
+    right: 0px !important;
+    z-index: 999;
+}
+
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */

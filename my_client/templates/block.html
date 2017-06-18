@@ -297,9 +297,31 @@
             </div>
 
             <div class="ex_info_section ui raised segment">
-
-                <h1>Info</h1>
+                <div class="ui grid">
+                    <div class="thirteen wide column">
+                        <h1>Info</h1>
+                    </div>
+                    <div class="three wide column">
+                        <div class="ui dropdown">
+                            <div class="help item">
+                                <i class="help large icon"></i>
+                            </div>
+                            <div class="help menu">
+{#                                <h5>*참고*</h5>#}
+{#                                <div class="divider"></div>#}
+                                <div class="item"><span>강수 형태 > 0:없음 1:비 2:비/눈 3:눈</span></div>
+                                <div class="item"><span>하늘 상태 > 1:맑음 2:구름조금 3:구름많음 4:흐림</span></div>
+                                <div class="item"><span>미세 먼지 > 0~30:좋음 31~80:보통 81~150:나쁨 151~:매우나쁨</span></div>
+                                <div class="item"><span>초미세 먼지 > 0~15:좋음 16~50:보통 51~100:나쁨 101~:매우나쁨</span></div>
+                                <div class="item"><span>미세 먼지(WHO 기준) > 0~30:좋음 31~50:보통 51~100:나쁨 101~:매우나쁨</span></div>
+                                <div class="item"><span>초미세 먼지(WHO 기준) > 0~15:좋음 16~25:보통 26~50:나쁨 51~:매우나쁨</span></div>
+                                <div class="item"><span>오존 농도 > 0~0.12:보통 0.12~0.3:주의보 0.3~0.5:중대경보</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {#                <p>Realtime External Information</p>#}
+
                 <p>현재 시간 외부 정보입니다.</p>
 
                 <div class="ex_info">
@@ -338,6 +360,7 @@
                     <span>초미세먼지(2.5㎛) : {{ data.ex_info.mise.PM25 }}</span><br>
                     <span>오존농도(ppm) : {{ data.ex_info.mise.O3 }}</span><br>
                     {#                    {% endfor %}#}
+
                 </div>
             </div>
         </div>
