@@ -18,19 +18,21 @@
 //     ]
 // };
 // console.log(dataset);
+// var api = "https://moem.io/node/connect/info";
+var api = "http://127.0.0.1:8000/";
 
-function httpGet(theUrl)
-{
+function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+    xmlHttp.send(null);
     return xmlHttp.responseText;
 }
-var json = httpGet("https://moem.io/node/connect/info");
-// var json = httpGet("http://127.0.0.1:8000/node/connect/info");
+
+var json = httpGet(api+'node/connect/info');
+
 // console.log(typeof(json));
 var dataset = JSON.parse(json);
-console.log(dataset);
+// console.log(dataset);
 
 //Width and height
 // var w = '100vw';
@@ -39,7 +41,6 @@ var w = 300;
 var h = 500;
 
 var colors = d3.scale.category10();
-
 
 
 //Initial default force
@@ -110,4 +111,19 @@ force.on("tick", function () {
     gnodes.attr("transform", function (d) {
         return "translate(" + d.x + "," + d.y + ")";
     });
+});
+
+$('.gnode').on('click', function () {
+
+    rgb = null;
+    console.log((this.textContent));
+    for (var i = 0; i < dataset.nodes.length; i++) {
+        var item = dataset.nodes[i];
+        if (item.name == this.textContent) {
+            console.log(item.rgb);
+            rgb = item.rgb;
+        }
+    }
+    // var json = httpGet("http://127.0.0.1:8000/node/click/"+this.textContent.split('_')[0]);
+    $.get(api+'node/click', { node_id:this.textContent.split('_')[0], rgb:rgb });
 });

@@ -53,19 +53,19 @@ $(document).ready(function () {
         }
     });
 
-    var xmlText = localStorage.getItem("blockly.xml");
-    if (xmlText) {
-        Blockly.mainWorkspace.clear();
-        xmlDom = Blockly.Xml.textToDom(xmlText);
-        Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
-    }
-
-    window.onunload = function () {
-        if (event.clientX < 0 && event.clientY < 0) {
-            alert("브라우저를 종료하였습니다.");
-        }
-
-    };
+    // var xmlText = localStorage.getItem("blockly.xml");
+    // if (xmlText) {
+    //     Blockly.mainWorkspace.clear();
+    //     xmlDom = Blockly.Xml.textToDom(xmlText);
+    //     Blockly.Xml.domToWorkspace(Blockly.mainWorkspace, xmlDom);
+    // }
+    //
+    // window.onunload = function () {
+    //     if (event.clientX < 0 && event.clientY < 0) {
+    //         alert("브라우저를 종료하였습니다.");
+    //     }
+    //
+    // };
 
 
 

@@ -164,6 +164,25 @@ def node_connect_info():
     print('data', data)
     return jsonify(data)
 
+# @app.route('/node/click/<string:node_id>/<string:rgb>')
+# def node_click(node_id, rgb):
+#     print(node_id, rgb)
+#     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
+#     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
+#     mqttc.publish("node/click/00001214", node_id + ','+rgb)
+#     mqttc.loop(2)
+#     return 'suc'
+
+@app.route('/node/click')
+def node_click():
+    node_id = request.args.get('node_id')
+    rgb = request.args.get('rgb').split('#')[1]
+    print(node_id, rgb)
+    mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
+    mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
+    mqttc.publish("node/click/00001214", node_id + ','+rgb)
+    mqttc.loop(2)
+    return 'suc'
 
 @app.route('/led_out/<int:id>', methods=['GET', 'POST'])
 def led_out(id):
