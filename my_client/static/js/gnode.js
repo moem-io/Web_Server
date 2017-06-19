@@ -141,7 +141,8 @@ function callMethod() {
 
             dataset = {links: data.links, nodes: data.nodes};
 
-            if (diff) {
+            // if (diff) {
+            if (true) {
 
                 $('svg#node').html("");
 
