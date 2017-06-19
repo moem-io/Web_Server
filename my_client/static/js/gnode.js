@@ -119,9 +119,9 @@ var startRender = function () {
 
 startRender();
 
-setInterval("callMethod()", 10000);
-function callMethod() {
-
+setInterval("callMethod()", 1000000);
+function callMethod(differ) {
+    // console.log('differ', differ);
     $.ajax({
         url: api + 'node/connect/info',
         type: 'get',
@@ -129,6 +129,8 @@ function callMethod() {
         dataType: 'json',
         success: function (data) {
             var diff = false;
+            if(differ == 'true')
+                diff = true;
             // console.log('data', data);
             // console.log('dataset', dataset);
 
@@ -141,8 +143,8 @@ function callMethod() {
 
             dataset = {links: data.links, nodes: data.nodes};
 
-            // if (diff) {
-            if (true) {
+            if (diff) {
+            // if (true) {
 
                 $('svg#node').html("");
 

@@ -161,7 +161,7 @@ def node_connect_info():
     data['links'] = link
     data['nodes'] = node
 
-    print('data', data)
+    # print('data', data)
     return jsonify(data)
 
 # @app.route('/node/click/<string:node_id>/<string:rgb>')
