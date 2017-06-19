@@ -12,7 +12,7 @@
             <div class="app_title item">
                 <div class="app_title content">
                     <div class="header">APP</div>
-                    <div class="ui teal right floated button">Add</div>
+                    <div class="ui orange right floated button">Add</div>
                     <div class="meta">블록비의 APP에서 센서 정보를 보거나 모터를 제어해 봅시다.</div>
                     {#                    <div>김정혜 사랑해</div>#}
                 </div>
@@ -31,7 +31,7 @@
                                 </div>
                                 <div class="four wide column">
                                     <a href="/switch/{{ i.app_id }}">
-                                        <div class="right floated {% if i.app_switch %}teal{% else %}orange{% endif %} tiny ui animated fade button">
+                                        <div class="right floated {% if i.app_switch %}orange{% else %}yellow{% endif %} tiny ui animated fade button">
                                             {% if i.app_switch %}
                                                 <div class="visible content">ON</div>
                                                 <div class="hidden content">OFF</div>
@@ -65,28 +65,28 @@
                                                 <p>
                                                     <div class="right floated item">
                                                         <div class="ui right pointing label">in</div>
-                                                        <div class="ui mini teal labeled input">
-                                                            <div class="ui teal label">node</div>
+                                                        <div class="ui mini orange labeled input">
+                                                            <div class="ui orange label">node</div>
                                                             <input placeholder="node" id="in_n" name="input_data_n" maxlength='3' type='text' value="{% if i.set %}{{ i.set.in_node }}{% else %}0{% endif %}"/>
                                                         </div>
                                                         <div class="ui mini labeled input">
-                                                            <div class="ui teal label">sensor</div>
+                                                            <div class="ui orange label">sensor</div>
                                                             <input placeholder="sensor" id="in_s" name="input_data_s" maxlength='3' type='text' value="{% if i.set %}{{ i.set.in_sensor }}{% else %}0{% endif %}"/>
                                                         </div>
                                                     </div>
                                                     <div class="right floated item">
                                                         <div class="ui right pointing label">out</div>
-                                                        <div class="ui mini teal labeled input">
-                                                            <div class="ui teal label">node</div>
+                                                        <div class="ui mini orange labeled input">
+                                                            <div class="ui orange label">node</div>
                                                             <input placeholder="node" id="out_n" name="output_data_n" maxlength='3' type='text' value="{% if i.set %}{{ i.set.out_node }}{% else %}0{% endif %}"/>
                                                         </div>
                                                         <div class="ui mini labeled input">
-                                                            <div class="ui teal label">sensor</div>
+                                                            <div class="ui orange label">sensor</div>
                                                             <input placeholder="sensor" id="out_s" name="output_data_s" maxlength='3' type='text' value="{% if i.set %}{{ i.set.out_sensor }}{% else %}0{% endif %}"/>
                                                         </div>
                                                     </div>
                                                     <div id="setting_save" class="right floated item">
-                                                        <input name="sub" type="submit" class="teal ui mini button" value="SETTING SAVE">
+                                                        <input name="sub" type="submit" class="orange ui mini button" value="SETTING SAVE">
                                                     </div>
                                                     <div id="{{ i.app_id }}" class="remove right floated item">
 {#                                                        <input name="sub" type="submit" class="red ui mini button" value="APP DELETE">#}
@@ -170,14 +170,14 @@
                                     </div>
 
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail == '000000' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail == '000000' %}active{% endif %} button"
                                            value="OFF">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail != '000000' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail != '000000' %}active{% endif %} button"
                                            value="ON">
                                 </form>
                             {% elif i.app_output == '서보' %}
-                                <div class="ui teal inverted two item menu">
+                                <div class="ui orange inverted two item menu">
                                     <a class="{% if i.app_output_detail != '0' %}active{% endif %} item">ON</a>
                                     <a class="{% if i.app_output_detail == '0' %}active{% endif %} item">OFF</a>
                                 </div>
@@ -192,10 +192,10 @@
                                     </div>
                                     <input type="hidden" name="queue" value="{{ i.app_output }}">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail == '0' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail == '0' %}active{% endif %} button"
                                            value="OFF">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail != '0' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail != '0' %}active{% endif %} button"
                                            value="ON">
                                 </form>
                             {% elif i.app_output == '리모컨' %}
@@ -209,10 +209,10 @@
                                     </div>
                                     <input type="hidden" name="queue" value="{{ i.app_output }}">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail == 'off' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail == 'off' %}active{% endif %} button"
                                            value="OFF">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail != 'off' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail != 'off' %}active{% endif %} button"
                                            value="ON">
                                 </form>
                             {% elif i.app_output == '부저' %}
@@ -226,10 +226,10 @@
                                     </div>
                                     <input type="hidden" name="queue" value="{{ i.app_output }}">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail == 'stop' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail == 'stop' %}active{% endif %} button"
                                            value="OFF">
                                     <input name="sub" type="submit"
-                                           class="teal ui right floated small {% if i.app_output_detail != 'stop' %}active{% endif %} button"
+                                           class="orange ui right floated small {% if i.app_output_detail != 'stop' %}active{% endif %} button"
                                            value="ON">
                                 </form>
                             {% endif %}
@@ -250,8 +250,8 @@
             <div class="log_title item">
                 <div class="log_title content">
                     <div class="header">LOG</div>
-                    <a href="/control/log"><div class="ui teal right floated button">Refresh</div></a>
-{#                        <div class="ui teal right floated button" onclick="callMethod()">Refresh</div>#}
+                    <a href="/control/log"><div class="ui orange right floated button">Refresh</div></a>
+{#                        <div class="ui orange right floated button" onclick="callMethod()">Refresh</div>#}
                     <div class="meta">APP에서 측정한 센서 기록이나 제어 기록을 확인합니다.</div>
                 </div>
             </div>
@@ -299,8 +299,7 @@
             <div class="node_title item">
                 <div class="node_title content">
                     <div class="header">NODE</div>
-{#                    <a href="/control/node"><div class="ui teal right floated button">Refresh</div></a>#}
-                        <div class="ui teal right floated button" onclick="callMethod('true')">Refresh</div>
+                    <a href="/control/node"><div class="ui orange right floated button">Refresh</div></a>
                     <div class="meta">IoT허브의 노드 연결 정보를 확인할 수 있습니다.</div>
                 </div>
             </div>
