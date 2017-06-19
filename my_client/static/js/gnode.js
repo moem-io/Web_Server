@@ -119,7 +119,7 @@ var startRender = function () {
 
 startRender();
 
-setInterval("callMethod()", 1000000);
+setInterval("callMethod()", 1000);
 function callMethod(differ) {
     // console.log('differ', differ);
     $.ajax({
