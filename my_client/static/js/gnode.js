@@ -18,7 +18,7 @@
 //     ]
 // };
 // console.log(dataset);
-var api = "https://moem.io/node/connect/info";
+var api = "https://moem.io/";
 // var api = "http://127.0.0.1:8000/";
 
 function httpGet(theUrl) {
