@@ -1,3 +1,19 @@
-.share_section{
-    margin-top:50px;
+.share_top_margin {
+    margin-top: 35px;
+}
+
+section.share_section {
+
+}
+
+section .ui.vertical.segment {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: auto !important;
+    max-width:1200px;
+}
+
+section .ui.segment .main_img {
+    width: 100%;
+    /*border: 1px solid #000;*/
 }

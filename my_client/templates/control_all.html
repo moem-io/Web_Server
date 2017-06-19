@@ -251,6 +251,7 @@
                 <div class="log_title content">
                     <div class="header">LOG</div>
                     <a href="/control/log"><div class="ui teal right floated button">Refresh</div></a>
+{#                        <div class="ui teal right floated button" onclick="callMethod()">Refresh</div>#}
                     <div class="meta">APP에서 측정한 센서 기록이나 제어 기록을 확인합니다.</div>
                 </div>
             </div>
@@ -298,11 +299,8 @@
             <div class="node_title item">
                 <div class="node_title content">
                     <div class="header">NODE</div>
-                    <a href="/control/node">
-                        <div class="ui teal right floated button">
-                            Refresh
-                        </div>
-                    </a>
+{#                    <a href="/control/node"><div class="ui teal right floated button">Refresh</div></a>#}
+                        <div class="ui teal right floated button" onclick="callMethod()">Refresh</div>
                     <div class="meta">IoT허브의 노드 연결 정보를 확인할 수 있습니다.</div>
                 </div>
             </div>
