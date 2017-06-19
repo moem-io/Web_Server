@@ -207,6 +207,7 @@ def led_out(id):
 @app.route('/app/delete/', methods=['GET', 'POST'])
 def app_delete():
     app_id = request.args.get('app_id')
+    res = get(api_url + 'app/setting/delete/' + app_id)
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
     mqttc.connect("13.124.19.161", 1883)  # MQTT 서버에 연결
