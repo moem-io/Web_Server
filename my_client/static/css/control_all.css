@@ -48,7 +48,8 @@
 .control_all_log_section.ui.segment .log_section.ui.items .mobile_log {
     display: block;
 }
-.control_all_log_section.ui.segment .log_section.ui.items .mobile_log.content.ui.segment .meta{
+
+.control_all_log_section.ui.segment .log_section.ui.items .mobile_log.content.ui.segment .meta {
     margin-bottom: 30px !important;
 }
 
@@ -63,29 +64,39 @@
     height: 500px;
 }
 
-#rgb.item{
+#rgb.item {
     /*display: flex;*/
     /*flex-flow: row nowrap;*/
 }
 
-#rgb.item .asColorPicker-wrap{
+#rgb.item .asColorPicker-wrap {
 
 }
 
-#set_all{
+#set_all {
     align-self: flex-end;
 }
-#in_n, #in_s, #out_n, #out_s{
-    width:3rem;
+
+#in_n, #in_s, #out_n, #out_s {
+    width: 3rem;
 }
 
-#setting_save{
+#setting_save {
     margin-top: 0.3rem;
 }
 
-#out_input{
-    width:5rem;
+.remove.right.floated.item{
+    margin-top: 0.3rem;
 }
+
+#out_input {
+    width: 5rem;
+}
+
+/*.ui.accordion .title .remove.icon {*/
+    /*visibility: hidden;*/
+/*}*/
+
 /*----------------------- 태블릿용 CSS ----------------------*/
 @media all and (min-width: 768px) {
     /* 기본 CSS */
@@ -150,7 +161,8 @@
     .control_all_log_section.ui.segment .log_section.ui.items .pc_log {
         display: block;
     }
-    .control_all_log_section.ui.segment .log_section.ui.items .pc_log h1{
+
+    .control_all_log_section.ui.segment .log_section.ui.items .pc_log h1 {
     }
 
     /*node*/

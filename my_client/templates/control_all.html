@@ -51,7 +51,15 @@
                                         <div class="ui accordion ">
                                             <div class="title">
                                                 <div class="meta">{{ i.app_detail }}</div>
-                                                <i class="right floated link options icon"></i>
+                                                <i id="{{ i.app_id }}" class="right floated link options icon"></i>
+{#                                                <div  class="right floated ui basic modal">#}
+{#                                                    <i id="{{ i.app_id }}" class=" remove icon"></i>#}
+{#                                                    <div class="menu">#}
+{#                                                        <div id="setting_delete_app" class="right floated item">#}
+{#                                                            <input name="sub" type="submit" class="red ui mini button" value="APP DELETE">#}
+{#                                                        </div>#}
+{#                                                    </div>#}
+{#                                                </div>#}
                                             </div>
                                             <div id="set_all" class="content">
                                                 <p>
@@ -78,7 +86,11 @@
                                                         </div>
                                                     </div>
                                                     <div id="setting_save" class="right floated item">
-                                                        <input name="sub" type="submit" class="teal ui mini button" value="SAVE">
+                                                        <input name="sub" type="submit" class="teal ui mini button" value="SETTING SAVE">
+                                                    </div>
+                                                    <div id="{{ i.app_id }}" class="remove right floated item">
+{#                                                        <input name="sub" type="submit" class="red ui mini button" value="APP DELETE">#}
+                                                        <div class="red ui mini button">APP DELETE</div>
                                                     </div>
                                                 </p>
                                             </div>
@@ -87,6 +99,27 @@
                                     </div>
 
 
+                                </form>
+                                <form class="item" action="/app/delete" name="app_delete_form" id="app_delete_form">
+                                    <div id="{{ i.app_id }}" class="ui basic modal">
+                                        <div class="ui icon header">
+                                            <i class="archive icon" ></i>
+                                            정말 앱을 삭제하시겠습니까?
+                                        </div>
+                                          <div class="right floated content" style="text-align: center">
+                                            한번 삭제한 앱은 다시 복구할 수 없습니다.
+                                          </div>
+                                          <div class="actions" style="text-align: center">
+                                            <div class="ui red basic cancel inverted button">
+                                              <i class="remove icon"></i>
+                                              No
+                                            </div>
+                                            <div class="ui green ok inverted button">
+                                              <i class="checkmark icon"></i>
+                                              Yes
+                                            </div>
+                                          </div>
+                                    </div>
                                 </form>
 
                             </div>
@@ -297,11 +330,51 @@
         $('.ui.accordion')
             .accordion({
                 selector:{
-                    trigger: '.title .icon'
+                    trigger: '.title .link.options.icon'
                 }
                 }
             )
         ;
+{#        $('.title .link.options.icon').click(function () {#}
+{#            var app_id = $(this).attr('id');#}
+{#            console.log($(this).attr('id'));#}
+{#            var visi = $('.ui.accordion .title .remove.icon').filter('#'+app_id).css("visibility");#}
+{#            console.log(visi);#}
+{#            if(visi == 'hidden')#}
+{#                $('.ui.accordion .title .remove.icon').filter('#'+app_id).css('visibility','visible');#}
+{#            else if(visi == 'visible')#}
+{#                $('.ui.accordion .title .remove.icon').filter('#'+app_id).css('visibility','hidden');#}
+{#        });#}
+
+{#        $('.remove.icon').click(function () {#}
+{#            var app_id = $(this).attr('id');#}
+{#            $('.ui.basic.modal').filter('#'+app_id).modal('show');#}
+{#        });#}
+        $('.remove.right.floated.item').click(function () {
+           var app_id = $(this).attr('id');
+{#           console.log(app_id);#}
+            $('.ui.basic.modal').filter('#'+app_id).modal('show');
+        });
+
+        $('.ui.basic.modal').modal({
+            onDeny:function () {
+{#                window.alert('no');#}
+
+            },
+            onApprove:function () {
+{#                window.alert('yes');#}
+                var app_id = $(this).attr('id');
+{#                console.log(app_id);#}
+                var hidden = document.createElement('input');
+                hidden.type = "hidden";
+                hidden.name = "app_id";
+                hidden.value = app_id;
+                var my_form = document.getElementById('app_delete_form');
+                my_form.appendChild(hidden);
+                my_form.submit();
+            }
+        });
+
     </script>
 
 
