@@ -13,7 +13,7 @@ import time
 from collections import OrderedDict
 
 api_url = app.config['API_URL']
-
+ip_url = "13.124.186.174"
 
 def login_required(f):
     @wraps(f)
@@ -94,7 +94,7 @@ def control_app():
     data['app'] = True
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
@@ -151,7 +151,7 @@ def control_log():
     data['log'] = True
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
@@ -194,7 +194,7 @@ def control_node():
     data['node'] = True
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("control/app/00001214", 'get_app_status')  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 

@@ -11,7 +11,7 @@ import time
 
 base_url = app.config['BASE_URL']
 api_url = app.config['API_URL']
-
+ip_url = "13.124.186.174"
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -179,7 +179,7 @@ def node_click():
     rgb = request.args.get('rgb').split('#')[1]
     print(node_id, rgb)
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("node/click/00001214", node_id + ','+rgb)
     mqttc.loop(2)
     return 'suc'
@@ -198,7 +198,7 @@ def led_out(id):
         rgb = rgb.split('#')[1]
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("control/led/00001214", str(id) + ',' + rgb)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
@@ -210,7 +210,7 @@ def app_delete():
     res = get(api_url + 'app/setting/delete/' + app_id)
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("app/delete/00001214", app_id)
     mqttc.loop(2)
 
