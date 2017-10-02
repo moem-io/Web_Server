@@ -88,7 +88,7 @@ def switch(id):
     # res = get(api_url+'switch/'+str(id))
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("app/switch_toggle/00001214", id)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
 
@@ -116,7 +116,7 @@ def output(id):
             input_data = 'stop'
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("app/output/00001214",
                   str(id) + ',' + input_data + ',' + queue)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
@@ -137,7 +137,7 @@ def setting(id):
     res = post(api_url + 'app/setting/' + app_id, data=payload)
 
     mqttc = mqtt.Client("python_pub")  # MQTT Client 오브젝트 생성
-    mqttc.connect(api_url, 1883)  # MQTT 서버에 연결
+    mqttc.connect(ip_url, 1883)  # MQTT 서버에 연결
     mqttc.publish("app/setting/00001214",
                   app_id + ',' + in_n + ',' + in_s + ',' + out_n + ',' + out_s)  # 'hello/world' 토픽에 "Hello World!"라는 메시지 발행
     mqttc.loop(2)
