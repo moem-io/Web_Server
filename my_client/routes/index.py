@@ -13,7 +13,7 @@ import time
 from collections import OrderedDict
 
 api_url = app.config['API_URL']
-ip_url = "13.124.186.174"
+ip_url = "13.125.243.69"
 
 def login_required(f):
     @wraps(f)

@@ -11,7 +11,7 @@ import time
 
 base_url = app.config['BASE_URL']
 api_url = app.config['API_URL']
-ip_url = "13.124.186.174"
+ip_url = "13.125.243.69"
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
